@@ -5,7 +5,7 @@
 		<name>Emissions</name>
 		<uuid>961b79de-8a2f-4046-9ed5-5d5ae337e22f</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.3.1" isee:build_number="3962" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
