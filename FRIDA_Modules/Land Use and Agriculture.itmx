@@ -5,7 +5,7 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>24507c1d-eba6-42ec-b776-2d6d9bde215e</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella_Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -231,18 +231,6 @@
 			<eqn>1</eqn>
 			<alias>dmnl</alias>
 			<alias>unitless</alias>
-		</unit>
-		<unit name="G">
-			<eqn>Giga</eqn>
-		</unit>
-		<unit name="GtCO2">
-			<eqn>Giga*tCO2</eqn>
-		</unit>
-		<unit name="GtCH4">
-			<eqn>Giga*tCH4</eqn>
-		</unit>
-		<unit name="GtN2O">
-			<eqn>Giga*tN2O</eqn>
 		</unit>
 	</model_units>
 	<model name="Land_Use_and_Agriculture">
@@ -1018,7 +1006,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect to="Forest.young_forest_burned_due_to_cc" from="Land_Use.young_forest_burned_due_to_cc"/>
 				<connect2 to="Forest.young_forest_burned_due_to_cc" from="Land_Use.young_forest_burned_due_to_cc"/>
 			</module>
-			<module name="Biosphere\nIndicators" isee:label="" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Biosphere Indicators.itmx">
+			<module name="Biosphere\nIndicators" isee:label="" url="/home/benjamin/Documents/UHH/FNU/FNK/WordTrans/FRIDA/WorldTransFrida-Samuel/FRIDA_Modules/Biosphere Indicators.itmx">
 				<doc>This module contains quantifications of planetary boundaries (PBs). The PB framework emphasises the many different components of the Earth system that are strongly influenced by human activities. To quantify each PB, one or more control variables are selected, for which a safe operating space, a zone of increasing risk and a high risk zone are defined, delimited by the boundary value (transition from safe operating space to zone of increasing risk) and the high risk value (transition from zone of increasing risk to high risk zone), as defined in the module. Each PB is quantified in a separate sector within the module. For more details, consult the documentation of variables within the module.
 
 Reference: Eriksson, A. (n.d.). Using the FRIDA systems dynamics model to simulate planetary boundary interactions. In Prep.

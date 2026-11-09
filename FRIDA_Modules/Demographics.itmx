@@ -5,7 +5,7 @@
 		<name>Demographics</name>
 		<uuid>6bf058eb-a3f0-4e61-9f64-d25eeee3c47d</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella_Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -236,18 +236,6 @@
 			<eqn>1</eqn>
 			<alias>dmnl</alias>
 			<alias>unitless</alias>
-		</unit>
-		<unit name="G">
-			<eqn>Giga</eqn>
-		</unit>
-		<unit name="GtCO2">
-			<eqn>Giga*tCO2</eqn>
-		</unit>
-		<unit name="GtCH4">
-			<eqn>Giga*tCH4</eqn>
-		</unit>
-		<unit name="GtN2O">
-			<eqn>Giga*tN2O</eqn>
 		</unit>
 	</model_units>
 	<model name="Demographics">

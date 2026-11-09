@@ -5,7 +5,7 @@
 		<name>Behavioral Change</name>
 		<uuid>501957da-ce2e-47fe-8199-d211956b58bf</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella_Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -233,18 +233,6 @@
 			<alias>dmnl</alias>
 			<alias>unitless</alias>
 		</unit>
-		<unit name="G">
-			<eqn>Giga</eqn>
-		</unit>
-		<unit name="GtCO2">
-			<eqn>Giga*tCO2</eqn>
-		</unit>
-		<unit name="GtCH4">
-			<eqn>Giga*tCH4</eqn>
-		</unit>
-		<unit name="GtN2O">
-			<eqn>Giga*tN2O</eqn>
-		</unit>
 	</model_units>
 	<model name="Behavioral_Change">
 		<variables>
@@ -374,7 +362,7 @@
 				<connect to="Fertilizer_Demand.share_of_man_made_fertilizer" from="Land_Nutrients.share_of_man_made_fertilizer"/>
 				<connect2 to="Fertilizer_Demand.share_of_man_made_fertilizer" from="Land_Nutrients.share_of_man_made_fertilizer"/>
 			</module>
-			<module name="Behavior Change\nPolicy" isee:label="" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Behavior Change Policy.itmx">
+			<module name="Behavior Change\nPolicy" isee:label="" url="/home/benjamin/Documents/UHH/FNU/FNK/WordTrans/FRIDA/WorldTransFrida-Samuel/FRIDA_Modules/Behavior Change Policy.itmx">
 				<format scale_by="auto"/>
 				<connect to="Animal_Products_Demand.APD_climate_attribution_policy" from="Behavior_Change_Policy.APD_climate_attribution_policy"/>
 				<connect2 to="Animal_Products_Demand.APD_climate_attribution_policy" from="Behavior_Change_Policy.APD_climate_attribution_policy"/>

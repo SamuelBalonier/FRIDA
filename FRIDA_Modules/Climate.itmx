@@ -5,7 +5,7 @@
 		<name>Climate</name>
 		<uuid>0c8314dd-e357-43f9-8ae2-c746fdbc0f8d</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella_Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -236,22 +236,10 @@
 			<alias>dmnl</alias>
 			<alias>unitless</alias>
 		</unit>
-		<unit name="G">
-			<eqn>Giga</eqn>
-		</unit>
-		<unit name="GtCO2">
-			<eqn>Giga*tCO2</eqn>
-		</unit>
-		<unit name="GtCH4">
-			<eqn>Giga*tCH4</eqn>
-		</unit>
-		<unit name="GtN2O">
-			<eqn>Giga*tN2O</eqn>
-		</unit>
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Sea Level" isee:label="" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="/home/benjamin/Documents/UHH/FNU/FNK/WordTrans/FRIDA/WorldTransFrida-Samuel/FRIDA_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
 				<connect to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
 				<connect2 to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
@@ -293,7 +281,7 @@
 				<connect2 to="Sea_Level.total_groundwater_anomaly" from="Freshwater.total_groundwater_anomaly"/>
 			</module>
 			<module name="Ocean" isee:label="Ocean
-Carbon" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Ocean.itmx">
+Carbon" url="/home/benjamin/Documents/UHH/FNU/FNK/WordTrans/FRIDA/WorldTransFrida-Samuel/FRIDA_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
@@ -654,7 +642,7 @@ Carbon" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Ocean.itm
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
-			<module name="Emissions" isee:label="" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Emissions.itmx">
+			<module name="Emissions" isee:label="" url="/home/benjamin/Documents/UHH/FNU/FNK/WordTrans/FRIDA/WorldTransFrida-Samuel/FRIDA_Modules/Emissions.itmx">
 				<format scale_by="auto"/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
@@ -818,7 +806,7 @@ Carbon" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Ocean.itm
 				<connect2 to="Emissions.UNIT_MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
 			</module>
 			<module name="Forcing" isee:label="Radiative
-Forcing" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Forcing.itmx">
+Forcing" url="/home/benjamin/Documents/UHH/FNU/FNK/WordTrans/FRIDA/WorldTransFrida-Samuel/FRIDA_Modules/Forcing.itmx">
 				<format scale_by="auto"/>
 				<connect to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
 				<connect2 to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>

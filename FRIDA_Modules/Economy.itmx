@@ -5,7 +5,7 @@
 		<name>Economy</name>
 		<uuid>656dacef-005e-41a3-aedc-d19f6fd6e9f6</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella_Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -20,6 +20,7 @@
 			<elem name="insufficient"/>
 			<elem name="well_protected"/>
 		</dim>
+		<dim name="Income_Group" size="10"/>
 		<dim name="labouExposureLevel">
 			<elem name="No_Exposure"/>
 			<elem name="Low_Exposure"/>
@@ -237,18 +238,6 @@
 			<eqn>1</eqn>
 			<alias>dmnl</alias>
 			<alias>unitless</alias>
-		</unit>
-		<unit name="G">
-			<eqn>Giga</eqn>
-		</unit>
-		<unit name="GtCO2">
-			<eqn>Giga*tCO2</eqn>
-		</unit>
-		<unit name="GtCH4">
-			<eqn>Giga*tCH4</eqn>
-		</unit>
-		<unit name="GtN2O">
-			<eqn>Giga*tN2O</eqn>
 		</unit>
 	</model_units>
 	<model name="Economy">
@@ -721,8 +710,8 @@
 				<connect2 to="Finance.Worker_Savings_1" from="Circular_Flow.Worker_Savings"/>
 				<connect to="GDP.worker_consumption" from="Circular_Flow.worker_consumption"/>
 				<connect2 to="GDP.worker_consumption" from="Circular_Flow.worker_consumption"/>
-				<connect to="Circular_Flow.annual_aggregate_wages" from="Employment.annual_aggregate_wages"/>
-				<connect2 to="Circular_Flow.annual_aggregate_wages" from="Employment.annual_aggregate_wages"/>
+				<connect to="Circular_Flow.annual_wages_by_income_group" from="Employment.annual_wages_by_income_group"/>
+				<connect2 to="Circular_Flow.annual_wages_by_income_group" from="Employment.annual_wages_by_income_group"/>
 				<connect to="Circular_Flow.average_private_debt_interest" from="Finance.average_private_debt_safe_interest"/>
 				<connect2 to="Circular_Flow.average_private_debt_interest" from="Finance.average_private_debt_safe_interest"/>
 				<connect to="Circular_Flow.bank_profit_payment_1" from="Finance.annual_bank_profit_payment"/>
@@ -991,8 +980,8 @@
 			</module>
 			<module name="Employment" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Circular_Flow.annual_aggregate_wages" from="Employment.annual_aggregate_wages"/>
-				<connect2 to="Circular_Flow.annual_aggregate_wages" from="Employment.annual_aggregate_wages"/>
+				<connect to="Circular_Flow.annual_wages_by_income_group" from="Employment.annual_wages_by_income_group"/>
+				<connect2 to="Circular_Flow.annual_wages_by_income_group" from="Employment.annual_wages_by_income_group"/>
 				<connect to="Government.Employed" from="Employment.Employed"/>
 				<connect2 to="Government.Employed" from="Employment.Employed"/>
 				<connect to="Inflation.Employed" from="Employment.Employed"/>
@@ -1203,7 +1192,7 @@
 			<isee:placeholder name="Economy 2 Outputs">
 				<eqn>GDP.Nominal_GDP[1] + GDP.&quot;Real_GDP_in_2021c$&quot;[1] + Circular_Flow.private_consumption[1] + Government.government_consumption[1] + Finance.total_investment[1] + Employment.annual_aggregate_wages[1] + Circular_Flow.Labour_share_of_GDP[1] + Employment.Employed[1] + Employment.Unemployed[1] + Employment.unemployment_rate[1] + Government.debt_to_GDP_ratio[1] + GDP.nominal_gdp_growth_rate_deviation_from_average_in_calibration_period_summed[1] + GDP.real_gdp_growth_rate_deviation_from_average_in_calibration_period_summed[1] + Inflation.gdp_difference[1] + Circular_Flow.bottom_40_share_of_real_income[1]</eqn>
 			</isee:placeholder>
-			<module name="Sea level rise Impacts\nand Adaptation" isee:label="" url="/Users/samuel/Desktop/MA/Git/FRIDA/FRIDA_goodlife_Modules/Sea level rise Impacts and Adaptation.itmx">
+			<module name="Sea level rise Impacts\nand Adaptation" isee:label="" url="/home/benjamin/Documents/UHH/FNU/FNK/WordTrans/FRIDA/WorldTransFrida-Samuel/FRIDA_Modules/Sea level rise Impacts and Adaptation.itmx">
 				<format scale_by="auto"/>
 				<connect to="Sea_level_rise_Impacts_and_Adaptation.No_SLR_adaptation_strategy" from="Government_Regulations.No_SLR_adaptation_strategy"/>
 				<connect2 to="Sea_level_rise_Impacts_and_Adaptation.No_SLR_adaptation_strategy" from="Government_Regulations.No_SLR_adaptation_strategy"/>
@@ -1393,7 +1382,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="2" isee:page_rows="3" isee:scroll_y="1" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="2" isee:page_rows="3" isee:scroll_y="1" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2400,8 +2389,9 @@ Regardless of savings goals, households must allocate at least 35% of income to 
 				<doc>A stock representing the accumulated financial assets held by workers.</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>initial_worker_savings</eqn>
+				<eqn>initial_worker_savings[Run]</eqn>
 				<inflow>wages</inflow>
 				<inflow>worker_savings_interest</inflow>
 				<inflow>transfers</inflow>
@@ -2412,14 +2402,16 @@ Regardless of savings goals, households must allocate at least 35% of income to 
 			<flow name="wages" access="output">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>annual_aggregate_wages</eqn>
+				<eqn>annual_wages_by_income_group</eqn>
 				<non_negative/>
 				<units>b$/year</units>
 			</flow>
 			<flow name="worker consumption" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>actual_worker_consumption</eqn>
 				<non_negative/>
@@ -2429,14 +2421,16 @@ Regardless of savings goals, households must allocate at least 35% of income to 
 				<doc>yearly portion of shortfall in saving compared to desired</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>worker_savings_goal_shortfall/time_to_reach_savings_goal</eqn>
+				<eqn>worker_savings_goal_shortfall/time_to_reach_savings_goal[Run]</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="worker savings\ngoal shortfall">
 				<doc>How much the gap between actual saving to the desired saving (desired - actual).</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>desired_worker_savings-Worker_Savings</eqn>
 				<units>b$</units>
@@ -2448,10 +2442,11 @@ Workers want to hold savings proportional to their income.
 They adjust their actual savings toward this target gradually, not instantly. This reflects real-world economic behavior where households have desired saving goals tied to income and adjust slowly.</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>{SMTH1((net_worker_income*desired_savings_as_multiple_of_wages); time_to_consider_desired_savings)}
 
-SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider_desired_savings)</eqn>
+SMTH1((net_worker_income*desired_savings_as_multiple_of_wages[Run]), time_to_consider_desired_savings[Run])</eqn>
 				<isee:delay_aux/>
 				<units>b$</units>
 			</aux>
@@ -2489,8 +2484,9 @@ The worker savings earn interest equal to the average safe private debt interest
 Thus, worker interest income reflects a delayed and damped response to monetary policy.</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>Worker_Savings*average_private_debt_interest</eqn>
+				<eqn>Worker_Savings[Run,Income_Group]*average_private_debt_interest[Run]</eqn>
 				<units>B$/year</units>
 			</flow>
 			<flow name="owner savings interest">
@@ -2511,6 +2507,7 @@ Thus, worker interest income reflects a delayed and damped response to monetary 
 			<flow name="wage tax" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>wages
 * actual_wage_tax_rate</eqn>
@@ -2522,9 +2519,37 @@ Thus, worker interest income reflects a delayed and damped response to monetary 
 </doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.213245509607868</eqn>
+				<element subscript="1, 1">
+					<eqn>0</eqn>
+				</element>
+				<element subscript="1, 2">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="1, 3">
+					<eqn>0.2</eqn>
+				</element>
+				<element subscript="1, 4">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="1, 5">
+					<eqn>0.4</eqn>
+				</element>
+				<element subscript="1, 6">
+					<eqn>0.4</eqn>
+				</element>
+				<element subscript="1, 7">
+					<eqn>0.4</eqn>
+				</element>
+				<element subscript="1, 8">
+					<eqn>0.4</eqn>
+				</element>
+				<element subscript="1, 9">
+					<eqn>0.4</eqn>
+				</element>
+				<element subscript="1, 10">
+					<eqn>0.4</eqn>
 				</element>
 				<range min="0.1" max="0.3"/>
 				<units>dmnl</units>
@@ -2589,7 +2614,7 @@ Thus, worker interest income reflects a delayed and damped response to monetary 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>owner_consumption+worker_consumption</eqn>
+				<eqn>owner_consumption+SUM(worker_consumption[Run,*])</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="time to pay out profits">
@@ -2623,6 +2648,7 @@ Thus, worker interest income reflects a delayed and damped response to monetary 
 			<aux name="net worker income" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>gross_worker_income
 -wage_tax
@@ -2638,6 +2664,7 @@ Thus, worker interest income reflects a delayed and damped response to monetary 
 In macroeconomics, transfers are a redistribution from government to households but not payment for production.</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>government_transfers_1</eqn>
 				<non_negative/>
@@ -2669,6 +2696,7 @@ In macroeconomics, transfers are a redistribution from government to households 
 			<aux name="government\ntransfers 1" access="input">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
@@ -2737,13 +2765,6 @@ Workers normally want to consume a larger share of income. This represents “ha
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="annual\naggregate wages" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>b$/year</units>
-			</aux>
 			<aux name="indicated owner\nconsumption">
 				<dimensions>
 					<dim name="Run"/>
@@ -2773,8 +2794,9 @@ net_owner_income*fraction_of_owner_income_to_consumption-annual_owner_savings_to
 It is multiplied by (1 + inflation effect on consumption) because inflation influence how much they actually consume. Inflation here acts like a behavioral modifier rather than a pure addition or subtraction.</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>SMTH1(indicated_worker_consumption, consumption_habits_adjustment_time)*(1+inflation_effect_on_consumption)</eqn>
+				<eqn>SMTH1(indicated_worker_consumption, consumption_habits_adjustment_time[Run])*(1+inflation_effect_on_consumption[Run])</eqn>
 				<isee:delay_aux/>
 				<units>b$/year</units>
 			</aux>
@@ -2787,14 +2809,16 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 how much they need to save each year to catch up to their savings goal.</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>MAX(net_worker_income*minimum_fraction_of_income_to_consumption,
-net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_reach_goal)</eqn>
+				<eqn>MAX(net_worker_income*minimum_fraction_of_income_to_consumption[Run],
+net_worker_income*fraction_of_income_to_consumption[Run]-annual_worker_savings_to_reach_goal)</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="actual percentage of worker income to consumption">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>worker_consumption/net_worker_income*100</eqn>
 				<units>dmnl</units>
@@ -2803,7 +2827,7 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>non_bank_profits/wages</eqn>
+				<eqn>non_bank_profits/SUM(wages[Run,*])</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="exploratory\nbank assets" access="input">
@@ -2863,14 +2887,14 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>non_bank_profits + wages + firms_paying_interest + rent</eqn>
+				<eqn>non_bank_profits + SUM(wages[Run,*]) + firms_paying_interest + rent</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="Firms cash inflow">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>worker_consumption + owner_consumption + government_spending + private_investment</eqn>
+				<eqn>SUM(worker_consumption[Run,*]) + owner_consumption + government_spending + private_investment</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="real private consumption 2021c$">
@@ -2906,7 +2930,7 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>net_owner_income/net_worker_income</eqn>
+				<eqn>net_owner_income/SUM(net_worker_income[Run,*])</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="inflation adjustment b$ per bc$" access="input">
@@ -2959,10 +2983,11 @@ Assuming no one is migrating in 1980 b/c of SLR</doc>
 				<doc>If the government turns on the wage-tax policy, then slowly adjust the wage tax rate from its old level to the new policy level over a chosen number of years. If the policy is not turned on, keep the old tax rate.</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>IF TIME &gt; start_year AND switch_tax_policy = 1 
-THEN wage_tax_rate[Run] + RAMP((wage_tax_policy-wage_tax_rate[Run])/time_to_implement_wage_tax_policy, start_year, start_year+ time_to_implement_wage_tax_policy) 
-ELSE wage_tax_rate[Run]</eqn>
+THEN wage_tax_rate[Run,Income_Group] + RAMP((wage_tax_policy-wage_tax_rate[Run,Income_Group])/time_to_implement_wage_tax_policy, start_year, start_year+ time_to_implement_wage_tax_policy) 
+ELSE wage_tax_rate[Run,Income_Group]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="switch tax policy" access="input">
@@ -3015,6 +3040,7 @@ ELSE wage_tax_rate[Run]</eqn>
 			<aux name="gross worker income">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>wages+worker_savings_interest+transfers</eqn>
 				<units>b$/year</units>
@@ -3033,7 +3059,7 @@ ELSE wage_tax_rate[Run]</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>gross_owner_income+gross_worker_income</eqn>
+				<eqn>gross_owner_income+SUM(gross_worker_income[Run,*])</eqn>
 				<format precision="full"/>
 				<units>b$/year</units>
 			</aux>
@@ -3069,21 +3095,21 @@ ELSE wage_tax_rate[Run]</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>transfers/gross_income</eqn>
+				<eqn>SUM(transfers[Run,*])/gross_income</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="share of gross income from worker savings\ninterest">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>worker_savings_interest/gross_income</eqn>
+				<eqn>SUM(worker_savings_interest[Run,*])/gross_income</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="share of gross income from wages">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>wages/gross_income</eqn>
+				<eqn>SUM(wages[Run,*])/gross_income</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="inflation adjustment b$ per bc$ 1" access="output" throughput="true" isee:autocreated="true">
@@ -3125,28 +3151,28 @@ ELSE wage_tax_rate[Run]</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>transfers/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
+				<eqn>SUM(transfers[Run,*])/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="worker savings interest in 2021c$">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>worker_savings_interest/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
+				<eqn>SUM(worker_savings_interest[Run,*])/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="wages in 2021c$">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>wages/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
+				<eqn>SUM(wages[Run,*])/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="wage tax in 2021c$">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>wage_tax/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
+				<eqn>SUM(wage_tax[Run,*])/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="rent tax in 2021c$">
@@ -3167,7 +3193,7 @@ ELSE wage_tax_rate[Run]</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>net_worker_income/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
+				<eqn>SUM(net_worker_income[Run,*])/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="net owner income in 2021c$" access="output" isee:autocreated="true">
@@ -3209,14 +3235,14 @@ ELSE wage_tax_rate[Run]</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>net_owner_income+net_worker_income</eqn>
+				<eqn>net_owner_income+SUM(net_worker_income[Run,*])</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="worker share of net income">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>net_worker_income/net_income*UNIT_Percent</eqn>
+				<eqn>SUM(net_worker_income[Run,*])/net_income*UNIT_Percent</eqn>
 				<units>%</units>
 			</aux>
 			<aux name="UNIT Percent" access="input">
@@ -3248,7 +3274,7 @@ ELSE wage_tax_rate[Run]</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>wages/Nominal_GDP</eqn>
+				<eqn>SUM(wages[Run,*])/Nominal_GDP</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="gross income in 2021c$">
@@ -3438,7 +3464,7 @@ ELSE wage_tax_rate[Run]</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>transfers/net_worker_income</eqn>
+				<eqn>SUM(transfers[Run,*])/SUM(net_worker_income[Run,*])</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="time to implement\nprofit tax policy" access="input">
@@ -3532,6 +3558,7 @@ ELSE 0</eqn>
 			<aux name="actual wage tax rate">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>actual_wage_tax_policy + additional_Wage_Tax_Rate_for_public_investments_policy</eqn>
 				<units>dmnl</units>
@@ -3540,10 +3567,11 @@ ELSE 0</eqn>
 				<doc>extra wage tax rate needed to raise the desired wage-tax revenue</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>IF TIME &gt;= government_run_investment_policy_start_year_4
 THEN
-desired_wage_taxation_revenue_for_public_investments_policy /
+desired_wage_taxation_revenue_for_public_investments_policy[Run] /
 MAX(wages, 1e-6)
 ELSE 0</eqn>
 				<units>dmnl</units>
@@ -3626,6 +3654,7 @@ ELSE 0</eqn>
 				<doc>implemented extra wage tax rate actually applied</doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>0</eqn>
 				<inflow>change_in_additional_wage_tax_rate_for_policy</inflow>
@@ -3634,8 +3663,9 @@ ELSE 0</eqn>
 			<flow name="change in additional wage tax rate for policy">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>(additional_wage_tax_percentage_target_for_public_investments_policy-additional_Wage_Tax_Rate_for_public_investments_policy)/time_to_adjust_government_public_investment_tax_rate</eqn>
+				<eqn>(additional_wage_tax_percentage_target_for_public_investments_policy-additional_Wage_Tax_Rate_for_public_investments_policy)/time_to_adjust_government_public_investment_tax_rate[Run]</eqn>
 				<units>1/year</units>
 			</flow>
 			<stock name="additional Profit Tax Rate\nfor public investments policy">
@@ -3775,6 +3805,14 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 				<non_negative/>
 				<units>b$/year</units>
 			</flow>
+			<aux name="annual wages by income group" access="input">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -3824,7 +3862,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="6" isee:page_rows="8" isee:scroll_x="1046.67" isee:scroll_y="1816.67" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="6" isee:page_rows="8" isee:scroll_x="1671" isee:scroll_y="289" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3979,20 +4017,20 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 						<pt x="1353.41" y="1261.85"/>
 					</pts>
 				</flow>
-				<flow x="2755.79" y="1319.26" name="wage tax">
+				<flow x="2755.8" y="1319.26" name="wage tax">
 					<pts>
 						<pt x="2703.17" y="1319.26"/>
 						<pt x="2832.42" y="1319.26"/>
 					</pts>
 				</flow>
 				<aux label_side="right" x="2889.89" y="1737.4" name="wage tax rate"/>
-				<connector uid="16" angle="165.399">
+				<connector uid="16" angle="165.401">
 					<from>
 						<alias uid="17"/>
 					</from>
 					<to>wage_tax</to>
 				</connector>
-				<connector uid="18" angle="115.26">
+				<connector uid="18" angle="115.261">
 					<from>Worker_Savings</from>
 					<to>worker_savings_interest</to>
 				</connector>
@@ -4048,7 +4086,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					<to>private_consumption</to>
 				</connector>
 				<aux label_side="right" label_angle="315" x="2587.27" y="1033.54" name="net worker income"/>
-				<flow label_side="top" x="2548.41" y="1386.91" name="transfers">
+				<flow label_side="top" x="2548.4" y="1386.91" name="transfers">
 					<pts>
 						<pt x="2496.14" y="1386.91"/>
 						<pt x="2600.67" y="1386.91"/>
@@ -4122,7 +4160,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					<to>government_spending</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="2507.95" y="1429.46" name="government\ntransfers 1"/>
-				<connector uid="57" angle="75.1056">
+				<connector uid="57" angle="75.1091">
 					<from>government_transfers_1</from>
 					<to>transfers</to>
 				</connector>
@@ -4148,11 +4186,6 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 				<connector uid="67" angle="152.346">
 					<from>rent_3</from>
 					<to>rent</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="2159.9" y="1115.95" name="annual\naggregate wages"/>
-				<connector uid="68" angle="346.723">
-					<from>annual_aggregate_wages</from>
-					<to>wages</to>
 				</connector>
 				<aux label_side="left" label_angle="135" x="1474.2" y="2329.89" name="indicated owner\nconsumption"/>
 				<aux label_side="right" x="1469.03" y="2229.22" name="actual owner\nconsumption"/>
@@ -4227,7 +4260,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					</from>
 					<to>actual_worker_consumption</to>
 				</connector>
-				<connector uid="89" angle="157.12">
+				<connector uid="89" angle="157.121">
 					<from>actual_worker_consumption</from>
 					<to>worker_consumption</to>
 				</connector>
@@ -4459,7 +4492,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					<to>actual_wealth_tax_policy</to>
 				</connector>
 				<aux x="2491.74" y="1062.38" name="gross worker income"/>
-				<connector uid="163" angle="79.3062">
+				<connector uid="163" angle="79.3055">
 					<from>wages</from>
 					<to>gross_worker_income</to>
 				</connector>
@@ -5081,7 +5114,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					<from>actual_wage_tax_policy</from>
 					<to>actual_wage_tax_rate</to>
 				</connector>
-				<connector uid="467" angle="91.0086">
+				<connector uid="467" angle="91.0072">
 					<from>actual_wage_tax_rate</from>
 					<to>wage_tax</to>
 				</connector>
@@ -5114,18 +5147,10 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					</graph>
 				</stacked_container>
 				<stacked_container uid="472" x="2027.81" y="2633.34" width="545.215" height="394.622">
-					<graph font_size="18pt" axis_title_font_size="14pt" axis_label_font_size="12pt" width="545.215" height="394.622" comparative="true" isee:comparative_override_thickness="3" type="time_series" show_grid="true" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="11" num_y_grid_lines="6" num_x_labels="11" num_y_labels="6" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
-						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
-							<entity name="Worker_Savings[1]"/>
-						</plot>
-					</graph>
+					<graph font_size="18pt" axis_title_font_size="14pt" axis_label_font_size="12pt" width="545.215" height="394.622" comparative="true" isee:comparative_override_thickness="3" type="time_series" isee:points_only="true" show_grid="true" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="11" num_y_grid_lines="6" num_x_labels="11" num_y_labels="6" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true"/>
 				</stacked_container>
 				<stacked_container uid="473" x="2027.81" y="3039.89" width="545.215" height="394.622">
-					<graph font_size="18pt" axis_title_font_size="14pt" axis_label_font_size="12pt" width="545.215" height="394.622" comparative="true" isee:comparative_override_thickness="3" type="time_series" show_grid="true" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="11" num_y_grid_lines="6" num_x_labels="11" num_y_labels="6" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
-						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
-							<entity name="wage_tax[1]"/>
-						</plot>
-					</graph>
+					<graph font_size="18pt" axis_title_font_size="14pt" axis_label_font_size="12pt" width="545.215" height="394.622" comparative="true" isee:comparative_override_thickness="3" type="time_series" isee:points_only="true" show_grid="true" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="11" num_y_grid_lines="6" num_x_labels="11" num_y_labels="6" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true"/>
 				</stacked_container>
 				<connector uid="7" angle="106.664">
 					<from>
@@ -5133,15 +5158,15 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					</from>
 					<to>annual_worker_savings_to_reach_goal</to>
 				</connector>
-				<aux color="black" background="#00F900" font_color="black" label_side="bottom" x="3140.26" y="1315.27" name="additional wage tax percentage target for public\ninvestments policy"/>
+				<aux color="black" background="#00F900" font_color="black" label_side="bottom" x="3140.26" y="1313.43" name="additional wage tax percentage target for public\ninvestments policy"/>
 				<aux color="black" background="#00F900" font_style="italic" font_weight="bold" font_color="black" label_side="top" x="3122.26" y="1231.7" name="desired wage taxation revenue\nfor public investments policy"/>
-				<connector uid="474" angle="10.3307">
+				<connector uid="474" angle="10.663">
 					<from>
 						<alias uid="17"/>
 					</from>
 					<to>additional_wage_tax_percentage_target_for_public_investments_policy</to>
 				</connector>
-				<connector uid="475" angle="252.953">
+				<connector uid="475" angle="253.218">
 					<from>desired_wage_taxation_revenue_for_public_investments_policy</from>
 					<to>additional_wage_tax_percentage_target_for_public_investments_policy</to>
 				</connector>
@@ -5190,14 +5215,14 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 				<flow color="black" background="#00F900" font_color="black" label_side="top" x="3232.57" y="1432.34" name="change in additional wage tax rate for policy">
 					<pts>
 						<pt x="3313.37" y="1432.34"/>
-						<pt x="3163.77" y="1432.34"/>
+						<pt x="3163.76" y="1432.34"/>
 					</pts>
 				</flow>
-				<connector uid="492" angle="330.228">
+				<connector uid="492" angle="329.793">
 					<from>additional_wage_tax_percentage_target_for_public_investments_policy</from>
 					<to>change_in_additional_wage_tax_rate_for_policy</to>
 				</connector>
-				<connector uid="493" angle="90">
+				<connector uid="493" angle="90.0025">
 					<from>time_to_adjust_government_public_investment_tax_rate</from>
 					<to>change_in_additional_wage_tax_rate_for_policy</to>
 				</connector>
@@ -5309,7 +5334,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					<item uid="512"/>
 				</group>
 				<aux color="black" background="#00F900" font_style="italic" font_weight="bold" font_color="black" label_side="top" x="3250.57" y="1311.17" name="government run investment\npolicy start year 4"/>
-				<connector uid="522" angle="182.129">
+				<connector uid="522" angle="181.174">
 					<from>government_run_investment_policy_start_year_4</from>
 					<to>additional_wage_tax_percentage_target_for_public_investments_policy</to>
 				</connector>
@@ -5363,6 +5388,25 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					</from>
 					<to>private_insurance_administration_income</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="2194.08" y="1076.81" name="annual wages by income group"/>
+				<connector uid="538" angle="328.878">
+					<from>annual_wages_by_income_group</from>
+					<to>wages</to>
+				</connector>
+				<stacked_container uid="539" x="2239.08" y="508.08" width="350" height="404.92">
+					<graph width="350" height="404.92" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="wages[*, *]"/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<stacked_container uid="540" x="2807.87" y="682.558">
+					<graph width="350" height="250" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="Worker_Savings[1, *]"/>
+						</plot>
+					</graph>
+				</stacked_container>
 				<alias label_side="bottom" uid="8" x="3390.96" y="1872.37" width="18" height="18">
 					<of>time_to_reach_savings_goal</of>
 				</alias>
@@ -5730,7 +5774,7 @@ https://rshiny.ilo.org/dataexplorer15/?id=EMP_2EMP_SEX_AGE_NB_A&amp;ref_area=X01
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>wage_rate_in_billions_per_million_people*Employed/UNIT_one_year</eqn>
+				<eqn>SUM(annual_wages_by_income_group[Run,*])</eqn>
 				<units>b$/year</units>
 			</aux>
 			<flow name="aging out of\nunemployed">
@@ -7167,6 +7211,120 @@ Interface explosion stopper</doc>
 				<eqn>Wage_Rate/&quot;inflation_adjustment_$_per_c$&quot;</eqn>
 				<units>c$/Person</units>
 			</aux>
+			<aux name="wage rate by income group" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>IF SWITCH_wage_rate_ratio_instead_of_offset THEN
+(wage_rate_in_billions_per_million_people[Run]*normalised_wage_ratio_by_income_group)/UNIT_one_year
+ELSE
+(wage_rate_in_billions_per_million_people[Run]+wage_rate_offset_by_income_group)/UNIT_one_year</eqn>
+				<units>b$/Mp/year</units>
+			</aux>
+			<aux name="incrome group shares">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>1/SIZE(Income_Group)</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="wage rate offset\nby income group">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<element subscript="1, 1">
+					<eqn>-5</eqn>
+				</element>
+				<element subscript="1, 2">
+					<eqn>-4</eqn>
+				</element>
+				<element subscript="1, 3">
+					<eqn>-3</eqn>
+				</element>
+				<element subscript="1, 4">
+					<eqn>-2</eqn>
+				</element>
+				<element subscript="1, 5">
+					<eqn>-1</eqn>
+				</element>
+				<element subscript="1, 6">
+					<eqn>+1</eqn>
+				</element>
+				<element subscript="1, 7">
+					<eqn>2</eqn>
+				</element>
+				<element subscript="1, 8">
+					<eqn>3</eqn>
+				</element>
+				<element subscript="1, 9">
+					<eqn>4</eqn>
+				</element>
+				<element subscript="1, 10">
+					<eqn>5</eqn>
+				</element>
+				<units>B$/Mp</units>
+			</aux>
+			<aux name="annual wages by income group" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>wage_rate_by_income_group*Employed[Run]*incrome_group_shares[Run,Income_Group]</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="wage rate ratio\nby income group">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<element subscript="1, 1">
+					<eqn>0.02</eqn>
+				</element>
+				<element subscript="1, 2">
+					<eqn>0.22</eqn>
+				</element>
+				<element subscript="1, 3">
+					<eqn>0.40</eqn>
+				</element>
+				<element subscript="1, 4">
+					<eqn>0.57</eqn>
+				</element>
+				<element subscript="1, 5">
+					<eqn>0.82</eqn>
+				</element>
+				<element subscript="1, 6">
+					<eqn>1.19</eqn>
+				</element>
+				<element subscript="1, 7">
+					<eqn>1.78</eqn>
+				</element>
+				<element subscript="1, 8">
+					<eqn>2.65</eqn>
+				</element>
+				<element subscript="1, 9">
+					<eqn>4.28</eqn>
+				</element>
+				<element subscript="1, 10">
+					<eqn>13.9</eqn>
+				</element>
+				<units>dmnl</units>
+			</aux>
+			<aux name="SWITCH wage rate\nratio instead of offset">
+				<eqn>1</eqn>
+				<format precision="1"/>
+				<range min="0" max="1"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="normalised wage ratio by income group">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>SIZE(Income_Group)*wage_rate_ratio_by_income_group[Run,Income_Group]/SUM(wage_rate_ratio_by_income_group[Run,*])</eqn>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -7216,7 +7374,7 @@ Interface explosion stopper</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="6" isee:page_rows="7" isee:scroll_x="225.833" isee:scroll_y="747.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="6" isee:page_rows="7" isee:scroll_x="2079.17" isee:scroll_y="0.833333" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7341,13 +7499,7 @@ Interface explosion stopper</doc>
 					<from>UNIT_persons_per_million_people</from>
 					<to>wage_rate_in_billions_per_million_people</to>
 				</connector>
-				<aux x="3063.45" y="640.293" name="annual\naggregate wages"/>
-				<connector uid="9" angle="270">
-					<from>
-						<alias uid="10"/>
-					</from>
-					<to>annual_aggregate_wages</to>
-				</connector>
+				<aux x="2735.12" y="628.224" name="annual\naggregate wages"/>
 				<connector uid="11" angle="22.8526">
 					<from>
 						<alias uid="12"/>
@@ -7378,12 +7530,6 @@ Interface explosion stopper</doc>
 						<alias uid="15"/>
 					</from>
 					<to>aging_out_of_unemployed</to>
-				</connector>
-				<connector uid="16" angle="180">
-					<from>
-						<alias uid="17"/>
-					</from>
-					<to>annual_aggregate_wages</to>
 				</connector>
 				<aux x="2079.16" y="910.228" name="desired fractional\nwage growth from supply and demand"/>
 				<aux label_side="right" x="3409.9" y="1136.71" name="unemployment rate"/>
@@ -7513,12 +7659,6 @@ Interface explosion stopper</doc>
 				<connector uid="50" angle="266.99">
 					<from>working_age_population</from>
 					<to>Check</to>
-				</connector>
-				<connector uid="51" angle="353.66">
-					<from>
-						<alias uid="52"/>
-					</from>
-					<to>annual_aggregate_wages</to>
 				</connector>
 				<stock label_side="center" x="1235.53" y="437.297" width="65" height="55" name="non active working age"/>
 				<flow label_side="bottom" x="1165.28" y="444.755" name="new\npotential labour\nforce entrants">
@@ -8677,6 +8817,73 @@ Interface explosion stopper</doc>
 					<from>&quot;inflation_adjustment_$_per_c$&quot;</from>
 					<to>&quot;Wage_Rate_in_2021c$&quot;</to>
 				</connector>
+				<aux x="2735.12" y="473.457" name="wage rate by income group"/>
+				<connector uid="331" angle="270">
+					<from>
+						<alias uid="10"/>
+					</from>
+					<to>wage_rate_by_income_group</to>
+				</connector>
+				<aux x="2550.36" y="556.126" name="incrome group shares"/>
+				<aux x="2882.5" y="412.457" name="wage rate offset\nby income group"/>
+				<connector uid="333" angle="359.318">
+					<from>
+						<alias uid="52"/>
+					</from>
+					<to>wage_rate_by_income_group</to>
+				</connector>
+				<aux x="2735.12" y="556.126" name="annual wages by income group"/>
+				<connector uid="336" angle="270">
+					<from>wage_rate_by_income_group</from>
+					<to>annual_wages_by_income_group</to>
+				</connector>
+				<connector uid="337" angle="0">
+					<from>incrome_group_shares</from>
+					<to>annual_wages_by_income_group</to>
+				</connector>
+				<connector uid="338" angle="180">
+					<from>
+						<alias uid="17"/>
+					</from>
+					<to>annual_wages_by_income_group</to>
+				</connector>
+				<stacked_container uid="339" x="2450.42" y="294.167">
+					<graph width="350" height="250" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" to="2100" from="1980" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="wage_rate_by_income_group[*, *]"/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<aux x="3008.34" y="473.457" name="wage rate ratio\nby income group"/>
+				<connector uid="342" angle="204.998">
+					<from>wage_rate_offset_by_income_group</from>
+					<to>wage_rate_by_income_group</to>
+				</connector>
+				<aux x="2786.67" y="408.333" name="SWITCH wage rate\nratio instead of offset"/>
+				<connector uid="343" angle="242.904">
+					<from>SWITCH_wage_rate_ratio_instead_of_offset</from>
+					<to>wage_rate_by_income_group</to>
+				</connector>
+				<connector uid="345" angle="265.784">
+					<from>annual_wages_by_income_group</from>
+					<to>annual_aggregate_wages</to>
+				</connector>
+				<stacked_container uid="346" x="2313.33" y="559.916">
+					<graph width="350" height="250" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="annual_wages_by_income_group[1, *]"/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<aux x="2868.33" y="473.457" name="normalised wage ratio by income group"/>
+				<connector uid="349" angle="180">
+					<from>wage_rate_ratio_by_income_group</from>
+					<to>normalised_wage_ratio_by_income_group</to>
+				</connector>
+				<connector uid="350" angle="180">
+					<from>normalised_wage_ratio_by_income_group</from>
+					<to>wage_rate_by_income_group</to>
+				</connector>
 				<alias color="blue" background="white" font_style="italic" label_side="left" uid="12" x="655.25" y="1050.17" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>wage_rate_in_billions_per_million_people</of>
@@ -8689,10 +8896,10 @@ Interface explosion stopper</doc>
 					<shape type="circle" radius="18"/>
 					<of>UNIT_one_year</of>
 				</alias>
-				<alias font_style="italic" label_side="top" uid="10" x="3054.45" y="570.625" width="18" height="18">
+				<alias font_style="italic" label_side="top" uid="10" x="2726.12" y="394.624" width="18" height="18">
 					<of>wage_rate_in_billions_per_million_people</of>
 				</alias>
-				<alias font_style="italic" uid="17" x="3120.81" y="622.793" width="45" height="35">
+				<alias font_style="italic" uid="17" x="2831.64" y="538.626" width="45" height="35">
 					<of>Employed</of>
 				</alias>
 				<alias font_style="italic" uid="22" x="3410.95" y="742.457" width="45" height="35">
@@ -8732,7 +8939,7 @@ Interface explosion stopper</doc>
 				<alias font_style="italic" label_side="right" label_angle="315" uid="43" x="1333.33" y="1599.56" width="18" height="18">
 					<of>percentage_of_working_age_that_are_employed</of>
 				</alias>
-				<alias font_style="italic" uid="52" x="2978.86" y="628.707" width="18" height="18">
+				<alias font_style="italic" uid="52" x="2572.19" y="462.624" width="18" height="18">
 					<of>UNIT_one_year</of>
 				</alias>
 				<alias color="blue" background="white" font_style="italic" label_side="top" uid="56" x="1259.03" y="386.522" width="18" height="18">
@@ -9226,7 +9433,7 @@ Higher elasticity → more nervous markets.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Worker_Savings_1+owner_savings_1+Firms_Checking_Accounts + Insurance_Deposits</eqn>
+				<eqn>SUM(Worker_Savings_1[Run,*])+owner_savings_1+Firms_Checking_Accounts + Insurance_Deposits</eqn>
 				<units>b$</units>
 			</aux>
 			<aux name="net bank\nassets" access="output">
@@ -9358,6 +9565,7 @@ ELSE
 			<stock name="Worker\nSavings 1" access="input">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$</units>
@@ -11321,7 +11529,7 @@ average_private_debt_safe_interest</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="7" isee:page_rows="10" isee:scroll_x="442.5" isee:scroll_y="1201.67" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="7" isee:page_rows="10" isee:scroll_x="4191.67" isee:scroll_y="1697.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -13695,12 +13903,13 @@ It reflects how much the economy actually produces, measured in the purchasing p
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Government_Spending_1+public_investment+government_transfers_1</eqn>
+				<eqn>Government_Spending_1+public_investment+SUM(government_transfers_1[Run,*])</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="government transfers 1" access="input">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
@@ -13709,7 +13918,7 @@ It reflects how much the economy actually produces, measured in the purchasing p
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>private_consumption_1-government_transfers_1</eqn>
+				<eqn>private_consumption_1-SUM(government_transfers_1[Run,*])</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="owner consumption" access="input">
@@ -13722,6 +13931,7 @@ It reflects how much the economy actually produces, measured in the purchasing p
 			<aux name="worker consumption" access="input">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
@@ -13736,15 +13946,17 @@ It reflects how much the economy actually produces, measured in the purchasing p
 			<aux name="worker consumption excluding transfers in 2021c$">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>worker_consumption/&quot;inflation_adjustment_b$_per_bc$&quot;-&quot;government_transfers_in_2021c$&quot;</eqn>
+				<eqn>worker_consumption/&quot;inflation_adjustment_b$_per_bc$&quot;[Run]-&quot;government_transfers_in_2021c$&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="government transfers\nin 2021c$">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>government_transfers_1/&quot;inflation_adjustment_b$_per_bc$&quot;</eqn>
+				<eqn>government_transfers_1/&quot;inflation_adjustment_b$_per_bc$&quot;[Run]</eqn>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="public investment\nin 2021c$">
@@ -14233,15 +14445,17 @@ ELSE 0</eqn>
 			<aux name="worker consumption excluding\ntransfers in 2021c$ pc">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>&quot;worker_consumption_excluding_transfers_in_2021c$&quot;/Population</eqn>
+				<eqn>&quot;worker_consumption_excluding_transfers_in_2021c$&quot;/Population[Run]</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
 			<aux name="government transfers\nin 2021c$ pc">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>&quot;government_transfers_in_2021c$&quot;/Population</eqn>
+				<eqn>&quot;government_transfers_in_2021c$&quot;/Population[Run]</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
 			<aux name="public investment\nin 2021c$ pc">
@@ -14275,15 +14489,17 @@ ELSE 0</eqn>
 			<aux name="worker consumption excluding\ntransfers pc">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>worker_consumption/Population</eqn>
+				<eqn>worker_consumption/Population[Run]</eqn>
 				<units>b$/Mp/year</units>
 			</aux>
 			<aux name="government transfers pc">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>government_transfers_1/Population</eqn>
+				<eqn>government_transfers_1/Population[Run]</eqn>
 				<units>b$/Mp/year</units>
 			</aux>
 			<aux name="public investment pc">
@@ -14377,7 +14593,7 @@ ELSE 0</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="4" isee:page_rows="5" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="4" isee:page_rows="5" isee:scroll_y="821" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -15317,8 +15533,9 @@ This means, if needs exceed the budget, transfers are rationed. If budget exceed
 </doc>
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
-				<eqn>MIN(public_expenditure_before_subsidies_and_interest_payments*maximum_percentage_of_government_budget_to_transfer_payments, (transfer_payments_for_children+transfer_payments_for_retirees+transfer_payments_for_unemployed)/&quot;UNIT_$_per_B$&quot;)</eqn>
+				<eqn>MIN(public_expenditure_before_subsidies_and_interest_payments[Run]*maximum_percentage_of_government_budget_to_transfer_payments, (transfer_payments_for_children[Run]+transfer_payments_for_retirees[Run]+transfer_payments_for_unemployed[Run])/&quot;UNIT_$_per_B$&quot;)</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="public\ninvestment" access="output" isee:autocreated="true">
@@ -15340,6 +15557,7 @@ This means, if needs exceed the budget, transfers are rationed. If budget exceed
 			<aux name="wage tax 1" access="input">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
@@ -15355,7 +15573,7 @@ This means, if needs exceed the budget, transfers are rationed. If budget exceed
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>rent_tax_1 + profit_tax_1 + wage_tax_1+sum_of_energy_taxes_in_nominal_terms+wealth_tax</eqn>
+				<eqn>rent_tax_1 + profit_tax_1 + SUM(wage_tax_1[Run,*])+sum_of_energy_taxes_in_nominal_terms+wealth_tax</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="averaging time to adjust tax based on income">
@@ -16114,7 +16332,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>government_transfers/transfer_payment_recipients/&quot;inflation_adjustment_b$_per_bc$_1&quot;*&quot;UNIT_c$_per_Bc$&quot;/UNIT_p_per_mp</eqn>
+				<eqn>SUM(government_transfers[Run,*])/transfer_payment_recipients/&quot;inflation_adjustment_b$_per_bc$_1&quot;*&quot;UNIT_c$_per_Bc$&quot;/UNIT_p_per_mp</eqn>
 				<units>c$/person/year</units>
 			</aux>
 			<aux name="inflation adjustment b$ per bc$ 1" access="input">
@@ -16354,7 +16572,7 @@ effect_of_STA_on_public_consumption</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>public_expenditure_before_subsidies_and_interest_payments-government_transfers</eqn>
+				<eqn>public_expenditure_before_subsidies_and_interest_payments-SUM(government_transfers[Run,*])</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="normal share of public expenditure\navailable for investment and consumption\nto consumption">
@@ -17866,7 +18084,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>government_transfers/public_expenditure</eqn>
+				<eqn>SUM(government_transfers[Run,*])/public_expenditure</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="public expenditure in 2021c$">
@@ -17939,7 +18157,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="9" isee:page_rows="7" isee:scroll_y="578.333" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="9" isee:page_rows="7" isee:scroll_x="403.333" isee:scroll_y="525.833" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -18584,15 +18802,15 @@ ELSE
 					<to>effect_of_STA_on_public_consumption</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" label_side="bottom" x="1687.36" y="2748.41" name="Population"/>
-				<aux x="1794.36" y="2947.21" name="transfer payments per recipient"/>
-				<connector uid="240" angle="259.892">
+				<aux x="1783.53" y="2939.21" name="transfer payments per recipient"/>
+				<connector uid="240" angle="199.301">
 					<from>
 						<alias uid="315"/>
 					</from>
 					<to>transfer_payments_per_recipient</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="1780.36" y="3070.21" name="inflation adjustment b$ per bc$ 1"/>
-				<connector uid="242" angle="83.5065">
+				<connector uid="242" angle="88.6153">
 					<from>&quot;inflation_adjustment_b$_per_bc$_1&quot;</from>
 					<to>transfer_payments_per_recipient</to>
 				</connector>
@@ -18606,18 +18824,18 @@ ELSE
 					<from>Employed</from>
 					<to>transfer_payment_recipients</to>
 				</connector>
-				<connector uid="246" angle="279.858">
+				<connector uid="246" angle="274.288">
 					<from>transfer_payment_recipients</from>
 					<to>transfer_payments_per_recipient</to>
 				</connector>
-				<connector uid="248" angle="19.9831">
+				<connector uid="248" angle="23.1888">
 					<from>
 						<alias uid="249"/>
 					</from>
 					<to>transfer_payments_per_recipient</to>
 				</connector>
 				<aux x="1682.36" y="3009.64" name="UNIT p per mp"/>
-				<connector uid="253" angle="14.7271">
+				<connector uid="253" angle="20.4361">
 					<from>UNIT_p_per_mp</from>
 					<to>transfer_payments_per_recipient</to>
 				</connector>
@@ -20679,7 +20897,7 @@ ELSE
 				<alias font_style="italic" uid="301" x="543.703" y="843.082" width="18" height="18">
 					<of>UNIT_p_per_mp</of>
 				</alias>
-				<alias font_style="italic" uid="315" x="1779.8" y="2846.61" width="18" height="18">
+				<alias font_style="italic" uid="315" x="1902.14" y="2847.71" width="18" height="18">
 					<of>government_transfers</of>
 				</alias>
 				<alias font_style="italic" font_weight="bold" uid="317" x="4356.18" y="2528.89" width="18" height="18">
@@ -20924,6 +21142,7 @@ If government_spending &gt; tax_income
 			<aux name="wages 1" access="input">
 				<dimensions>
 					<dim name="Run"/>
+					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
@@ -21002,7 +21221,7 @@ The MAX(0, …) ensures equation does not treat a negative gap as “negative pr
 				</dimensions>
 				<eqn>non_bank_profits
 + bank_profits
-+ wages_1
++ SUM(wages_1[Run,*])
 + rent</eqn>
 				<units>b$/year</units>
 			</aux>
@@ -21790,7 +22009,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="3" isee:page_rows="5" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="3" isee:page_rows="5" isee:scroll_x="681" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
