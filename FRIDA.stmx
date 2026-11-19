@@ -8,9 +8,9 @@
 		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
-		<status verified="false" mixed="true" trusted="false" tampered="false" uses="false" analyzed="false" log_truncated="false" timestamp="1794815626" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="false" want_log="false" sampling="10" signature="hto3iLULnLkEqB+TlCKw0VEvdkaFrycfnPQ4HlX8EZZTQSRtysofIaWS+JpQc5QApMo8L+emVDp2NJ7o6KBiAg=="/>
+		<status verified="false" mixed="true" trusted="false" tampered="false" uses="false" analyzed="false" log_truncated="false" timestamp="1795101201" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="false" want_log="false" sampling="10" signature="Q9Z+ddQ0ZN+WX2LwNMr8f1oKI6D2g8sTBYJoEtrr8y/YCsAwxRdc6vPfPlgWukwprRncHA374T590RKwY1pEAQ=="/>
 	</ai_information>
-	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="true" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
+	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
 		<stop>Simulation_End</stop>
 		<dt reciprocal="true">8</dt>
@@ -89,7 +89,7 @@
 		<dim name="Renewable_Age_Group" size="7"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="10" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="10" keep="false" show_module_prefix="true" live_update_on_drag="false" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:tag_styles>
 			<isee:tag_style tag="Assumption"/>
 			<isee:tag_style tag="Calibrated Output"/>
@@ -2260,6 +2260,10 @@
 				<connect2 to="Government.Population" from="Demographics.Population"/>
 				<connect to="Housing.Population" from="Demographics.Population"/>
 				<connect2 to="Housing.Population" from="Demographics.Population"/>
+				<connect to="Income_Inequality.Population" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population" from="Demographics.Population"/>
+				<connect to="Income_Inequality.Population_1" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population_1" from="Demographics.Population"/>
 				<connect to="Poverty.Population" from="Demographics.Population"/>
 				<connect2 to="Poverty.Population" from="Demographics.Population"/>
 				<connect to="Sea_level_rise_costs_and_impacts.Population" from="Demographics.Population"/>
@@ -3697,8 +3701,18 @@
 				<connect2 to="Central_Bank_Policies.fraction_of_default_covered_central_bank_insurance" from="Government_Regulations.fraction_of_default_covered_by_central_bank_insurance"/>
 				<connect to="Central_Bank_Policies.Nominal_GDP" from="Demographics.Nominal_GDP"/>
 				<connect2 to="Central_Bank_Policies.Nominal_GDP" from="Demographics.Nominal_GDP"/>
+				<connect to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
+				<connect2 to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
 				<connect to="Poverty.bottom_40_income" from="Circular_Flow.bottom_40_income"/>
 				<connect2 to="Poverty.bottom_40_income" from="Circular_Flow.bottom_40_income"/>
+				<connect to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect2 to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect2 to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
+				<connect2 to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
 				<connect to="Poverty.net_income" from="Circular_Flow.net_income"/>
 				<connect2 to="Poverty.net_income" from="Circular_Flow.net_income"/>
 				<connect to="Poverty.net_owner_income" from="Circular_Flow.net_owner_income"/>
@@ -3707,8 +3721,18 @@
 				<connect2 to='Poverty."net_owner_income_in_2021c$"' from='Circular_Flow."net_owner_income_in_2021c$"'/>
 				<connect to="Poverty.net_worker_income" from="Circular_Flow.net_worker_income"/>
 				<connect2 to="Poverty.net_worker_income" from="Circular_Flow.net_worker_income"/>
+				<connect to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
+				<connect2 to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
+				<connect to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect2 to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
+				<connect2 to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
 				<connect to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
+				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
+				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
+				<connect2 to="Income_Inequality.wages" from="Circular_Flow.wages"/>
 				<connect to="Circular_Flow.fraction_of_default_covered_by_government_insurance" from="Government_Regulations.fraction_of_default_covered_by_government_insurance"/>
 				<connect2 to="Circular_Flow.fraction_of_default_covered_by_government_insurance" from="Government_Regulations.fraction_of_default_covered_by_government_insurance"/>
 				<connect to="Circular_Flow.government_run_investment_policy_start_year" from="Government_Regulations.government_run_investment_policy_start_year"/>
@@ -3745,6 +3769,8 @@
 				<connect2 to="Circular_Flow.wealth_taxation_rate" from="Government_Regulations.wealth_tax_policy"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
 				<connect2 to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
+				<connect to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect to="Employment.Aged_1_to_20_years" from="Demographics.Aged_1_to_20_years"/>
 				<connect2 to="Employment.Aged_1_to_20_years" from="Demographics.Aged_1_to_20_years"/>
 				<connect to="Employment.Aged_1_to_20_years_1" from="Demographics.Aged_1_to_20_years"/>
@@ -4011,6 +4037,8 @@
 				<connect2 to="Government.Total_investment_in_CCS_from_the_government" from="CCS.Total_investment_in_CCS_from_the_government"/>
 				<connect to="Government.unemployment_goal_policy" from="Government_Regulations.actual_unemployment_goal"/>
 				<connect2 to="Government.unemployment_goal_policy" from="Government_Regulations.actual_unemployment_goal"/>
+				<connect to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
+				<connect2 to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect to='Poverty."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect2 to='Poverty."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect to="Inflation.animal_products_demand" from="Food_Demand.animal_products_demand"/>
@@ -4147,10 +4175,38 @@ This is what determines when the model stops calculating</doc>
 				<connect2 to="Hunger.real_GDP_per_person_1" from="Animal_Products_Demand.real_GDP_per_person_1"/>
 				<connect to="Hunger.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
 				<connect2 to="Hunger.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
+				<connect to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
+				<connect2 to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
+				<connect to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect2 to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect2 to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
+				<connect2 to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
+				<connect to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
+				<connect2 to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
+				<connect to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
+				<connect2 to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
+				<connect to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect2 to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
+				<connect2 to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
+				<connect to="Income_Inequality.Population" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population" from="Demographics.Population"/>
+				<connect to="Income_Inequality.Population_1" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population_1" from="Demographics.Population"/>
 				<connect to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
+				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
 				<connect2 to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
+				<connect to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
+				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
+				<connect2 to="Income_Inequality.wages" from="Circular_Flow.wages"/>
 				<connect to="Poverty.bottom_40_income" from="Circular_Flow.bottom_40_income"/>
 				<connect2 to="Poverty.bottom_40_income" from="Circular_Flow.bottom_40_income"/>
 				<connect to='Poverty."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
@@ -4219,7 +4275,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:scroll_x="10" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:scroll_x="127" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5201,10 +5257,38 @@ Lorem ipsum dolor sit amet</text_box>
 			</module>
 			<module name="Income\nInequality" isee:label="">
 				<format scale_by="auto"/>
+				<connect to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
+				<connect2 to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
+				<connect to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect2 to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect2 to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
+				<connect2 to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
+				<connect to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
+				<connect2 to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
+				<connect to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
+				<connect2 to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
+				<connect to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect2 to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
+				<connect2 to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
+				<connect to="Income_Inequality.Population" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population" from="Demographics.Population"/>
+				<connect to="Income_Inequality.Population_1" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population_1" from="Demographics.Population"/>
 				<connect to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
+				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
 				<connect2 to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
+				<connect to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
+				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
+				<connect2 to="Income_Inequality.wages" from="Circular_Flow.wages"/>
 			</module>
 		</variables>
 		<views>
@@ -6397,7 +6481,7 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="38" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6506,7 +6590,9 @@ ELSE average_daily_demand_per_capita_1</eqn>
 	</model>
 	<model name="Income_Inequality">
 		<variables>
-			<aux name="income inequality\nhistorical data"/>
+			<aux name="income inequality\nhistorical data">
+				<eqn>0</eqn>
+			</aux>
 			<aux name="relative productivity growth" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -6521,16 +6607,234 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="F1"/>
-			<aux name="F2"/>
-			<aux name="E1"/>
-			<aux name="E2"/>
-			<aux name="a 1980"/>
-			<aux name="c 1980"/>
-			<aux name="a(t)"/>
-			<aux name="c(t)"/>
+			<aux name="F1">
+				<eqn>0.2</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="F2">
+				<eqn>0.2</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="E1">
+				<eqn>0.2</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="E2">
+				<eqn>0.2</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="a 1980 old">
+				<eqn>0.1</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="c 1980">
+				<eqn>0.1</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="a calibration old" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>a_1980_old*(relative_productivity_growth^F1)*(Relative_unemployment^F2)</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="c calibration">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>c_1980*(relative_productivity_growth^E1)*(Relative_unemployment^E2)</eqn>
+				<units>dmnl</units>
+			</aux>
 			<aux name="Relative unemployment">
 				<eqn>unemployment_rate[1]/INIT(unemployment_rate[1])</eqn>
+			</aux>
+			<aux name="corr unempl innov">
+				<eqn>0</eqn>
+			</aux>
+			<aux name="non bank profits" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="rent" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="bank profits" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>B$/year</units>
+			</aux>
+			<aux name="owner savings interest" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>B$/year</units>
+			</aux>
+			<aux name="owner savings interest in 2021c$" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="total owner\nincome in 2021c$">
+				<eqn>(rent[1]+bank_profits[1]+owner_savings_interest[1]+non_bank_profits[1])/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="total worker\nincome in 2021c$">
+				<eqn>((SUM(wages[1,*]))/10)/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="wages" access="input">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="inflation adjustment b$ per bc$" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/bc$</units>
+			</aux>
+			<aux name="per cap income\nin 2021c$">
+				<eqn>&quot;unit_bc$/Mp_to_c$/p&quot;*(&quot;total_owner_income_in_2021c$&quot;+&quot;total_worker_income_in_2021c$&quot;)/Population[1]</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="Population" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mp</units>
+			</aux>
+			<aux name="unit bc$/Mp to c$/p">
+				<eqn>1000</eqn>
+				<units>(c$/p)/(bc$/Mp)</units>
+			</aux>
+			<aux name="per cap worker\nincome in 2021c$">
+				<eqn>&quot;unit_bc$/Mp_to_c$/p&quot;*&quot;total_worker_income_in_2021c$&quot;/Population[1]</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="Wage Rate in 2021c$" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>c$/Person</units>
+			</aux>
+			<aux name="Gross income\nin 2021c$ 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="total income\nin 2021c$">
+				<eqn>&quot;total_owner_income_in_2021c$&quot;+&quot;total_worker_income_in_2021c$&quot;</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="gross owner income" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="gross worker income" access="input">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="Gross owner income\nin 2021c$">
+				<eqn>gross_owner_income[1]/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="Gross worker income\nin 2021c$">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>SUM(gross_worker_income[1,*])/SIZE(Income_Group)/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="gross income" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="Population 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mp</units>
+			</aux>
+			<aux name="Gross income\nin 2021c$">
+				<eqn>&quot;Gross_owner_income_in_2021c$&quot;+&quot;Gross_worker_income_in_2021c$&quot;[1]</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="Gross per cap\nincome in 2021c$">
+				<eqn>&quot;unit_bc$/Mp_to_c$/p&quot;*&quot;Gross_income_in_2021c$&quot;/Population_1[1]</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="a 1980">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>2.619037</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="q 1980">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0.714531</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="p 1980">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0.178631</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="a calibration">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="p calibration">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="q calibration">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0</eqn>
+				<units>dmnl</units>
 			</aux>
 		</variables>
 		<views>
@@ -6581,7 +6885,7 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="790" isee:scroll_y="38" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6620,24 +6924,236 @@ ELSE average_daily_demand_per_capita_1</eqn>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
 				<aux x="77.7031" y="44.9297" name="income inequality\nhistorical data"/>
-				<aux font_style="italic" font_weight="bold" x="553.777" y="57.6098" name="relative productivity growth"/>
-				<aux font_style="italic" font_weight="bold" x="245.804" y="52.2152" name="unemployment rate"/>
+				<aux font_style="italic" font_weight="bold" x="161.726" y="352.945" name="relative productivity growth"/>
+				<aux font_style="italic" font_weight="bold" x="199.594" y="174.403" name="unemployment rate"/>
 				<aux x="523.844" y="249.281" name="F1"/>
 				<aux x="608.84" y="254.156" name="F2"/>
-				<aux x="523.844" y="334.945" name="E1"/>
-				<aux x="608.84" y="327.98" name="E2"/>
-				<aux x="443.254" y="249.281" name="a 1980"/>
+				<aux x="529.164" y="345.98" name="E1"/>
+				<aux x="611.906" y="345.98" name="E2"/>
+				<aux x="443.254" y="249.281" name="a 1980 old"/>
 				<aux x="443.254" y="334.945" name="c 1980"/>
-				<aux x="332.711" y="249.281" name="a(t)"/>
-				<aux x="337.824" y="345.98" name="c(t)"/>
-				<aux x="425.254" y="57.6098" name="Relative unemployment"/>
-				<connector uid="1" angle="346.69">
+				<aux x="332.711" y="249.281" name="a calibration old"/>
+				<aux x="337.824" y="345.98" name="c calibration"/>
+				<aux x="169.289" y="254.156" name="Relative unemployment"/>
+				<connector uid="1" angle="237.606">
 					<from>unemployment_rate</from>
 					<to>Relative_unemployment</to>
 				</connector>
-				<text_box uid="2" x="86.7031" y="152.449" width="402.648" height="58">a(t) = a_1980 * rel_innovation^F1 * rel_unempl^F2
+				<text_box uid="2" x="307.637" y="119.625" width="402.648" height="58">a(t) = a_1980 * rel_innovation^F1 * rel_unempl^F2
 c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 				<text_box uid="3" x="395.234" y="13.4769" width="427.211" height="16.7734">Rel. unemployment and rel. innovation (expressed via productivity growth)</text_box>
+				<stacked_container uid="4" x="1025.78" y="254.156">
+					<graph width="350" height="250" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="Circular_Flow.relative_productivity_growth[*]"/>
+						</plot>
+						<plot color="red" isee:keep_zero_visible="true" pen_width="1" index="1" show_y_axis="true">
+							<entity name="Relative_unemployment"/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<aux x="776.574" y="84.6758" name="corr unempl innov"/>
+				<aux font_style="italic" font_weight="bold" x="95.7031" y="622.195" name="non bank profits"/>
+				<aux font_style="italic" font_weight="bold" x="91.9922" y="699.077" name="rent"/>
+				<aux font_style="italic" font_weight="bold" x="84.5264" y="784.175" name="bank profits"/>
+				<aux font_style="italic" font_weight="bold" x="80.2539" y="865.503" name="owner savings interest"/>
+				<aux font_style="italic" font_weight="bold" x="80.9766" y="962.813" name="owner savings interest in 2021c$"/>
+				<aux x="214.056" y="870.947" name="total owner\nincome in 2021c$"/>
+				<connector uid="11" angle="282.148">
+					<from>rent</from>
+					<to>&quot;total_owner_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="12" angle="308.04">
+					<from>bank_profits</from>
+					<to>&quot;total_owner_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="13" angle="357.67">
+					<from>owner_savings_interest</from>
+					<to>&quot;total_owner_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="14" angle="295.444">
+					<from>non_bank_profits</from>
+					<to>&quot;total_owner_income_in_2021c$&quot;</to>
+				</connector>
+				<aux x="355.824" y="870.947" name="total worker\nincome in 2021c$"/>
+				<aux font_style="italic" font_weight="bold" x="495.073" y="870.947" name="wages"/>
+				<connector uid="15" angle="156.115">
+					<from>wages</from>
+					<to>&quot;total_worker_income_in_2021c$&quot;</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="275.293" y="928.413" name="inflation adjustment b$ per bc$"/>
+				<connector uid="18" angle="125.651">
+					<from>&quot;inflation_adjustment_b$_per_bc$&quot;</from>
+					<to>&quot;total_owner_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="19" angle="51.4843">
+					<from>&quot;inflation_adjustment_b$_per_bc$&quot;</from>
+					<to>&quot;total_worker_income_in_2021c$&quot;</to>
+				</connector>
+				<aux x="275.293" y="775.654" name="per cap income\nin 2021c$"/>
+				<connector uid="20" angle="57.2743">
+					<from>&quot;total_owner_income_in_2021c$&quot;</from>
+					<to>&quot;per_cap_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="21" angle="130.201">
+					<from>&quot;total_worker_income_in_2021c$&quot;</from>
+					<to>&quot;per_cap_income_in_2021c$&quot;</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="368.645" y="671.396" name="Population"/>
+				<connector uid="22" angle="228.159">
+					<from>Population</from>
+					<to>&quot;per_cap_income_in_2021c$&quot;</to>
+				</connector>
+				<stacked_container uid="23" x="694.395" y="560.969" width="350" height="333.286">
+					<graph width="350" height="333.286" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name='"per_cap_income_in_2021c$"'/>
+						</plot>
+						<plot color="red" isee:keep_zero_visible="true" pen_width="1" index="1" show_y_axis="true">
+							<entity name='"per_cap_worker_income_in_2021c$"'/>
+						</plot>
+						<plot color="#008F44" isee:keep_zero_visible="true" pen_width="1" index="2" show_y_axis="true">
+							<entity name='Employment."Wage_Rate_in_2021c$"[*]'/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<aux x="373.824" y="739.578" name="unit bc$/Mp to c$/p"/>
+				<connector uid="24" angle="164.548">
+					<from>&quot;unit_bc$/Mp_to_c$/p&quot;</from>
+					<to>&quot;per_cap_income_in_2021c$&quot;</to>
+				</connector>
+				<aux x="465.17" y="770.728" name="per cap worker\nincome in 2021c$"/>
+				<connector uid="25" angle="341.17">
+					<from>&quot;unit_bc$/Mp_to_c$/p&quot;</from>
+					<to>&quot;per_cap_worker_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="26" angle="63.0984">
+					<from>&quot;total_worker_income_in_2021c$&quot;</from>
+					<to>&quot;per_cap_worker_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="27" angle="314.179">
+					<from>Population</from>
+					<to>&quot;per_cap_worker_income_in_2021c$&quot;</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="597.579" y="770.728" name="Wage Rate in 2021c$"/>
+				<aux font_style="italic" font_weight="bold" x="477.073" y="1044.21" name="Gross income\nin 2021c$ 1"/>
+				<aux x="282.355" y="834.621" name="total income\nin 2021c$"/>
+				<connector uid="28" angle="29.2709">
+					<from>&quot;total_owner_income_in_2021c$&quot;</from>
+					<to>&quot;total_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="29" angle="172.281">
+					<from>&quot;total_worker_income_in_2021c$&quot;</from>
+					<to>&quot;total_income_in_2021c$&quot;</to>
+				</connector>
+				<stacked_container uid="30" x="632.105" y="595.48">
+					<graph width="350" height="250" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name='"total_income_in_2021c$"'/>
+						</plot>
+						<plot color="red" isee:keep_zero_visible="true" pen_width="1" index="1" show_y_axis="true">
+							<entity name='Circular_Flow."gross_income_in_2021c$"[*]'/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<aux font_style="italic" font_weight="bold" x="218.527" y="1136.38" name="gross owner income"/>
+				<aux font_style="italic" font_weight="bold" x="355.824" y="1227.63" name="gross worker income"/>
+				<aux x="221.824" y="1044.21" name="Gross owner income\nin 2021c$"/>
+				<aux x="350.645" y="1047.36" name="Gross worker income\nin 2021c$"/>
+				<connector uid="31" angle="276.889">
+					<from>&quot;inflation_adjustment_b$_per_bc$&quot;</from>
+					<to>&quot;Gross_owner_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="32" angle="323.617">
+					<from>&quot;inflation_adjustment_b$_per_bc$&quot;</from>
+					<to>&quot;Gross_worker_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="33" angle="80.2756">
+					<from>gross_owner_income</from>
+					<to>&quot;Gross_owner_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="34" angle="91.6459">
+					<from>gross_worker_income</from>
+					<to>&quot;Gross_worker_income_in_2021c$&quot;</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="632.105" y="1051.02" name="gross income"/>
+				<aux font_style="italic" font_weight="bold" x="122.125" y="1233.09" name="Population 1"/>
+				<aux x="308.457" y="1131.93" name="Gross income\nin 2021c$"/>
+				<connector uid="36" angle="9.37376">
+					<from>&quot;Gross_owner_income_in_2021c$&quot;</from>
+					<to>&quot;Gross_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="37" angle="243.487">
+					<from>&quot;Gross_worker_income_in_2021c$&quot;</from>
+					<to>&quot;Gross_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="38" angle="179.261">
+					<from>a_1980_old</from>
+					<to>a_calibration_old</to>
+				</connector>
+				<connector uid="39" angle="178.313">
+					<from>c_1980</from>
+					<to>c_calibration</to>
+				</connector>
+				<connector uid="40" angle="152.933">
+					<from>F1</from>
+					<to>a_calibration_old</to>
+				</connector>
+				<connector uid="41" angle="153.615">
+					<from>F2</from>
+					<to>a_calibration_old</to>
+				</connector>
+				<connector uid="42" angle="197.991">
+					<from>E1</from>
+					<to>c_calibration</to>
+				</connector>
+				<connector uid="43" angle="207.1">
+					<from>E2</from>
+					<to>c_calibration</to>
+				</connector>
+				<connector uid="44" angle="40.5096">
+					<from>Relative_unemployment</from>
+					<to>a_calibration_old</to>
+				</connector>
+				<connector uid="45" angle="338.727">
+					<from>Relative_unemployment</from>
+					<to>c_calibration</to>
+				</connector>
+				<connector uid="46" angle="331.192">
+					<from>relative_productivity_growth</from>
+					<to>c_calibration</to>
+				</connector>
+				<connector uid="47" angle="34.7444">
+					<from>relative_productivity_growth</from>
+					<to>a_calibration_old</to>
+				</connector>
+				<aux x="248.957" y="1239.11" name="Gross per cap\nincome in 2021c$"/>
+				<connector uid="48" angle="251.965">
+					<from>&quot;Gross_income_in_2021c$&quot;</from>
+					<to>&quot;Gross_per_cap_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="49" angle="5.62702">
+					<from>Population_1</from>
+					<to>&quot;Gross_per_cap_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="51" angle="49.8844">
+					<from>
+						<alias uid="50"/>
+					</from>
+					<to>&quot;Gross_per_cap_income_in_2021c$&quot;</to>
+				</connector>
+				<text_box uid="52" x="260.164" y="74.918" width="260" height="26.0352">EXPONENTIAL FIT</text_box>
+				<text_box uid="53" x="1418.93" y="128.785" width="260" height="58">Generalized beta of the second kind (GB2) fit</text_box>
+				<aux x="1507.3" y="233.434" name="a 1980"/>
+				<aux x="1613.01" y="233.434" name="q 1980"/>
+				<aux x="1555.59" y="233.434" name="p 1980"/>
+				<aux x="1443.53" y="326.68" name="a calibration"/>
+				<aux x="1439.57" y="401.566" name="p calibration"/>
+				<aux x="1436" y="475.699" name="q calibration"/>
+				<alias color="blue" background="white" font_style="italic" uid="50" x="153.199" y="1321.53" width="18" height="18">
+					<shape type="circle" radius="18"/>
+					<of>&quot;unit_bc$/Mp_to_c$/p&quot;</of>
+				</alias>
 			</view>
 		</views>
 	</model>

@@ -28,7 +28,7 @@
 		</dim>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="10" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="10" keep="false" show_module_prefix="true" live_update_on_drag="false" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:tag_styles>
 			<isee:tag_style tag="Assumption"/>
 			<isee:tag_style tag="Calibrated Output"/>
@@ -646,6 +646,8 @@
 				<connect2 to="Central_Bank_Policies.administrative_costs_of_providing_insurance" from="Circular_Flow.administrative_costs_of_providing_insurance"/>
 				<connect to="Private_Insurance.average_private_debt_interest" from="Circular_Flow.average_private_debt_interest"/>
 				<connect2 to="Private_Insurance.average_private_debt_interest" from="Circular_Flow.average_private_debt_interest"/>
+				<connect to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
+				<connect2 to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
 				<connect to="Inflation.bank_profits" from="Circular_Flow.bank_profits"/>
 				<connect2 to="Inflation.bank_profits" from="Circular_Flow.bank_profits"/>
 				<connect to="Poverty.bottom_40_income" from="Circular_Flow.bottom_40_income"/>
@@ -662,6 +664,14 @@
 				<connect2 to="Innovation.Firms_Checking_Accounts_1" from="Circular_Flow.Firms_Checking_Accounts"/>
 				<connect to="Finance.firms_paying_interest" from="Circular_Flow.firms_paying_interest"/>
 				<connect2 to="Finance.firms_paying_interest" from="Circular_Flow.firms_paying_interest"/>
+				<connect to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect2 to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
+				<connect to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect2 to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
+				<connect to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
+				<connect2 to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
 				<connect to="Government.Inflation_Rate" from="Circular_Flow.Inflation_Rate"/>
 				<connect2 to="Government.Inflation_Rate" from="Circular_Flow.Inflation_Rate"/>
 				<connect to="Government.insurance_taxation" from="Circular_Flow.insurance_taxation"/>
@@ -676,6 +686,8 @@
 				<connect2 to="Poverty.net_worker_income" from="Circular_Flow.net_worker_income"/>
 				<connect to="Employment.non_bank_profits_1" from="Circular_Flow.non_bank_profits"/>
 				<connect2 to="Employment.non_bank_profits_1" from="Circular_Flow.non_bank_profits"/>
+				<connect to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
+				<connect2 to="Income_Inequality.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
 				<connect to="Inflation.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
 				<connect2 to="Inflation.non_bank_profits" from="Circular_Flow.non_bank_profits"/>
 				<connect to="Finance.owner_savings_1" from="Circular_Flow.owner_savings"/>
@@ -684,6 +696,10 @@
 				<connect2 to="Government.owner_savings" from="Circular_Flow.owner_savings"/>
 				<connect to="GDP.owner_consumption" from="Circular_Flow.owner_consumption"/>
 				<connect2 to="GDP.owner_consumption" from="Circular_Flow.owner_consumption"/>
+				<connect to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect2 to="Income_Inequality.owner_savings_interest" from="Circular_Flow.owner_savings_interest"/>
+				<connect to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
+				<connect2 to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
 				<connect to="Finance.private_consumption_1" from="Circular_Flow.private_consumption"/>
 				<connect2 to="Finance.private_consumption_1" from="Circular_Flow.private_consumption"/>
 				<connect to="GDP.private_consumption_1" from="Circular_Flow.private_consumption"/>
@@ -696,6 +712,8 @@
 				<connect2 to="Government.profit_tax_1" from="Circular_Flow.profit_tax"/>
 				<connect to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
+				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Inflation.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Inflation.rent" from="Circular_Flow.rent"/>
 				<connect to="Government.rent_tax_1" from="Circular_Flow.rent_tax"/>
@@ -704,6 +722,8 @@
 				<connect2 to="Finance.risky_interest_1" from="Circular_Flow.risky_interest_1"/>
 				<connect to="Government.wage_tax_1" from="Circular_Flow.wage_tax"/>
 				<connect2 to="Government.wage_tax_1" from="Circular_Flow.wage_tax"/>
+				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
+				<connect2 to="Income_Inequality.wages" from="Circular_Flow.wages"/>
 				<connect to="Inflation.wages_1" from="Circular_Flow.wages"/>
 				<connect2 to="Inflation.wages_1" from="Circular_Flow.wages"/>
 				<connect to="Government.wealth_tax" from="Circular_Flow.wealth_tax"/>
@@ -1010,6 +1030,8 @@
 				<connect2 to="Finance.Wage_Rate_1" from="Employment.Wage_Rate"/>
 				<connect to="Government.Wage_Rate" from="Employment.Wage_Rate"/>
 				<connect2 to="Government.Wage_Rate" from="Employment.Wage_Rate"/>
+				<connect to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
+				<connect2 to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect to="Employment.actual_safe_investment_failure" from="Finance.actual_safe_investment_failure"/>
 				<connect2 to="Employment.actual_safe_investment_failure" from="Finance.actual_safe_investment_failure"/>
 				<connect to="Employment.Aged_1_to_20_years" from="Demographics.Aged_1_to_20_years"/>
@@ -1109,6 +1131,8 @@
 				<connect2 to='Government."inflation_adjustment_b$_per_bc$_1"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect to='Government."inflation_adjustment_b$_per_bc$_2"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect2 to='Government."inflation_adjustment_b$_per_bc$_2"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
+				<connect to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
+				<connect2 to='Income_Inequality."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect to='Poverty."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect2 to='Poverty."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
 				<connect to='Sea_level_rise_costs_and_impacts."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
@@ -2493,7 +2517,7 @@ Thus, worker interest income reflects a delayed and damped response to monetary 
 				<eqn>Worker_Savings[Run,Income_Group]*average_private_debt_interest[Run]</eqn>
 				<units>B$/year</units>
 			</flow>
-			<flow name="owner savings interest">
+			<flow name="owner savings interest" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -3041,7 +3065,7 @@ ELSE wage_tax_rate[Run,Income_Group]</eqn>
 				<eqn>RAMP((wealth_taxation_rate)/time_to_implement_wealth_tax_policy, wealth_tax_policy_start_year, wealth_tax_policy_start_year+ time_to_implement_wealth_tax_policy)</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="gross worker income">
+			<aux name="gross worker income" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 					<dim name="Income_Group"/>
@@ -3049,7 +3073,7 @@ ELSE wage_tax_rate[Run,Income_Group]</eqn>
 				<eqn>wages+worker_savings_interest+transfers</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="gross owner income">
+			<aux name="gross owner income" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -3059,7 +3083,7 @@ ELSE wage_tax_rate[Run,Income_Group]</eqn>
 +bank_profits</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="gross income">
+			<aux name="gross income" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -3144,7 +3168,7 @@ ELSE wage_tax_rate[Run,Income_Group]</eqn>
 				<eqn>bank_profits/&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="owner savings interest in 2021c$">
+			<aux name="owner savings interest in 2021c$" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -3281,7 +3305,7 @@ ELSE wage_tax_rate[Run,Income_Group]</eqn>
 				<eqn>SUM(wages[Run,*])/Nominal_GDP</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="gross income in 2021c$">
+			<aux name="gross income in 2021c$" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -3866,7 +3890,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="6" isee:page_rows="8" isee:scroll_x="3545" isee:scroll_y="1193" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="6" isee:page_rows="8" isee:scroll_x="2031.67" isee:scroll_y="820.833" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4540,7 +4564,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					<to>gross_owner_income</to>
 				</connector>
 				<aux x="1483.14" y="510.366" name="gross income"/>
-				<connector uid="175" angle="272.322">
+				<connector uid="175" angle="258.191">
 					<from>
 						<alias uid="176"/>
 					</from>
@@ -4552,92 +4576,92 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					</from>
 					<to>gross_income</to>
 				</connector>
-				<aux x="1592.96" y="520.866" name="share of gross income from non bank profits"/>
-				<connector uid="186" angle="183.538">
+				<aux x="1569.96" y="550.033" name="share of gross income from non bank profits"/>
+				<connector uid="186" angle="188.538">
 					<from>
 						<alias uid="187"/>
 					</from>
 					<to>share_of_gross_income_from_non_bank_profits</to>
 				</connector>
-				<aux x="1686.59" y="528.366" name="share of gross income from rent"/>
-				<aux x="1757.79" y="532.033" name="share of gross income from bank profits"/>
-				<aux x="1831.63" y="538.866" name="share of gross income from owner savings interest"/>
-				<aux x="1942.46" y="550.033" name="share of gross income from transfers"/>
-				<aux x="2024.96" y="550.033" name="share of gross income from worker savings\ninterest"/>
-				<aux x="2114.21" y="550.033" name="share of gross income from wages"/>
-				<connector uid="188" angle="253.666">
+				<aux x="1707.13" y="520.866" name="share of gross income from rent"/>
+				<aux x="1710.79" y="578.478" name="share of gross income from bank profits"/>
+				<aux x="1832.13" y="593.221" name="share of gross income from owner savings interest"/>
+				<aux x="1961.4" y="556.866" name="share of gross income from transfers"/>
+				<aux x="2029.63" y="602.74" name="share of gross income from worker savings\ninterest"/>
+				<aux x="2150.21" y="550.033" name="share of gross income from wages"/>
+				<connector uid="188" angle="247.678">
 					<from>
 						<alias uid="182"/>
 					</from>
 					<to>share_of_gross_income_from_non_bank_profits</to>
 				</connector>
-				<connector uid="189" angle="266.532">
+				<connector uid="189" angle="281.56">
 					<from>
 						<alias uid="179"/>
 					</from>
 					<to>share_of_gross_income_from_rent</to>
 				</connector>
-				<connector uid="190" angle="272.598">
+				<connector uid="190" angle="253.729">
 					<from>
 						<alias uid="180"/>
 					</from>
 					<to>share_of_gross_income_from_bank_profits</to>
 				</connector>
-				<connector uid="191" angle="273.691">
+				<connector uid="191" angle="267.513">
 					<from>
 						<alias uid="181"/>
 					</from>
 					<to>share_of_gross_income_from_owner_savings_interest</to>
 				</connector>
-				<connector uid="192" angle="270">
+				<connector uid="192" angle="274.237">
 					<from>
 						<alias uid="185"/>
 					</from>
 					<to>share_of_gross_income_from_transfers</to>
 				</connector>
-				<connector uid="193" angle="262.238">
+				<connector uid="193" angle="262.233">
 					<from>
 						<alias uid="184"/>
 					</from>
 					<to>share_of_gross_income_from_worker_savings_interest</to>
 				</connector>
-				<connector uid="194" angle="269.63">
+				<connector uid="194" angle="283.608">
 					<from>
 						<alias uid="183"/>
 					</from>
 					<to>share_of_gross_income_from_wages</to>
 				</connector>
-				<connector uid="195" angle="175.815">
+				<connector uid="195" angle="174.266">
 					<from>
 						<alias uid="187"/>
 					</from>
 					<to>share_of_gross_income_from_rent</to>
 				</connector>
-				<connector uid="196" angle="194.676">
+				<connector uid="196" angle="203.567">
 					<from>
 						<alias uid="187"/>
 					</from>
 					<to>share_of_gross_income_from_bank_profits</to>
 				</connector>
-				<connector uid="197" angle="220.711">
+				<connector uid="197" angle="240.079">
 					<from>
 						<alias uid="187"/>
 					</from>
 					<to>share_of_gross_income_from_owner_savings_interest</to>
 				</connector>
-				<connector uid="198" angle="316.909">
+				<connector uid="198" angle="325.052">
 					<from>
 						<alias uid="187"/>
 					</from>
 					<to>share_of_gross_income_from_transfers</to>
 				</connector>
-				<connector uid="199" angle="352.304">
+				<connector uid="199" angle="336.354">
 					<from>
 						<alias uid="187"/>
 					</from>
 					<to>share_of_gross_income_from_worker_savings_interest</to>
 				</connector>
-				<connector uid="200" angle="19.9831">
+				<connector uid="200" angle="21.5162">
 					<from>
 						<alias uid="187"/>
 					</from>
@@ -4850,7 +4874,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 					<from>average_private_debt_interest</from>
 					<to>firms_paying_interest</to>
 				</connector>
-				<connector uid="250" angle="341.437">
+				<connector uid="250" angle="323.448">
 					<from>
 						<alias uid="251"/>
 					</from>
@@ -5513,7 +5537,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 				<alias font_style="italic" uid="128" x="2009.54" y="2444.72" width="18" height="18">
 					<of>net_worker_income</of>
 				</alias>
-				<alias color="blue" background="white" font_style="italic" uid="176" x="1487.12" y="443.533" width="18" height="18">
+				<alias color="blue" background="white" font_style="italic" uid="176" x="1504.17" y="441.866" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>gross_owner_income</of>
 				</alias>
@@ -5564,7 +5588,7 @@ Portion of insurance premiums that are costs paid to workers eventually</doc>
 				<alias font_style="italic" uid="241" x="1560.96" y="27.6159" width="18" height="18">
 					<of>actual_profit_tax_policy</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" label_side="left" uid="251" x="2470.8" y="1222.51" width="18" height="18">
+				<alias font_style="italic" font_weight="bold" label_side="left" uid="251" x="2472.55" y="1196.33" width="18" height="18">
 					<of>average_private_debt_interest</of>
 				</alias>
 				<alias font_style="italic" font_weight="bold" label_side="right" label_angle="315" uid="253" x="1446.75" y="1395.27" width="18" height="18">
@@ -7208,7 +7232,7 @@ Interface explosion stopper</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>$/c$</units>
 			</aux>
-			<aux name="Wage Rate in 2021c$">
+			<aux name="Wage Rate in 2021c$" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -7378,7 +7402,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="6" isee:page_rows="7" isee:scroll_x="268.333" isee:scroll_y="1499.17" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="6" isee:page_rows="7" isee:scroll_x="2286.67" isee:scroll_y="298.333" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -18161,7 +18185,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="9" isee:page_rows="7" isee:scroll_x="403.333" isee:scroll_y="525.833" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="9" isee:page_rows="7" isee:scroll_x="288.333" isee:scroll_y="685.833" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -19248,12 +19272,12 @@ ELSE
 					</from>
 					<to>government_consumption</to>
 				</connector>
-				<aux label_side="right" x="850.774" y="1025.54" name="maximum percentage of\ngovernment budget to\ntransfer payments"/>
+				<aux label_side="right" x="868.774" y="1048.36" name="maximum percentage of\ngovernment budget to\ntransfer payments"/>
 				<connector uid="406" angle="191.996">
 					<from>public_expenditure_before_subsidies_and_interest_payments</from>
 					<to>government_transfers</to>
 				</connector>
-				<connector uid="407" angle="202.985">
+				<connector uid="407" angle="188.955">
 					<from>maximum_percentage_of_government_budget_to_transfer_payments</from>
 					<to>government_transfers</to>
 				</connector>
@@ -22013,7 +22037,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1097" page_height="767" isee:page_cols="3" isee:page_rows="5" isee:scroll_x="681" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="3" isee:page_rows="5" isee:scroll_x="1157" isee:scroll_y="602" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
