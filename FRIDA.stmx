@@ -8,7 +8,7 @@
 		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
-		<status verified="false" mixed="true" trusted="false" tampered="false" uses="false" analyzed="false" log_truncated="false" timestamp="1795101201" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="false" want_log="false" sampling="10" signature="Q9Z+ddQ0ZN+WX2LwNMr8f1oKI6D2g8sTBYJoEtrr8y/YCsAwxRdc6vPfPlgWukwprRncHA374T590RKwY1pEAQ=="/>
+		<status verified="false" mixed="true" trusted="false" tampered="false" uses="true" analyzed="false" log_truncated="false" timestamp="1795107509" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="true" want_log="true" sampling="10" signature="MWsJDfdwgjUALzupwonN4yg0vUIAX4Axv/4qcKwjO8E2IlyhEE1ftTB5HYLjGEa1nbejHHkbUoIWloC1zEMvBg=="/>
 	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -70,6 +70,7 @@
 			<elem name="Low_Exposure"/>
 			<elem name="High_Exposure"/>
 		</dim>
+		<dim name="NEWTON" size="5"/>
 		<dim name="PCTILE">
 			<elem name="Low"/>
 			<elem name="P25"/>
@@ -1770,7 +1771,7 @@
 	</model_units>
 	<model>
 		<variables>
-			<module name="Energy" isee:label="" url="r../FRIDA_Modules/Energy.itmx">
+			<module name="Energy" isee:label="" ai_state="B" url="r../FRIDA_Modules/Energy.itmx">
 				<format scale_by="auto"/>
 				<connect to="Inflation.average_marginal_net_cost_of_energy_with_historical_cost_adjustment" from="Energy_demand.average_marginal_net_cost_of_energy_with_historical_cost_adjustment"/>
 				<connect2 to="Inflation.average_marginal_net_cost_of_energy_with_historical_cost_adjustment" from="Energy_demand.average_marginal_net_cost_of_energy_with_historical_cost_adjustment"/>
@@ -2201,10 +2202,10 @@
 				<connect to="Inflation.UNIT_TWh_to_kWh" from="Energy_Units.UNIT_TWh_to_kWh"/>
 				<connect2 to="Inflation.UNIT_TWh_to_kWh" from="Energy_Units.UNIT_TWh_to_kWh"/>
 			</module>
-			<isee:placeholder name="Calibrated Variables">
+			<isee:placeholder name="Calibrated Variables" ai_state="B">
 				<eqn>GDP.Nominal_GDP[1] + GDP.nominal_GDP_growth_rate[1] + GDP.nominal_gdp_growth_rate_deviation_from_average_in_calibration_period_summed[1] + GDP.&quot;Real_GDP_in_2021c$&quot;[1] + GDP.real_GDP_growth_rate[1] + GDP.real_gdp_growth_rate_deviation_from_average_in_calibration_period_summed[1] + Inflation.gdp_difference[1] + Government.debt_to_GDP_ratio[1] + Government.government_consumption[1] + Finance.total_investment[1] + Circular_Flow.private_consumption[1] + Circular_Flow.Labour_share_of_GDP[1] + Employment.annual_aggregate_wages[1] + Employment.Employed[1] + Employment.Unemployed[1] + Employment.unemployment_rate[1] + Employment.share_of_employment_in_agriculture[1] + Employment.share_of_employment_in_industry[1] + Employment.share_of_employment_in_services[1] + Inflation.agriculture_percentage_of_GDP[1] + Demographics.nominal_GDP_per_person[1] + Demographics.real_GDP_per_person[1] + Demographics.Aged_0_years[1] + Demographics.Aged_1_to_20_years[1] + Demographics.Aged_20_to_40_years[1] + Demographics.Aged_40_to_60_years[1] + Demographics.Aged_60_to_65_years[1] + Demographics.Aged_65_to_75_years[1] + Demographics.Aged_Over_75_years[1] + Demographics.deaths_0_years[1] + Demographics.deaths_1_to_20_years[1] + Demographics.deaths_20_to_40_years[1] + Demographics.deaths_40_to_60_years[1] + Demographics.deaths_60_to_65_years[1] + Demographics.deaths_65_to_75_years[1] + Demographics.deaths_Over_75_years[1] + Demographics.Population[1] + Demographics.fertility[1] + Demographics.Births[1] + Demographics.total_deaths[1] + Demographics.female_population_literacy_percentage[1] + Land_Use.Forest_Land[1] + Crop.crop_production[1] + Crop.cropland_net_primary_production[1] + Food_Demand.crop_demand_for_food[1] + Food_Demand.Crops_used_for_Seed_or_Lost[1] + Food_Demand.feed_production[1] + Land_Use.Cropland[1] + Animal_Products.animal_products_production[1] + Animal_Products_Demand.average_daily_demand_per_capita[1] + Food_Demand.animal_products_demand[1] + Food_Demand.vegetal_product_demand_per_person_per_day[1] + Food_Demand.direct_food_demand_per_person_per_day[1] + Freshwater.total_water_withdrawal[1] + Freshwater.fraction_of_water_withdrawal_for_agriculture[1] + Freshwater.available_water_supply[1] + Freshwater.irrigated_cropland[1] + Animal_Products.aquatic_animal_product_share[1] + Land_Nutrients.man_made_fertilizer_use[1] + Land_Nutrients.manure_fertilizer_use[1] + Fossil_energy.Secondary_Fossil_Energy_Output[1] + Fossil_energy_coal.Secondary_Fossil_Energy_Output[1] + Fossil_energy_oil.Secondary_Fossil_Energy_Output[1] + Fossil_energy_gas.Secondary_Fossil_Energy_Output[1] + Renewable_energy.Renewable_Energy_Output[1] + Wind_energy.Wind_Energy_Output[1] + Solar_energy.Solar_Energy_Output[1] + Hydropower_energy.Hydropower_Energy_Output[1] + Nuclear_energy.Nuclear_Energy_Output[1] + Bio_fuel_energy.bio_fuel_primary_energy[1] + Bio_fuel_energy.bio_fuel_secondary_energy_output[1] + Energy_supply.Total_Energy_Output[1] + Renewable_energy.Total_Renewable_Energy_Capacity[1] + Solar_energy.Solar_Energy_Capacity[1] + Wind_energy.Wind_Energy_Capacity[1] + Hydropower_energy.Hydropower_Energy_Capacity[1] + Bio_fuel_energy.bio_fuel_production[1] + Nuclear_energy.Nuclear_Energy_Capacity[1] + Fossil_energy.Primary_Fossil_Energy_FUEL[1] + Fossil_energy_coal.Primary_Fossil_Energy_FUEL[1] + Fossil_energy_oil.Primary_Fossil_Energy_FUEL[1] + Fossil_energy_gas.Primary_Fossil_Energy_FUEL[1] + Energy_demand.demand_for_energy[1] + Energy_investments.Gross_Investment_in_Fossil_Fuel_Extraction_Capital[1] + Energy_investments.Coal_Gross_Investments_in_Fossil_Fuel_Extraction_Capital[1] + Energy_investments.Oil_Gross_Investments_in_Fossil_Fuel_Extraction_Capital[1] + Energy_investments.Gas_Gross_Investments_in_Fossil_Fuel_Extraction_Capital[1] + Energy_investments.Gross_Investments_in_Fossil_Energy_Capital[1] + Energy_investments.Coal_Gross_Investments_in_Fossil_Energy_Capital[1] + Energy_investments.Oil_and_Gas_Gross_Investments_in_Fossil_Energy_Capital[1] + Energy_investments.Gross_Investments_in_Renewable_Energy_Capacity[1] + Energy_investments.Nuclear_Gross_Investments_in_Energy_Capacity[1] + Energy_investments.Hydropower_Gross_Investments_in_Energy_Capacity[1] + Energy_investments.Solar_Gross_Investments_in_Energy_Capacity[1] + Energy_investments.Wind_Gross_Investments_in_Energy_Capacity[1] + Energy_investments.Biofuel_Gross_Investments_in_Energy_Capacity[1] + Wind_energy.Installation_Cost_of_Wind_capacity[1] + Solar_energy.Installation_Cost_of_Solar_capacity[1] + Hydropower_energy.Hydropower_Installation_Costs[1] + Nuclear_energy.Nuclear_Installation_Costs[1] + Energy_investments.share_of_GDP_invested_in_fuel_extraction[1] + Energy_investments.share_of_GDP_invested_in_Energy_without_fuel[1] + Fossil_energy_coal.Fossil_Fuel_Extraction_Carbon[1] + Fossil_energy_oil.Fossil_Fuel_Extraction_Carbon[1] + Fossil_energy_gas.Fossil_Fuel_Extraction_Carbon[1] + Fossil_energy.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[1] + Fossil_energy_coal.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[1] + Fossil_energy_oil.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[1] + Fossil_energy_gas.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[1] + Sea_Level.Sea_level_anomaly_from_thermal_expansion[1] + Sea_Level.Sea_level_anomaly_from_mountain_glaciers[1] + Sea_Level.Sea_level_anomaly_from_Greenland_Ice_Sheet[1] + Sea_Level.Sea_level_anomaly_from_Antarctic_Ice_Sheet[1] + Sea_Level.Sea_level_anomaly_from_LWS[1] + Sea_Level.Total_global_sea_level_anomaly[1] + Sea_Level.Land_water_storage_from_water_impoundment[1] + Ocean.Air_sea_co2_flux[1] + Emissions.land_carbon_sink[1] + Terrestrial_Carbon_Balance.Terrestrial_carbon_balance[1] + Terrestrial_Carbon_Balance.Terrestrial_net_primary_production[1] + Terrestrial_Carbon_Balance.deforestation_carbon_loss[1] + Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake[1] + Concrete.total_yearly_concrete_use[1] + Concrete.residential_concrete_stock_in_use[1] + Concrete.Infrastructure_concrete_stock_in_use[1] + Concrete.In_use_concrete_stock[1] + Concrete.concrete_waste_generation[1] + Concrete.new_RS_construction[1] + Concrete.CO2_emissions[1] + Emissions.CO2_emissions_from_Energy[1] + Emissions.CO2_Emissions_from_Food_and_Land_Use[1] + Emissions.N2O_Emissions_from_Food_and_Land_Use[1] + Emissions.N2O_Emissions_from_Other[1] + Emissions.N2O_Emissions_from_Energy[1] + Emissions.CH4_Emissions_from_Energy[1] + Emissions.CH4_Emissions_from_Food_and_Land_Use[1] + Emissions.CH4_Emissions_from_Other[1] + Emissions.SO2_Emissions_from_Energy[1] + Emissions.SO2_Emissions_from_Food_and_Land_Use[1] + Emissions.CO_Emissions[1] + Emissions.VOC_Emissions[1] + Emissions.NOx_non_AFOLU_Emissions[1] + Emissions.NOx_AFOLU_Emissions[1] + Emissions.HFC134a_eq_Emissions[1] + Emissions.Total_CH4_Emissions[1] + Emissions.Total_CO2_Emissions[1] + Emissions.Total_SO2_Emissions[1] + Emissions.Total_N2O_Emissions[1] + Emissions.Total_NOx_Emissions[1] + CO2_Forcing.CO2_Effective_Radiative_Forcing[1] + CH4_Forcing.CH4_Effective_Radiative_Forcing[1] + N2O_Forcing.N2O_Effective_Radiative_Forcing[1] + CO2_Forcing.Atmospheric_CO2_Concentration[1] + N2O_Forcing.Atmospheric_N2O_Concentration[1] + CH4_Forcing.Atmospheric_CH4_Concentration[1] + Energy_Balance_Model.Surface_Temperature_Anomaly[1]</eqn>
 			</isee:placeholder>
-			<module name="Demographics" isee:label="" url="r../FRIDA_Modules/Demographics.itmx">
+			<module name="Demographics" isee:label="" ai_state="B" url="r../FRIDA_Modules/Demographics.itmx">
 				<format scale_by="auto"/>
 				<connect to='Health."0_death_rate"' from='Demographics."0_death_rate"'/>
 				<connect2 to='Health."0_death_rate"' from='Demographics."0_death_rate"'/>
@@ -2264,6 +2265,8 @@
 				<connect2 to="Income_Inequality.Population" from="Demographics.Population"/>
 				<connect to="Income_Inequality.Population_1" from="Demographics.Population"/>
 				<connect2 to="Income_Inequality.Population_1" from="Demographics.Population"/>
+				<connect to="Income_Inequality.Population_2" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population_2" from="Demographics.Population"/>
 				<connect to="Poverty.Population" from="Demographics.Population"/>
 				<connect2 to="Poverty.Population" from="Demographics.Population"/>
 				<connect to="Sea_level_rise_costs_and_impacts.Population" from="Demographics.Population"/>
@@ -2323,7 +2326,7 @@
 				<connect to="Demographics.today" from="Climate.climate_impact_stoptime"/>
 				<connect2 to="Demographics.today" from="Climate.climate_impact_stoptime"/>
 			</module>
-			<module name="Climate" isee:label="" url="r../FRIDA_Modules/Climate.itmx">
+			<module name="Climate" isee:label="" ai_state="B" url="r../FRIDA_Modules/Climate.itmx">
 				<format scale_by="auto"/>
 				<connect to="Climate_Risk_Perception.today" from="Climate.climate_impact_stoptime"/>
 				<connect2 to="Climate_Risk_Perception.today" from="Climate.climate_impact_stoptime"/>
@@ -2812,7 +2815,7 @@
 				<connect to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 			</module>
-			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA_Modules/Land Use and Agriculture.itmx">
+			<module name="Land Use\nand\nAgriculture" isee:label="" ai_state="B" url="r../FRIDA_Modules/Land Use and Agriculture.itmx">
 				<format scale_by="auto"/>
 				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
@@ -3187,7 +3190,7 @@
 				<connect to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
 				<connect2 to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
 			</module>
-			<module name="Behavioral\nChoices" isee:label="" url="r../FRIDA_Modules/Behavioral Choices.itmx">
+			<module name="Behavioral\nChoices" isee:label="" ai_state="B" url="r../FRIDA_Modules/Behavioral Choices.itmx">
 				<format scale_by="auto"/>
 				<connect to="Animal_Products_Demand.additional_environmental_consciousness_policy" from="Behavioral_Choices.additional_environmental_consciousness_policy"/>
 				<connect2 to="Animal_Products_Demand.additional_environmental_consciousness_policy" from="Behavioral_Choices.additional_environmental_consciousness_policy"/>
@@ -3228,7 +3231,7 @@
 				<connect to="Hunger.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
 				<connect2 to="Hunger.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
 			</module>
-			<module name="Government\nRegulations" isee:label="" url="r../FRIDA_Modules/Government Regulations.itmx">
+			<module name="Government\nRegulations" isee:label="" ai_state="B" url="r../FRIDA_Modules/Government Regulations.itmx">
 				<format scale_by="auto"/>
 				<connect to="Government.inflation_goal_policy" from="Government_Regulations.actual_inflation_goal"/>
 				<connect2 to="Government.inflation_goal_policy" from="Government_Regulations.actual_inflation_goal"/>
@@ -3493,7 +3496,7 @@
 				<connect to="Circular_Flow.wealth_tax_policy_start_year" from="Government_Regulations.wealth_tax_policy_start_year"/>
 				<connect2 to="Circular_Flow.wealth_tax_policy_start_year" from="Government_Regulations.wealth_tax_policy_start_year"/>
 			</module>
-			<module name="Behavioral\nChange" isee:label="" url="r../FRIDA_Modules/Behavioral Change.itmx">
+			<module name="Behavioral\nChange" isee:label="" ai_state="B" url="r../FRIDA_Modules/Behavioral Change.itmx">
 				<format scale_by="auto"/>
 				<connect to="Food_Demand.average_yearly_demand_per_capita" from="Animal_Products_Demand.average_yearly_demand_per_capita"/>
 				<connect2 to="Food_Demand.average_yearly_demand_per_capita" from="Animal_Products_Demand.average_yearly_demand_per_capita"/>
@@ -3570,7 +3573,7 @@
 				<connect to="Transportation_Energy_Demand.real_GDP_per_person_1" from="Food_Demand.real_GDP_per_person"/>
 				<connect2 to="Transportation_Energy_Demand.real_GDP_per_person_1" from="Food_Demand.real_GDP_per_person"/>
 			</module>
-			<module name="Resources" isee:label="" url="r../FRIDA_Modules/Resources.itmx">
+			<module name="Resources" isee:label="" ai_state="B" url="r../FRIDA_Modules/Resources.itmx">
 				<format scale_by="auto"/>
 				<connect to="Energy_investments.change_in_DACC_CO2_captured" from="CCS.change_in_DACC_CO2_captured"/>
 				<connect2 to="Energy_investments.change_in_DACC_CO2_captured" from="CCS.change_in_DACC_CO2_captured"/>
@@ -3693,7 +3696,7 @@
 				<connect to="Concrete.today" from="Climate.climate_impact_stoptime"/>
 				<connect2 to="Concrete.today" from="Climate.climate_impact_stoptime"/>
 			</module>
-			<module name="Economy" isee:label="" url="r../FRIDA_Modules/Economy.itmx">
+			<module name="Economy" isee:label="" ai_state="B" url="r../FRIDA_Modules/Economy.itmx">
 				<format scale_by="auto"/>
 				<connect to="Central_Bank_Policies.central_bank_investment_policy_start_year" from="Government_Regulations.central_bank_led_investment_policy_start_year"/>
 				<connect2 to="Central_Bank_Policies.central_bank_investment_policy_start_year" from="Government_Regulations.central_bank_led_investment_policy_start_year"/>
@@ -3709,6 +3712,8 @@
 				<connect2 to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
 				<connect to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
 				<connect2 to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect to='Income_Inequality."gross_income_in_2021c$_2"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect2 to='Income_Inequality."gross_income_in_2021c$_2"' from='Circular_Flow."gross_income_in_2021c$"'/>
 				<connect to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
 				<connect2 to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
 				<connect to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
@@ -3729,6 +3734,8 @@
 				<connect2 to='Income_Inequality."owner_savings_interest_in_2021c$"' from='Circular_Flow."owner_savings_interest_in_2021c$"'/>
 				<connect to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
+				<connect2 to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
@@ -3769,6 +3776,8 @@
 				<connect2 to="Circular_Flow.wealth_taxation_rate" from="Government_Regulations.wealth_tax_policy"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
 				<connect2 to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
+				<connect to="Income_Inequality.unemployment_rate_1" from="Employment.unemployment_rate"/>
+				<connect2 to="Income_Inequality.unemployment_rate_1" from="Employment.unemployment_rate"/>
 				<connect to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect2 to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect to="Employment.Aged_1_to_20_years" from="Demographics.Aged_1_to_20_years"/>
@@ -4130,7 +4139,7 @@
 				<connect to="Sea_level_rise_costs_and_impacts.switch_sea_level_rise_relocation_damage" from="Climate.switch_sea_level_rise_relocation_cost_damage"/>
 				<connect2 to="Sea_level_rise_costs_and_impacts.switch_sea_level_rise_relocation_damage" from="Climate.switch_sea_level_rise_relocation_cost_damage"/>
 			</module>
-			<aux name="Simulation End">
+			<aux name="Simulation End" ai_state="B">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
 				<eqn>2150</eqn>
@@ -4138,14 +4147,14 @@ This is what determines when the model stops calculating</doc>
 				<range min="2023" max="2200"/>
 				<units>years</units>
 			</aux>
-			<isee:placeholder name="Dashboard Right Placeholder">
+			<isee:placeholder name="Dashboard Right Placeholder" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 					<dim name="Income_Group"/>
 				</dimensions>
 				<eqn>Energy_Balance_Model.Surface_Temperature_Anomaly[Run] + Demographics.real_GDP_per_capita[Run] + Animal_Products_Demand.Desired_Demand_from_Accessibility[Run] + Animal_Products_Demand.desired_demand_from_descriptive_norm[Run] + Animal_Products_Demand.desired_demand_from_personal_norm[Run] + Animal_Products_Demand.perceived_consumption_risk[Run] + Animal_Products_Demand.Perceived_Social_Value[Run] + Animal_Products_Demand.weight_of_accessibility[Run] + Animal_Products.animal_products_production[Run] + Animal_Products.aquatic_animal_product_share[Run] + Animal_Products_Demand.Desired_Average_Daily_Demand_Per_Capita[Run] + Animal_Products.animal_products_balance[Run] + Bio_fuel_energy.bio_fuel_primary_energy[Run] + Bio_fuel_energy.bio_fuel_production[Run] + Bio_fuel_energy.bio_fuel_secondary_energy_output[Run] + CH4_Forcing.Atmospheric_CH4_Concentration[Run] + CH4_Forcing.CH4_Effective_Radiative_Forcing[Run] + Circular_Flow.&quot;bank_profits_in_2021c$&quot;[Run] + Circular_Flow.bottom_40_share_of_real_income[Run] + Circular_Flow.growth_rates_of_income_per_capita_among_the_bottom_40_per_cent_of_the_total_population[Run] + Circular_Flow.income_inequality[Run] + Circular_Flow.Labour_share_of_GDP[Run] + Circular_Flow.&quot;non_bank_profits_in_2021c$&quot;[Run] + Circular_Flow.&quot;owner_savings_interest_in_2021c$&quot;[Run] + Circular_Flow.private_consumption[Run] + Circular_Flow.&quot;profit_tax_in_2021c$&quot;[Run] + Circular_Flow.Redistributive_impact_of_fiscal_policy[Run] + Circular_Flow.&quot;rent_in_in_2021c$&quot;[Run] + Circular_Flow.&quot;rent_tax_in_2021c$&quot;[Run] + Circular_Flow.&quot;transfers_in_2021c$&quot;[Run] + Circular_Flow.&quot;wage_tax_in_2021c$&quot;[Run] + Circular_Flow.&quot;wages_in_2021c$&quot;[Run] + Circular_Flow.&quot;worker_savings_interest_in_2021c$&quot;[Run] + Circular_Flow.worker_share_of_net_income[Run] + Climate_Risk_Perception.perceived_climate_change_risk[Run] + Climate_Risk_Perception.Perceived_Climate_Extremes_Exposure[Run] + Climate_Risk_Perception.Perceived_SLR_Flooding_Exposure[Run] + Climate_Risk_Perception.Perceived_Temperature_Anomaly[Run] + Climate_Risk_Perception.Reference_Climate_Extremes_Exposure[Run] + Climate_Risk_Perception.Reference_SLR_Flooding_Exposure[Run] + Climate_Risk_Perception.Reference_Temperature_Anomaly[Run] + CO2_Forcing.Atmospheric_CO2_Concentration[Run] + CO2_Forcing.Atmospheric_CO2_growth_GtC[Run] + CO2_Forcing.CO2_Effective_Radiative_Forcing[Run] + Coastal_Assets.Coastal_assets[Run,insufficient] + Coastal_Assets.Coastal_assets[Run,well_protected] + Coastal_population.Coastal_population[Run,insufficient] + Coastal_population.Coastal_population[Run,well_protected] + Concrete.CO2_emissions[Run] + Concrete.concrete_waste_generation[Run] + Concrete.In_use_concrete_stock[Run] + Concrete.Infrastructure_concrete_stock_in_use[Run] + Concrete.new_RS_construction[Run] + Concrete.residential_concrete_stock_in_use[Run] + Concrete.total_yearly_concrete_use[Run] + Crop.crop_production[Run] + Crop.crop_balance[Run] + Crop.cropland_net_primary_production[Run] + degraded_land_soil_carbon.degraded_land_litter[Run] + Demographics.Aged_0_years[Run] + Demographics.Aged_1_to_20_years[Run] + Demographics.Aged_20_to_40_years[Run] + Demographics.Aged_40_to_60_years[Run] + Demographics.Aged_60_to_65_years[Run] + Demographics.Aged_65_to_75_years[Run] + Demographics.Aged_Over_75_years[Run] + Demographics.Births[Run] + Demographics.deaths_0_years[Run] + Demographics.deaths_1_to_20_years[Run] + Demographics.deaths_20_to_40_years[Run] + Demographics.deaths_40_to_60_years[Run] + Demographics.deaths_60_to_65_years[Run] + Demographics.deaths_65_to_75_years[Run] + Demographics.deaths_Over_75_years[Run] + Demographics.female_population_literacy_percentage[Run] + Demographics.fertility[Run] + Demographics.nominal_GDP_per_person[Run] + Demographics.Population[Run] + Demographics.real_GDP_per_person[Run] + Demographics.total_deaths[Run] + Emissions.CH4_Emissions_from_Energy[Run] + Emissions.CH4_Emissions_from_Food_and_Land_Use[Run] + Emissions.CH4_Emissions_from_Other[Run] + Emissions.CO_Emissions[Run] + Emissions.CO2_emissions_from_Energy[Run] + Emissions.CO2_Emissions_from_Food_and_Land_Use_GtC[Run] + Emissions.CO2_Emissions_from_Food_and_Land_Use[Run] + Emissions.CO2_Emissions_from_Other_GtC[Run] + Emissions.HFC134a_eq_Emissions[Run] + Emissions.land_carbon_sink[Run] + Emissions.N2O_Emissions_from_Energy[Run] + Emissions.N2O_Emissions_from_Food_and_Land_Use[Run] + Emissions.N2O_Emissions_from_Other[Run] + Emissions.NOx_AFOLU_Emissions[Run] + Emissions.NOx_non_AFOLU_Emissions[Run] + Emissions.Realized_CO2_Emissions_from_Energy_GtC[Run] + Emissions.SO2_Emissions_from_Energy[Run] + Emissions.SO2_Emissions_from_Food_and_Land_Use[Run] + Emissions.Total_CH4_Emissions[Run] + Emissions.Total_CO2_Emissions_GtC[Run] + Emissions.Total_CO2_Emissions[Run] + Emissions.Total_N2O_Emissions[Run] + Emissions.Total_NOx_Emissions[Run] + Emissions.Total_SO2_Emissions[Run] + Emissions.VOC_Emissions[Run] + Employment.annual_aggregate_wages[Run] + Employment.Employed[Run] + Employment.Productivity[Run] + Employment.share_of_employment_in_agriculture[Run] + Employment.share_of_employment_in_industry[Run] + Employment.share_of_employment_in_services[Run] + Employment.Unemployed[Run] + Employment.unemployment_rate[Run] + Employment.Wage_Rate[Run] + Energy_Balance_Model.Surface_Temperature_Anomaly[Run] + Energy_demand.demand_for_energy[Run] + Energy_investments.Coal_Gross_Investments_in_Fossil_Energy_Capital[Run] + Energy_investments.Coal_Gross_Investments_in_Fossil_Fuel_Extraction_Capital[Run] + Energy_investments.Gas_Gross_Investments_in_Fossil_Energy_Capital[Run] + Energy_investments.Gas_Gross_Investments_in_Fossil_Fuel_Extraction_Capital[Run] + Energy_investments.Biofuel_Gross_Investments_in_Energy_Capacity[Run] + Energy_investments.Oil_and_Gas_Gross_Investments_in_Fossil_Energy_Capital[Run] + Energy_investments.Gross_Investments_in_Fossil_Energy_Capital[Run] + Energy_investments.Gross_Investment_in_Fossil_Fuel_Extraction_Capital[Run] + Energy_investments.Hydropower_Gross_Investments_in_Energy_Capacity[Run] + Energy_investments.Gross_Investments_in_Renewable_Energy_Capacity[Run] + Energy_investments.Solar_Gross_Investments_in_Energy_Capacity[Run] + Energy_investments.Wind_Gross_Investments_in_Energy_Capacity[Run] + Energy_investments.Investments_in_Fossil_Energy[Run] + Energy_investments.Nuclear_Gross_Investments_in_Energy_Capacity[Run] + Energy_investments.Oil_Gross_Investments_in_Fossil_Energy_Capital[Run] + Energy_investments.Oil_Gross_Investments_in_Fossil_Fuel_Extraction_Capital[Run] + Energy_investments.share_of_GDP_invested_in_Energy_without_fuel[Run] + Energy_investments.share_of_GDP_invested_in_fuel_extraction[Run] + Energy_supply.Total_Energy_Output[Run] + Energy_supply.Renewable_Energy_Output_Share[Run] + Finance.Non_performing_loans_net_of_provisions_to_capital[Run] + Finance.Non_performing_loans_to_total_gross_loans[Run] + Finance.Regulatory_Tier_1_capital_to_assets[Run] + Finance.Return_on_assets_to_short_term_liabilities[Run] + Finance.total_investment[Run] + Food_Demand.animal_product_demand_per_person_per_day[Run] + Food_Demand.animal_products_demand[Run] + Food_Demand.crop_demand_for_food[Run] + Food_Demand.crop_used_for_non_energy_other[Run] + Food_Demand.crops_for_energy[Run] + Food_Demand.Crops_used_for_Seed_or_Lost[Run] + Food_Demand.direct_food_demand_per_person_per_day[Run] + Food_Demand.feed_production[Run] + Food_Demand.vegetal_product_demand_per_person_per_day[Run] + Forcing.Anthropogenic_Effective_Radiative_Forcing[Run] + Forcing.Total_Effective_Radiative_Forcing[Run] + Forest.mature_forest_net_primary_production[Run] + Forest.young_forest_net_primary_production[Run] + Fossil_energy_coal.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[Run] + Fossil_energy_coal.Fossil_Fuel_Extraction_Carbon[Run] + Fossil_energy_coal.Primary_Fossil_Energy_FUEL[Run] + Fossil_energy_coal.Secondary_Fossil_Energy_Output[Run] + Fossil_energy_gas.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[Run] + Fossil_energy_gas.Fossil_Fuel_Extraction_Carbon[Run] + Fossil_energy_gas.Primary_Fossil_Energy_FUEL[Run] + Fossil_energy_gas.Secondary_Fossil_Energy_Output[Run] + Fossil_energy_oil.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[Run] + Fossil_energy_oil.Fossil_Fuel_Extraction_Carbon[Run] + Fossil_energy_oil.Primary_Fossil_Energy_FUEL[Run] + Fossil_energy_oil.Secondary_Fossil_Energy_Output[Run] + Fossil_energy.conversion_efficiency_of_fossil_fuels_to_secondary_fossil_energy[Run] + Fossil_energy.Primary_Fossil_Energy_FUEL[Run] + Fossil_energy.Secondary_Fossil_Energy_Output[Run] + Freshwater.agricultural_water_withdrawal[Run] + Freshwater.available_water_supply[Run] + Freshwater.fraction_of_water_withdrawal_for_agriculture[Run] + Freshwater.irrigated_cropland[Run] + Freshwater.non_agricultural_water_withdrawl[Run] + Freshwater.total_water_withdrawal[Run] + GDP.future_recession_counter[Run] + GDP.future_time_in_recession[Run] + GDP.nominal_GDP_growth_rate[Run] + GDP.Nominal_GDP[Run] + GDP.&quot;owner_consumption_in_2021c$&quot;[Run] + GDP.&quot;private_investment_in_in_2021c$&quot;[Run] + GDP.&quot;public_investment_in_2021c$&quot;[Run] + GDP.real_GDP_growth_rate[Run] + GDP.&quot;Real_GDP_in_2021c$&quot;[Run] + GDP.&quot;worker_consumption_excluding_transfers_in_2021c$&quot;[Run,Income_Group] + Government.debt_to_GDP_ratio[Run] + Government.government_consumption[Run] + Government.&quot;government_spending_because_of_climate_in_2021c$&quot;[Run] + Government.&quot;government_spending_without_climate_impact_in_2021c$&quot;[Run] + Government.public_expenditure[Run] + Government.total_public_tax_income[Run] + Grass.grassland_net_primary_production[Run] + Hydropower_energy.Hydropower_Energy_Capacity[Run] + Hydropower_energy.Hydropower_Energy_Output[Run] + Hydropower_energy.Hydropower_Installation_Costs[Run] + Inflation.agriculture_percentage_of_GDP[Run] + Inflation.gdp_difference[Run] + Inflation.Inflation_Rate[Run] + Inflation.Inflation_Index[Run] + Land_Nutrients.man_made_fertilizer_use[Run] + Land_Nutrients.manure_fertilizer_use[Run] + Land_Use.Cropland[Run] + Land_Use.Degraded_Land[Run] + Land_Use.Forest_Land[Run] + Land_Use.Grassland[Run] + Land_Use.Mature_Forest[Run] + Land_Use.Young_Forest[Run] + N2O_Forcing.Atmospheric_N2O_Concentration[Run] + N2O_Forcing.N2O_Effective_Radiative_Forcing[Run] + Nuclear_energy.Nuclear_Energy_Capacity[Run] + Nuclear_energy.Nuclear_Energy_Output[Run] + Nuclear_energy.Nuclear_Installation_Costs[Run] + Ocean.Air_sea_co2_flux[Run] + Ocean.Cold_surface_ocean_pH[Run] + Ocean.Warm_surface_ocean_pH[Run] + Renewable_energy.Renewable_Energy_Output[Run] + Renewable_energy.Total_Renewable_Energy_Capacity[Run] + Sea_level_rise_costs_and_impacts.Productivity_reduction_factor_from_coastal_flooding[Run] + Sea_level_rise_costs_and_impacts.Total_fatalities_due_to_coastal_floods[Run] + Sea_level_rise_costs_and_impacts.Total_nominal_loss_of_assets_from_SLR[Run] + Sea_level_rise_costs_and_impacts.Total_nominal_people_retreat_costs[Run] + Sea_level_rise_costs_and_impacts.Total_nominal_SLR_protection_cost[Run] + Sea_level_rise_costs_and_impacts.Total_number_of_people_flooded[Run] + Sea_Level.Land_water_storage_from_water_impoundment[Run] + Sea_Level.Sea_level_anomaly_from_Antarctic_Ice_Sheet[Run] + Sea_Level.Sea_level_anomaly_from_Greenland_Ice_Sheet[Run] + Sea_Level.Sea_level_anomaly_from_LWS[Run] + Sea_Level.Sea_level_anomaly_from_mountain_glaciers[Run] + Sea_Level.Sea_level_anomaly_from_thermal_expansion[Run] + Sea_Level.Total_global_sea_level_anomaly[Run] + Solar_energy.Installation_Cost_of_Solar_capacity[Run] + Solar_energy.Solar_Energy_Capacity[Run] + Solar_energy.Solar_Energy_Output[Run] + Terrestrial_Carbon_Balance.Annual_carbon_uptake_in_peatlands[Run] + Terrestrial_Carbon_Balance.deforestation_carbon_loss[Run] + Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake[Run] + Terrestrial_Carbon_Balance.Terrestrial_carbon_balance[Run] + Terrestrial_Carbon_Balance.Terrestrial_net_primary_production[Run] + Total_Food_Demand.Desired_Demand_from_Accessibility[Run] + Total_Food_Demand.desired_demand_from_descriptive_norm[Run] + Total_Food_Demand.desired_demand_from_personal_norm[Run] + Total_Food_Demand.perceived_consumption_risk[Run] + Total_Food_Demand.Perceived_Social_Value[Run] + Total_Food_Demand.weight_of_accessibility[Run] + Wind_energy.Installation_Cost_of_Wind_capacity[Run] + Wind_energy.Wind_Energy_Capacity[Run] + Wind_energy.Wind_Energy_Output[Run] + Biosphere_Indicators.HANPP_as_fraction_of_Holocene_net_primary_production[Run] + Biosphere_Indicators.Fraction_forest_removed[Run] + Biosphere_Indicators.Maximum_amount_of_consumptive_blue_water_use[Run] + Biosphere_Indicators.Intentionally_fixed_N_applied_to_the_agricultural_system[Run] + Biosphere_Indicators.P_flow_from_fertilizers_to_erodible_soils[Run]</eqn>
 			</isee:placeholder>
-			<module name="Good life\nindicators" isee:label="">
+			<module name="Good life\nindicators" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Clean_water_access.Fertilizer_use" from="Land_Nutrients.Fertilizer_use"/>
 				<connect2 to="Clean_water_access.Fertilizer_use" from="Land_Nutrients.Fertilizer_use"/>
@@ -4181,6 +4190,8 @@ This is what determines when the model stops calculating</doc>
 				<connect2 to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
 				<connect to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
 				<connect2 to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect to='Income_Inequality."gross_income_in_2021c$_2"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect2 to='Income_Inequality."gross_income_in_2021c$_2"' from='Circular_Flow."gross_income_in_2021c$"'/>
 				<connect to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
 				<connect2 to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
 				<connect to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
@@ -4197,12 +4208,18 @@ This is what determines when the model stops calculating</doc>
 				<connect2 to="Income_Inequality.Population" from="Demographics.Population"/>
 				<connect to="Income_Inequality.Population_1" from="Demographics.Population"/>
 				<connect2 to="Income_Inequality.Population_1" from="Demographics.Population"/>
+				<connect to="Income_Inequality.Population_2" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population_2" from="Demographics.Population"/>
 				<connect to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
+				<connect2 to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
 				<connect2 to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
+				<connect to="Income_Inequality.unemployment_rate_1" from="Employment.unemployment_rate"/>
+				<connect2 to="Income_Inequality.unemployment_rate_1" from="Employment.unemployment_rate"/>
 				<connect to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect2 to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
@@ -4275,7 +4292,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:scroll_x="127" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5185,7 +5202,7 @@ Lorem ipsum dolor sit amet</text_box>
 	</model>
 	<model name="Good_life_indicators">
 		<variables>
-			<module name="Poverty" isee:label="">
+			<module name="Poverty" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Poverty.bottom_40_income" from="Circular_Flow.bottom_40_income"/>
 				<connect2 to="Poverty.bottom_40_income" from="Circular_Flow.bottom_40_income"/>
@@ -5206,7 +5223,7 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect to="Poverty.UNIT_p_per_mp" from="Demographics.UNIT_p_per_mp"/>
 				<connect2 to="Poverty.UNIT_p_per_mp" from="Demographics.UNIT_p_per_mp"/>
 			</module>
-			<module name="Hunger" isee:label="">
+			<module name="Hunger" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Hunger.average_daily_demand_per_capita_1" from="Total_Food_Demand.average_daily_demand_per_capita"/>
 				<connect2 to="Hunger.average_daily_demand_per_capita_1" from="Total_Food_Demand.average_daily_demand_per_capita"/>
@@ -5217,14 +5234,14 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect to="Hunger.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
 				<connect2 to="Hunger.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
 			</module>
-			<module name="Health" isee:label="">
+			<module name="Health" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to='Health."0_death_rate"' from='Demographics."0_death_rate"'/>
 				<connect2 to='Health."0_death_rate"' from='Demographics."0_death_rate"'/>
 				<connect to='Health."1_to_20_death_rate"' from='Demographics."1_to_20_death_rate"'/>
 				<connect2 to='Health."1_to_20_death_rate"' from='Demographics."1_to_20_death_rate"'/>
 			</module>
-			<module name="Clean\nwater\naccess" isee:label="">
+			<module name="Clean\nwater\naccess" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Clean_water_access.Fertilizer_use" from="Land_Nutrients.Fertilizer_use"/>
 				<connect2 to="Clean_water_access.Fertilizer_use" from="Land_Nutrients.Fertilizer_use"/>
@@ -5233,7 +5250,7 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect to="Clean_water_access.real_GDP_per_person_1" from="Freshwater.real_GDP_per_person"/>
 				<connect2 to="Clean_water_access.real_GDP_per_person_1" from="Freshwater.real_GDP_per_person"/>
 			</module>
-			<module name="Energy\naccess" isee:label="">
+			<module name="Energy\naccess" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Energy_access.energy_demand_for_Buildings_per_person" from="Energy_demand.energy_demand_for_Buildings_per_person"/>
 				<connect2 to="Energy_access.energy_demand_for_Buildings_per_person" from="Energy_demand.energy_demand_for_Buildings_per_person"/>
@@ -5242,20 +5259,20 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect to="Energy_access.energy_demand_for_Transport_per_person" from="Energy_demand.energy_demand_for_Transport_per_person"/>
 				<connect2 to="Energy_access.energy_demand_for_Transport_per_person" from="Energy_demand.energy_demand_for_Transport_per_person"/>
 			</module>
-			<module name="Econ\ngrowth" isee:label="">
+			<module name="Econ\ngrowth" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 			</module>
-			<module name="Decent\nwork" isee:label="">
+			<module name="Decent\nwork" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 			</module>
-			<module name="Housing" isee:label="">
+			<module name="Housing" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Housing.actual_useful_floor_area" from="Concrete.actual_useful_floor_area"/>
 				<connect2 to="Housing.actual_useful_floor_area" from="Concrete.actual_useful_floor_area"/>
 				<connect to="Housing.Population" from="Demographics.Population"/>
 				<connect2 to="Housing.Population" from="Demographics.Population"/>
 			</module>
-			<module name="Income\nInequality" isee:label="">
+			<module name="Income\nInequality" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
 				<connect2 to="Income_Inequality.bank_profits" from="Circular_Flow.bank_profits"/>
@@ -5263,6 +5280,8 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect2 to="Income_Inequality.gross_income" from="Circular_Flow.gross_income"/>
 				<connect to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
 				<connect2 to='Income_Inequality."Gross_income_in_2021c$_1"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect to='Income_Inequality."gross_income_in_2021c$_2"' from='Circular_Flow."gross_income_in_2021c$"'/>
+				<connect2 to='Income_Inequality."gross_income_in_2021c$_2"' from='Circular_Flow."gross_income_in_2021c$"'/>
 				<connect to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
 				<connect2 to="Income_Inequality.gross_owner_income" from="Circular_Flow.gross_owner_income"/>
 				<connect to="Income_Inequality.gross_worker_income" from="Circular_Flow.gross_worker_income"/>
@@ -5279,12 +5298,18 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect2 to="Income_Inequality.Population" from="Demographics.Population"/>
 				<connect to="Income_Inequality.Population_1" from="Demographics.Population"/>
 				<connect2 to="Income_Inequality.Population_1" from="Demographics.Population"/>
+				<connect to="Income_Inequality.Population_2" from="Demographics.Population"/>
+				<connect2 to="Income_Inequality.Population_2" from="Demographics.Population"/>
 				<connect to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
+				<connect2 to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
 				<connect2 to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
+				<connect to="Income_Inequality.unemployment_rate_1" from="Employment.unemployment_rate"/>
+				<connect2 to="Income_Inequality.unemployment_rate_1" from="Employment.unemployment_rate"/>
 				<connect to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect2 to='Income_Inequality."Wage_Rate_in_2021c$"' from='Employment."Wage_Rate_in_2021c$"'/>
 				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
@@ -5391,15 +5416,15 @@ Lorem ipsum dolor sit amet</text_box>
 	</model>
 	<model name="Clean_water_access">
 		<variables>
-			<aux name="MA level 1">
+			<aux name="MA level 1" ai_state="B">
 				<eqn>50</eqn>
 				<units>liter/p/day</units>
 			</aux>
-			<aux name="MA level 2">
+			<aux name="MA level 2" ai_state="B">
 				<eqn>100</eqn>
 				<units>liter/p/day</units>
 			</aux>
-			<aux name="elasticity of\nnon agricultural water withdrawal\nper capita to GDP per person">
+			<aux name="elasticity of\nnon agricultural water withdrawal\nper capita to GDP per person" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: fertilizer use &amp; crop production</doc>
 				<dimensions>
@@ -5411,7 +5436,7 @@ Calibration Parameter: fertilizer use &amp; crop production</doc>
 				<range min="0.01" max="0.5"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="non agricultural water\nwithdrawal 1980">
+			<aux name="non agricultural water\nwithdrawal 1980" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: fertilizer use &amp; crop production</doc>
 				<dimensions>
@@ -5423,7 +5448,7 @@ Calibration Parameter: fertilizer use &amp; crop production</doc>
 				<range min="50000000" max="400000000"/>
 				<units>m^3/Mp/year</units>
 			</aux>
-			<aux name="non agricultural\nwater withdrawal\nper million person">
+			<aux name="non agricultural\nwater withdrawal\nper million person" ai_state="B">
 				<doc>Calibration Parameter: fertilizer use &amp; crop production</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -5433,14 +5458,14 @@ ELSE
 ((real_GDP_per_person_1/INIT(real_GDP_per_person_1))^elasticity_of_non_agricultural_water_withdrawal_per_capita_to_GDP_per_person)*non_agricultural_water_withdrawal_1980</eqn>
 				<units>m^3/Mp/year</units>
 			</aux>
-			<aux name="real GDP per person 1" access="input">
+			<aux name="real GDP per person 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="on agricultural water use policy 1" access="input">
+			<aux name="on agricultural water use policy 1" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<gf>
 					<xscale min="1980" max="2150"/>
@@ -5449,43 +5474,43 @@ ELSE
 				</gf>
 				<units>m^3/Mp/year</units>
 			</aux>
-			<aux name="start">
+			<aux name="start" ai_state="B">
 				<eqn>2024</eqn>
 				<units>Year</units>
 			</aux>
-			<aux name="policy switch non agricultural\nwater use">
+			<aux name="policy switch non agricultural\nwater use" ai_state="B">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="non agricultural\nwater withdrawal\nper person">
+			<aux name="non agricultural\nwater withdrawal\nper person" ai_state="B">
 				<eqn>non_agricultural_water_withdrawal_per_million_person[1]*unit_mp_to_p</eqn>
 				<units>m^3/p/year</units>
 			</aux>
-			<aux name="unit mp to p">
+			<aux name="unit mp to p" ai_state="B">
 				<eqn>1/1000000</eqn>
 				<units>Mp/p</units>
 			</aux>
-			<aux name="unit l to m^3">
+			<aux name="unit l to m^3" ai_state="B">
 				<eqn>0.001</eqn>
 				<units>m^3/liter</units>
 			</aux>
-			<aux name="unit day to year">
+			<aux name="unit day to year" ai_state="B">
 				<eqn>365</eqn>
 				<units>day/year</units>
 			</aux>
-			<aux name="MA clean water level 1">
+			<aux name="MA clean water level 1" ai_state="B">
 				<eqn>MA_level_1*&quot;unit_l_to_m^3&quot;*unit_day_to_year</eqn>
 				<units>m^3/p/year</units>
 			</aux>
-			<aux name="MA clean water level 2">
+			<aux name="MA clean water level 2" ai_state="B">
 				<eqn>MA_level_2*unit_day_to_year*&quot;unit_l_to_m^3&quot;</eqn>
 				<units>m^3/p/year</units>
 			</aux>
-			<aux name="NO3 maximum concentration">
+			<aux name="NO3 maximum concentration" ai_state="B">
 				<eqn>50</eqn>
 				<units>mg/liter</units>
 			</aux>
-			<aux name="Fertilizer use" access="input">
+			<aux name="Fertilizer use" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -5855,44 +5880,44 @@ OR calibration of drinkable water as temporally evolving proportion of available
 	</model>
 	<model name="Energy_access">
 		<variables>
-			<aux name="MA energy level 1">
+			<aux name="MA energy level 1" ai_state="B">
 				<eqn>74.5</eqn>
 				<units>kWh/p/year</units>
 			</aux>
-			<aux name="MA energy level 2">
+			<aux name="MA energy level 2" ai_state="B">
 				<eqn>255</eqn>
 				<units>kWh/p/year</units>
 			</aux>
-			<aux name="energy demand for\nBuildings per person" access="input">
+			<aux name="energy demand for\nBuildings per person" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>MWh/(p*year)</units>
 			</aux>
-			<aux name="energy demand for\nTransport per person" access="input">
+			<aux name="energy demand for\nTransport per person" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>MWh/p/year</units>
 			</aux>
-			<aux name="energy demand for\nIndustry and Other per person" access="input">
+			<aux name="energy demand for\nIndustry and Other per person" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>MWh/(p*year)</units>
 			</aux>
-			<aux name="Energy demand\nbuildings + transport\nper person">
+			<aux name="Energy demand\nbuildings + transport\nper person" ai_state="B">
 				<eqn>(energy_demand_for_Buildings_per_person[1]+energy_demand_for_Transport_per_person[1])*unit_MWh_to_kWh</eqn>
 				<units>kWh/(p*year)</units>
 			</aux>
-			<aux name="Energy demand total\nper person">
+			<aux name="Energy demand total\nper person" ai_state="B">
 				<eqn>(energy_demand_for_Buildings_per_person[1]+energy_demand_for_Transport_per_person[1]+energy_demand_for_Industry_and_Other_per_person[1])*unit_MWh_to_kWh</eqn>
 				<units>kWh/(p*year)</units>
 			</aux>
-			<aux name="unit MWh to kWh">
+			<aux name="unit MWh to kWh" ai_state="B">
 				<eqn>1000</eqn>
 				<units>MWh/kWh</units>
 			</aux>
@@ -5945,7 +5970,7 @@ OR calibration of drinkable water as temporally evolving proportion of available
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="5" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6040,25 +6065,25 @@ OR calibration of drinkable water as temporally evolving proportion of available
 	</model>
 	<model name="Health">
 		<variables>
-			<aux name="0 death\nrate" access="input">
+			<aux name="0 death\nrate" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="1 to 20 death\nrate" access="input">
+			<aux name="1 to 20 death\nrate" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="Desired maximum\nneonatal mortality rate">
+			<aux name="Desired maximum\nneonatal mortality rate" ai_state="B">
 				<eqn>0.012</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Desired maximum\nunder-5 mortality rate">
+			<aux name="Desired maximum\nunder-5 mortality rate" ai_state="B">
 				<eqn>0.025</eqn>
 				<units>dmnl</units>
 			</aux>
@@ -6179,37 +6204,37 @@ Rates from SDGs always expressed as per life births</text_box>
 	</model>
 	<model name="Housing">
 		<variables>
-			<aux name="MA housing level 1">
+			<aux name="MA housing level 1" ai_state="B">
 				<eqn>7</eqn>
 				<units>m^2/p</units>
 			</aux>
-			<aux name="MA housing level 2">
+			<aux name="MA housing level 2" ai_state="B">
 				<eqn>15</eqn>
 				<units>m^2/p</units>
 			</aux>
-			<aux name="actual useful\nfloor area" access="input">
+			<aux name="actual useful\nfloor area" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mm2</units>
 			</aux>
-			<aux name="Population" access="input">
+			<aux name="Population" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="unit Mm2 to m^2">
+			<aux name="unit Mm2 to m^2" ai_state="B">
 				<eqn>1000000</eqn>
 				<units>m^2/Mm2</units>
 			</aux>
-			<aux name="actual useful floor area\nper person">
+			<aux name="actual useful floor area\nper person" ai_state="B">
 				<eqn>actual_useful_floor_area[1]*&quot;unit_Mm2_to_m^2&quot;/(Population[1]*unit_Mp_to_p)</eqn>
 				<units>m^2/p</units>
 			</aux>
-			<aux name="unit Mp to p">
+			<aux name="unit Mp to p" ai_state="B">
 				<eqn>1000000</eqn>
 				<units>p/Mp</units>
 			</aux>
@@ -6341,15 +6366,15 @@ Rates from SDGs always expressed as per life births</text_box>
 	</model>
 	<model name="Hunger">
 		<variables>
-			<aux name="Food MA level 1">
+			<aux name="Food MA level 1" ai_state="B">
 				<eqn>2100</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="Food MA level 2">
+			<aux name="Food MA level 2" ai_state="B">
 				<eqn>2500</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="perceived GDP per person" access="output" isee:autocreated="true">
+			<aux name="perceived GDP per person" ai_state="B" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -6357,7 +6382,7 @@ Rates from SDGs always expressed as per life births</text_box>
 				<isee:delay_aux/>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="time to change crop demand components">
+			<aux name="time to change crop demand components" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -6369,21 +6394,21 @@ Rates from SDGs always expressed as per life births</text_box>
 				<range min="5" max="20"/>
 				<units>years</units>
 			</aux>
-			<aux name="elasticity of food demand\nto GDP per person">
+			<aux name="elasticity of food demand\nto GDP per person" ai_state="B">
 				<doc>${No Sensi}
 This is just for the GDP based demand counterfactual</doc>
 				<eqn>0.256870140176168</eqn>
 				<range min="0" max="2"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="direct food demand\nper person per day 1980">
+			<aux name="direct food demand\nper person per day 1980" ai_state="B">
 				<doc>${No Sensi}
 This is just for the GDP based demand counterfactual</doc>
 				<eqn>2480.82102599208</eqn>
 				<range min="2000" max="3000"/>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="switch use GDP for\nfood demand">
+			<aux name="switch use GDP for\nfood demand" ai_state="B">
 				<doc>${No Sensi}
 </doc>
 				<eqn>0</eqn>
@@ -6391,25 +6416,25 @@ This is just for the GDP based demand counterfactual</doc>
 				<range min="0" max="1"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="average daily\ndemand per capita 1" access="input">
+			<aux name="average daily\ndemand per capita 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>kcal/person/day</units>
 			</aux>
-			<aux name="real GDP per person 1" access="input">
+			<aux name="real GDP per person 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="switch food demand\npolicy" access="input">
+			<aux name="switch food demand\npolicy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="direct food demand\nper person per day" access="output">
+			<aux name="direct food demand\nper person per day" ai_state="B" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -6419,7 +6444,7 @@ direct_food_demand_per_person_per_day_1980*(perceived_GDP_per_person/INIT(percei
 ELSE average_daily_demand_per_capita_1</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="food demand policy 1" access="input">
+			<aux name="food demand policy 1" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<gf>
 					<xscale min="1980" max="2150"/>
@@ -6428,7 +6453,7 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				</gf>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="start">
+			<aux name="start" ai_state="B">
 				<eqn>2024</eqn>
 				<units>Year</units>
 			</aux>
@@ -6590,111 +6615,110 @@ ELSE average_daily_demand_per_capita_1</eqn>
 	</model>
 	<model name="Income_Inequality">
 		<variables>
-			<aux name="income inequality\nhistorical data">
+			<aux name="income inequality\nhistorical data" ai_state="F">
 				<eqn>0</eqn>
+				<units>dmnl</units>
 			</aux>
-			<aux name="relative productivity growth" access="input">
+			<aux name="relative productivity growth" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="unemployment rate" access="input">
+			<aux name="unemployment rate" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="F1">
+			<aux name="F1 old" ai_state="B">
 				<eqn>0.2</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="F2">
+			<aux name="F2 old" ai_state="B">
 				<eqn>0.2</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="E1">
+			<aux name="E1 old" ai_state="B">
 				<eqn>0.2</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="E2">
+			<aux name="E2 old" ai_state="B">
 				<eqn>0.2</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="a 1980 old">
+			<aux name="a 1980 old" ai_state="B">
 				<eqn>0.1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="c 1980">
+			<aux name="c 1980 old" ai_state="B">
 				<eqn>0.1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="a calibration old" access="output" isee:autocreated="true">
+			<aux name="a calibration old" ai_state="B" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>a_1980_old*(relative_productivity_growth^F1)*(Relative_unemployment^F2)</eqn>
+				<eqn>a_1980_old*(relative_productivity_growth^F1_old)*(Relative_unemployment_old^F2_old)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="c calibration">
+			<aux name="c calibration old" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>c_1980*(relative_productivity_growth^E1)*(Relative_unemployment^E2)</eqn>
+				<eqn>c_1980_old*(relative_productivity_growth^E1_old)*(Relative_unemployment_old^E2_old)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Relative unemployment">
+			<aux name="Relative unemployment old" ai_state="F">
 				<eqn>unemployment_rate[1]/INIT(unemployment_rate[1])</eqn>
+				<units>dmnl</units>
 			</aux>
-			<aux name="corr unempl innov">
-				<eqn>0</eqn>
-			</aux>
-			<aux name="non bank profits" access="input">
+			<aux name="non bank profits" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="rent" access="input">
+			<aux name="rent" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="bank profits" access="input">
+			<aux name="bank profits" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>B$/year</units>
 			</aux>
-			<aux name="owner savings interest" access="input">
+			<aux name="owner savings interest" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>B$/year</units>
 			</aux>
-			<aux name="owner savings interest in 2021c$" access="input">
+			<aux name="owner savings interest in 2021c$" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="total owner\nincome in 2021c$">
+			<aux name="total owner\nincome in 2021c$" ai_state="B">
 				<eqn>(rent[1]+bank_profits[1]+owner_savings_interest[1]+non_bank_profits[1])/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="total worker\nincome in 2021c$">
+			<aux name="total worker\nincome in 2021c$" ai_state="B">
 				<eqn>((SUM(wages[1,*]))/10)/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="wages" access="input">
+			<aux name="wages" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 					<dim name="Income_Group"/>
@@ -6702,58 +6726,58 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="inflation adjustment b$ per bc$" access="input">
+			<aux name="inflation adjustment b$ per bc$" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/bc$</units>
 			</aux>
-			<aux name="per cap income\nin 2021c$">
+			<aux name="per cap income\nin 2021c$" ai_state="B">
 				<eqn>&quot;unit_bc$/Mp_to_c$/p&quot;*(&quot;total_owner_income_in_2021c$&quot;+&quot;total_worker_income_in_2021c$&quot;)/Population[1]</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="Population" access="input">
+			<aux name="Population" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="unit bc$/Mp to c$/p">
+			<aux name="unit bc$/Mp to c$/p" ai_state="F">
 				<eqn>1000</eqn>
 				<units>(c$/p)/(bc$/Mp)</units>
 			</aux>
-			<aux name="per cap worker\nincome in 2021c$">
+			<aux name="per cap worker\nincome in 2021c$" ai_state="B">
 				<eqn>&quot;unit_bc$/Mp_to_c$/p&quot;*&quot;total_worker_income_in_2021c$&quot;/Population[1]</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="Wage Rate in 2021c$" access="input">
+			<aux name="Wage Rate in 2021c$" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>c$/Person</units>
 			</aux>
-			<aux name="Gross income\nin 2021c$ 1" access="input">
+			<aux name="Gross income\nin 2021c$ 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="total income\nin 2021c$">
+			<aux name="total income\nin 2021c$" ai_state="B">
 				<eqn>&quot;total_owner_income_in_2021c$&quot;+&quot;total_worker_income_in_2021c$&quot;</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="gross owner income" access="input">
+			<aux name="gross owner income" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="gross worker income" access="input">
+			<aux name="gross worker income" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 					<dim name="Income_Group"/>
@@ -6761,78 +6785,207 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="Gross owner income\nin 2021c$">
+			<aux name="Gross owner income\nin 2021c$" ai_state="B">
 				<eqn>gross_owner_income[1]/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="Gross worker income\nin 2021c$">
+			<aux name="Gross worker income\nin 2021c$" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>SUM(gross_worker_income[1,*])/SIZE(Income_Group)/&quot;inflation_adjustment_b$_per_bc$&quot;[1]</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="gross income" access="input">
+			<aux name="gross income" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="Population 1" access="input">
+			<aux name="Population 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="Gross income\nin 2021c$">
+			<aux name="Gross income\nin 2021c$" ai_state="B">
 				<eqn>&quot;Gross_owner_income_in_2021c$&quot;+&quot;Gross_worker_income_in_2021c$&quot;[1]</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="Gross per cap\nincome in 2021c$">
+			<aux name="Gross per cap\nincome in 2021c$" ai_state="B">
 				<eqn>&quot;unit_bc$/Mp_to_c$/p&quot;*&quot;Gross_income_in_2021c$&quot;/Population_1[1]</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="a 1980">
+			<aux name="a 1980" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>2.619037</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="q 1980">
+			<aux name="q 1980" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>0.714531</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="p 1980">
+			<aux name="p 1980" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>0.178631</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="a calibration">
+			<aux name="wage shape a" ai_state="G">
+				<doc>GB2 shape parameter a (overall dispersion). Wage = b*w^(1/a) with w ~ Beta-prime(p,q). Source: gb2_income_inequality_calibration.csv (1981-2023), interpolated linearly between years and held at the end values outside them.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
+				<eqn>a_1980*relative_productivity_growth_1^F1*rel_unemployment^F2</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="wage shape p" ai_state="G">
+				<doc>GB2 shape parameter p (lower tail; density ~ x^(a*p-1) near 0). The quantile method is tested for p in [0.04, 0.2]. Source: gb2_income_inequality_calibration.csv (1981-2023), interpolated linearly between years and held at the end values outside them.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>p_1980*relative_productivity_growth_1^E1*rel_unemployment^E2</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="wage shape q" ai_state="G">
+				<doc>GB2 shape parameter q (upper Pareto tail; tail index = a*q, must exceed 1 for a finite mean). The quantile method is tested for q in [0.15, 0.8]. Source: gb2_income_inequality_calibration.csv (1981-2023), interpolated linearly between years and held at the end values outside them.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>q_1980*relative_productivity_growth_1^D1*rel_unemployment^D2</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="percentile fraction" ai_state="G">
+				<doc>Cumulative probability u at each reported income percentile: P1=0.01, P4=0.04, P10=0.10, P20=0.20, P50=0.50, P90=0.90. P100 uses highest percentile evaluated because the 100th percentile of a GB2 is infinite.</doc>
+				<dimensions>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.1</eqn>
+				</element>
+				<units>dimensionless</units>
+			</aux>
+			<module name="MGB2" isee:label="" ai_state="G">
+				<format scale_by="auto"/>
+				<connect to="Income_Inequality.wage_rate_by_percentile" from="MGB2.wage_rate_by_percentile"/>
+				<connect2 to="wage_rate_by_percentile" from="MGB2.wage_rate_by_percentile"/>
+				<connect to='MGB2."per_capita_total_income_in_2021c$"' from='Income_Inequality."per_capita_total_income_in_2021c$"'/>
+				<connect2 to='MGB2."per_capita_total_income_in_2021c$"' from='"per_capita_total_income_in_2021c$"'/>
+				<connect to="MGB2.percentile_fraction" from="Income_Inequality.percentile_fraction"/>
+				<connect2 to="MGB2.percentile_fraction" from="percentile_fraction"/>
+				<connect to="MGB2.wage_shape_a" from="Income_Inequality.wage_shape_a"/>
+				<connect2 to="MGB2.wage_shape_a" from="wage_shape_a"/>
+				<connect to="MGB2.wage_shape_p" from="Income_Inequality.wage_shape_p"/>
+				<connect2 to="MGB2.wage_shape_p" from="wage_shape_p"/>
+				<connect to="MGB2.wage_shape_q" from="Income_Inequality.wage_shape_q"/>
+				<connect2 to="MGB2.wage_shape_q" from="wage_shape_q"/>
+			</module>
+			<aux name="wage rate by percentile" ai_state="G" access="input">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="unemployment rate 1" ai_state="F" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="rel unemployment" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>unemployment_rate_1[1]/INIT(unemployment_rate_1[1])</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="relative productivity growth 1" ai_state="F" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="gross income in 2021c$ 2" ai_state="F" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>bc$/year</units>
+			</aux>
+			<aux name="Population 2" ai_state="F" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mp</units>
+			</aux>
+			<aux name="per capita total income\nin 2021c$" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>&quot;unit_bc$/Mp_to_c$/p&quot;*&quot;gross_income_in_2021c$_2&quot;[1]/Population_2[1]</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="F1" ai_state="F">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="p calibration">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
+			<aux name="F2" ai_state="F">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="q calibration">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
+			<aux name="E1" ai_state="F">
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="E2" ai_state="F">
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="D1" ai_state="F">
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="D2" ai_state="F">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
@@ -6885,7 +7038,7 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="790" isee:scroll_y="38" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="1230" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6926,18 +7079,18 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<aux x="77.7031" y="44.9297" name="income inequality\nhistorical data"/>
 				<aux font_style="italic" font_weight="bold" x="161.726" y="352.945" name="relative productivity growth"/>
 				<aux font_style="italic" font_weight="bold" x="199.594" y="174.403" name="unemployment rate"/>
-				<aux x="523.844" y="249.281" name="F1"/>
-				<aux x="608.84" y="254.156" name="F2"/>
-				<aux x="529.164" y="345.98" name="E1"/>
-				<aux x="611.906" y="345.98" name="E2"/>
+				<aux x="523.844" y="249.281" name="F1 old"/>
+				<aux x="608.84" y="254.156" name="F2 old"/>
+				<aux x="529.164" y="345.98" name="E1 old"/>
+				<aux x="611.906" y="345.98" name="E2 old"/>
 				<aux x="443.254" y="249.281" name="a 1980 old"/>
-				<aux x="443.254" y="334.945" name="c 1980"/>
+				<aux x="443.254" y="334.945" name="c 1980 old"/>
 				<aux x="332.711" y="249.281" name="a calibration old"/>
-				<aux x="337.824" y="345.98" name="c calibration"/>
-				<aux x="169.289" y="254.156" name="Relative unemployment"/>
+				<aux x="337.824" y="345.98" name="c calibration old"/>
+				<aux x="169.289" y="254.156" name="Relative unemployment old"/>
 				<connector uid="1" angle="237.606">
 					<from>unemployment_rate</from>
-					<to>Relative_unemployment</to>
+					<to>Relative_unemployment_old</to>
 				</connector>
 				<text_box uid="2" x="307.637" y="119.625" width="402.648" height="58">a(t) = a_1980 * rel_innovation^F1 * rel_unempl^F2
 c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
@@ -6948,11 +7101,10 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 							<entity name="Circular_Flow.relative_productivity_growth[*]"/>
 						</plot>
 						<plot color="red" isee:keep_zero_visible="true" pen_width="1" index="1" show_y_axis="true">
-							<entity name="Relative_unemployment"/>
+							<entity name="Relative_unemployment_old"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<aux x="776.574" y="84.6758" name="corr unempl innov"/>
 				<aux font_style="italic" font_weight="bold" x="95.7031" y="622.195" name="non bank profits"/>
 				<aux font_style="italic" font_weight="bold" x="91.9922" y="699.077" name="rent"/>
 				<aux font_style="italic" font_weight="bold" x="84.5264" y="784.175" name="bank profits"/>
@@ -7092,36 +7244,36 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 					<to>a_calibration_old</to>
 				</connector>
 				<connector uid="39" angle="178.313">
-					<from>c_1980</from>
-					<to>c_calibration</to>
+					<from>c_1980_old</from>
+					<to>c_calibration_old</to>
 				</connector>
 				<connector uid="40" angle="152.933">
-					<from>F1</from>
+					<from>F1_old</from>
 					<to>a_calibration_old</to>
 				</connector>
 				<connector uid="41" angle="153.615">
-					<from>F2</from>
+					<from>F2_old</from>
 					<to>a_calibration_old</to>
 				</connector>
 				<connector uid="42" angle="197.991">
-					<from>E1</from>
-					<to>c_calibration</to>
+					<from>E1_old</from>
+					<to>c_calibration_old</to>
 				</connector>
 				<connector uid="43" angle="207.1">
-					<from>E2</from>
-					<to>c_calibration</to>
+					<from>E2_old</from>
+					<to>c_calibration_old</to>
 				</connector>
 				<connector uid="44" angle="40.5096">
-					<from>Relative_unemployment</from>
+					<from>Relative_unemployment_old</from>
 					<to>a_calibration_old</to>
 				</connector>
 				<connector uid="45" angle="338.727">
-					<from>Relative_unemployment</from>
-					<to>c_calibration</to>
+					<from>Relative_unemployment_old</from>
+					<to>c_calibration_old</to>
 				</connector>
 				<connector uid="46" angle="331.192">
 					<from>relative_productivity_growth</from>
-					<to>c_calibration</to>
+					<to>c_calibration_old</to>
 				</connector>
 				<connector uid="47" angle="34.7444">
 					<from>relative_productivity_growth</from>
@@ -7144,22 +7296,715 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 				</connector>
 				<text_box uid="52" x="260.164" y="74.918" width="260" height="26.0352">EXPONENTIAL FIT</text_box>
 				<text_box uid="53" x="1418.93" y="128.785" width="260" height="58">Generalized beta of the second kind (GB2) fit</text_box>
-				<aux x="1507.3" y="233.434" name="a 1980"/>
-				<aux x="1613.01" y="233.434" name="q 1980"/>
-				<aux x="1555.59" y="233.434" name="p 1980"/>
-				<aux x="1443.53" y="326.68" name="a calibration"/>
-				<aux x="1439.57" y="401.566" name="p calibration"/>
-				<aux x="1436" y="475.699" name="q calibration"/>
+				<aux x="1696.47" y="218.514" name="a 1980"/>
+				<aux x="2039.33" y="248.623" name="q 1980"/>
+				<aux x="1860.97" y="243.682" name="p 1980"/>
+				<aux x="1753.53" y="318.571" name="wage shape a"/>
+				<aux x="1905.77" y="318.571" name="wage shape p"/>
+				<aux x="2085.48" y="322.366" name="wage shape q"/>
+				<aux x="1759.88" y="547.414" name="percentile fraction"/>
+				<module x="1909.11" y="517.715" name="MGB2"/>
+				<connector uid="55" angle="332.999" isee:autocreated="true">
+					<from>wage_shape_a</from>
+					<to>MGB2</to>
+				</connector>
+				<connector uid="56" angle="270.962" isee:autocreated="true">
+					<from>wage_shape_p</from>
+					<to>MGB2</to>
+				</connector>
+				<connector uid="57" angle="252.923" isee:autocreated="true">
+					<from>wage_shape_q</from>
+					<to>MGB2</to>
+				</connector>
+				<connector uid="59" angle="36.256" isee:autocreated="true">
+					<from>percentile_fraction</from>
+					<to>MGB2</to>
+				</connector>
+				<aux x="2085.48" y="606.223" name="wage rate by percentile"/>
+				<connector uid="60" angle="358.352" isee:autocreated="true">
+					<from>MGB2</from>
+					<to>wage_rate_by_percentile</to>
+				</connector>
+				<text_box uid="64" x="1798.48" y="81.084" width="450.273" height="58">a(t) = a_1980 * rel_innovation^F1 * rel_unempl^F2
+p(t) = p_1980 * rel_innovation^E1 * rel_unempl^E2
+q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
+				<aux font_style="italic" font_weight="bold" x="1687.85" y="488.872" name="unemployment rate 1"/>
+				<aux x="1771.53" y="394.839" name="rel unemployment"/>
+				<connector uid="65" angle="15.5253">
+					<from>unemployment_rate_1</from>
+					<to>rel_unemployment</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1669.85" y="388.156" name="relative productivity growth 1"/>
+				<aux font_style="italic" font_weight="bold" x="2255.14" y="421.13" name="gross income in 2021c$ 2"/>
+				<aux font_style="italic" font_weight="bold" x="2255.14" y="488.872" name="Population 2"/>
+				<aux x="2108.38" y="491.884" name="per capita total income\nin 2021c$"/>
+				<connector uid="66" angle="226.258">
+					<from>&quot;gross_income_in_2021c$_2&quot;</from>
+					<to>&quot;per_capita_total_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="67" angle="181.176">
+					<from>Population_2</from>
+					<to>&quot;per_capita_total_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="68" angle="105.52">
+					<from>
+						<alias uid="69"/>
+					</from>
+					<to>&quot;per_capita_total_income_in_2021c$&quot;</to>
+				</connector>
+				<connector uid="70" angle="202.815">
+					<from>&quot;per_capita_total_income_in_2021c$&quot;</from>
+					<to>MGB2</to>
+				</connector>
+				<aux x="1748.67" y="222.535" name="F1"/>
+				<aux x="1802.46" y="222.535" name="F2"/>
+				<aux x="1909.11" y="243.682" name="E1"/>
+				<aux x="1951.61" y="243.682" name="E2"/>
+				<aux x="2085.48" y="248.623" name="D1"/>
+				<aux x="2153.62" y="248.623" name="D2"/>
+				<connector uid="71" angle="286.523">
+					<from>a_1980</from>
+					<to>wage_shape_a</to>
+				</connector>
+				<connector uid="72" angle="277.694">
+					<from>F1</from>
+					<to>wage_shape_a</to>
+				</connector>
+				<connector uid="73" angle="280.466">
+					<from>F2</from>
+					<to>wage_shape_a</to>
+				</connector>
+				<connector uid="74" angle="268.486">
+					<from>p_1980</from>
+					<to>wage_shape_p</to>
+				</connector>
+				<connector uid="75" angle="275.221">
+					<from>E1</from>
+					<to>wage_shape_p</to>
+				</connector>
+				<connector uid="76" angle="277.5">
+					<from>E2</from>
+					<to>wage_shape_p</to>
+				</connector>
+				<connector uid="77" angle="288.542">
+					<from>q_1980</from>
+					<to>wage_shape_q</to>
+				</connector>
+				<connector uid="78" angle="271.631">
+					<from>D1</from>
+					<to>wage_shape_q</to>
+				</connector>
+				<connector uid="79" angle="261.246">
+					<from>D2</from>
+					<to>wage_shape_q</to>
+				</connector>
+				<connector uid="80" angle="26.1189">
+					<from>relative_productivity_growth_1</from>
+					<to>wage_shape_a</to>
+				</connector>
+				<connector uid="81" angle="348.752">
+					<from>relative_productivity_growth_1</from>
+					<to>wage_shape_p</to>
+				</connector>
+				<connector uid="82" angle="6.61246">
+					<from>relative_productivity_growth_1</from>
+					<to>wage_shape_q</to>
+				</connector>
+				<connector uid="83" angle="85.9471">
+					<from>rel_unemployment</from>
+					<to>wage_shape_a</to>
+				</connector>
+				<connector uid="84" angle="337.01">
+					<from>rel_unemployment</from>
+					<to>wage_shape_p</to>
+				</connector>
+				<connector uid="85" angle="2.57548">
+					<from>rel_unemployment</from>
+					<to>wage_shape_q</to>
+				</connector>
 				<alias color="blue" background="white" font_style="italic" uid="50" x="153.199" y="1321.53" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>&quot;unit_bc$/Mp_to_c$/p&quot;</of>
+				</alias>
+				<alias font_style="italic" uid="69" x="2248.75" y="591.996" width="18" height="18">
+					<of>&quot;unit_bc$/Mp_to_c$/p&quot;</of>
+				</alias>
+			</view>
+		</views>
+	</model>
+	<model name="MGB2">
+		<variables>
+			<aux name="scale b" ai_state="G">
+				<doc>GB2 scale parameter b, from mean = b*B(p+1/a, q-1/a)/B(p,q) inverted so the distribution mean equals average wage rate.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>&quot;per_capita_total_income_in_2021c$&quot; * EXP(GAMMALN(wage_shape_p) + GAMMALN(wage_shape_q) - GAMMALN(wage_shape_p + 1/wage_shape_a) - GAMMALN(wage_shape_q - 1/wage_shape_a))</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="ln beta function pq" ai_state="C">
+				<doc>ln B(p,q), the log normalizing constant of the Beta(p,q) density.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>GAMMALN(wage_shape_p[Run]) + GAMMALN(wage_shape_q[Run]) - GAMMALN(wage_shape_p[Run] + wage_shape_q[Run])</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="lower tail guess weight" ai_state="C">
+				<doc>Weight t of the power-law approximation I_z ~ z^p/p used for the starting guess (Numerical Recipes invbetai, for p or q &lt; 1).</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(wage_shape_p[Run]/(wage_shape_p[Run] + wage_shape_q[Run]))^wage_shape_p[Run] / wage_shape_p[Run]</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="upper tail guess weight" ai_state="C">
+				<doc>Weight v of the power-law approximation 1 - I_z ~ (1-z)^q/q used for the starting guess.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(wage_shape_q[Run]/(wage_shape_p[Run] + wage_shape_q[Run]))^wage_shape_q[Run] / wage_shape_q[Run]</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="continued fraction switch point" ai_state="C">
+				<doc>Below this z the continued fraction for I_z(p,q) converges fast; above it the upper tail I_(1-z)(q,p) is computed directly instead.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(wage_shape_p[Run] + 1)/(wage_shape_p[Run] + wage_shape_q[Run] + 2)</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="initial log odds guess" ai_state="C">
+				<doc>Starting value of the log-odds L = ln(z/(1-z)) of the Beta(p,q) quantile, from the power-law tail approximations: z = (u*(t+v)*p)^(1/p) in the lower part, 1-z = ((1-u)*(t+v)*q)^(1/q) in the upper part.</doc>
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>IF percentile_fraction[Income_Group] &lt; lower_tail_guess_weight[Run]/(lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run]) THEN (LN(percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_p[Run]))/wage_shape_p[Run] - LN(1 - EXP((LN(percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_p[Run]))/wage_shape_p[Run])) ELSE LN(1 - EXP((LN(1 - percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_q[Run]))/wage_shape_q[Run])) - (LN(1 - percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_q[Run]))/wage_shape_q[Run]</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="log odds iterate" ai_state="C">
+				<doc>Newton iterates for the log-odds L of the Beta(p,q) quantile. NEWTON element 1 is the starting guess; each later element is one Newton step on ln(lower tail) (u&lt;0.5) or ln(upper tail) (u&gt;=0.5). The logistic-beta density of L is log-concave, so these log-tail steps converge monotonically. Four steps give about 1e-9 relative error for p in [0.04,0.2], q in [0.15,0.8].</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>IF NEWTON = 1 THEN initial_log_odds_guess[Run,Income_Group] ELSE IF percentile_fraction[Income_Group] &lt; 0.5 THEN SELF[ NEWTON - 1,Run,Income_Group] - LN(lower_tail_probability[ NEWTON - 1,Run,Income_Group]/percentile_fraction[Income_Group]) * lower_tail_probability[ NEWTON - 1,Run,Income_Group] / EXP(log_density_at_iterate[ NEWTON - 1,Run,Income_Group]) ELSE SELF[ NEWTON - 1,Run,Income_Group] + LN(upper_tail_probability[ NEWTON - 1,Run,Income_Group]/(1 - percentile_fraction[Income_Group])) * upper_tail_probability[ NEWTON - 1,Run,Income_Group] / EXP(log_density_at_iterate[ NEWTON -1,Run,Income_Group])</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="beta z at iterate" ai_state="C">
+				<doc>Beta variate z = 1/(1+e^-L) at the current iterate.</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>1/(1 + EXP(-log_odds_iterate))</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="beta one minus z at iterate" ai_state="C">
+				<doc>1 - z computed directly from L so it keeps full precision when z is close to 1.</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>1/(1 + EXP(log_odds_iterate))</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="log density at iterate" ai_state="C">
+				<doc>ln of the density of L: p*ln z + q*ln(1-z) - ln B(p,q). Also the log prefactor of the incomplete-Beta continued fraction.</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>wage_shape_p[Run]*log_odds_iterate[NEWTON,Run,Income_Group] - (wage_shape_p[Run] + wage_shape_q[Run])*LN(1 + EXP(log_odds_iterate[NEWTON,Run,Income_Group])) - ln_beta_function_pq[Run]</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="lower continued fraction" ai_state="C">
+				<doc>10-term continued fraction for I_z(p,q) (Numerical Recipes betacf), written out in nested form so no iteration or array is needed.</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>1/(1+(-(wage_shape_p[Run]+0)*(wage_shape_p[Run]+wage_shape_q[Run]+0)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+0)*(wage_shape_p[Run]+1)))/(1+(1*(wage_shape_q[Run]-1)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+1)*(wage_shape_p[Run]+2)))/(1+(-(wage_shape_p[Run]+1)*(wage_shape_p[Run]+wage_shape_q[Run]+1)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+2)*(wage_shape_p[Run]+3)))/(1+(2*(wage_shape_q[Run]-2)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+3)*(wage_shape_p[Run]+4)))/(1+(-(wage_shape_p[Run]+2)*(wage_shape_p[Run]+wage_shape_q[Run]+2)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+4)*(wage_shape_p[Run]+5)))/(1+(3*(wage_shape_q[Run]-3)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+5)*(wage_shape_p[Run]+6)))/(1+(-(wage_shape_p[Run]+3)*(wage_shape_p[Run]+wage_shape_q[Run]+3)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+6)*(wage_shape_p[Run]+7)))/(1+(4*(wage_shape_q[Run]-4)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+7)*(wage_shape_p[Run]+8)))/(1+(-(wage_shape_p[Run]+4)*(wage_shape_p[Run]+wage_shape_q[Run]+4)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+8)*(wage_shape_p[Run]+9)))/(1+(5*(wage_shape_q[Run]-5)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+9)*(wage_shape_p[Run]+10)))))))))))))</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="upper continued fraction" ai_state="C">
+				<doc>10-term continued fraction for I_(1-z)(q,p), the upper tail, written out in nested form.</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>1/(1+(-(wage_shape_q[Run]+0)*(wage_shape_q[Run]+wage_shape_p[Run]+0)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+0)*(wage_shape_q[Run]+1)))/(1+(1*(wage_shape_p[Run]-1)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+1)*(wage_shape_q[Run]+2)))/(1+(-(wage_shape_q[Run]+1)*(wage_shape_q[Run]+wage_shape_p[Run]+1)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+2)*(wage_shape_q[Run]+3)))/(1+(2*(wage_shape_p[Run]-2)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+3)*(wage_shape_q[Run]+4)))/(1+(-(wage_shape_q[Run]+2)*(wage_shape_q[Run]+wage_shape_p[Run]+2)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+4)*(wage_shape_q[Run]+5)))/(1+(3*(wage_shape_p[Run]-3)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+5)*(wage_shape_q[Run]+6)))/(1+(-(wage_shape_q[Run]+3)*(wage_shape_q[Run]+wage_shape_p[Run]+3)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+6)*(wage_shape_q[Run]+7)))/(1+(4*(wage_shape_p[Run]-4)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+7)*(wage_shape_q[Run]+8)))/(1+(-(wage_shape_q[Run]+4)*(wage_shape_q[Run]+wage_shape_p[Run]+4)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+8)*(wage_shape_q[Run]+9)))/(1+(5*(wage_shape_p[Run]-5)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+9)*(wage_shape_q[Run]+10)))))))))))))</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="lower tail probability" ai_state="C">
+				<doc>Regularized incomplete Beta I_z(p,q) = P(Z &lt;= z) at the current iterate.</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>IF beta_z_at_iterate[NEWTON,Run,Income_Group] &lt; continued_fraction_switch_point[Run] THEN EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_p[Run]*lower_continued_fraction[NEWTON,Run,Income_Group] ELSE 1 - EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_q[Run]*upper_continued_fraction[NEWTON,Run,Income_Group]</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="upper tail probability" ai_state="C">
+				<doc>1 - I_z(p,q) = P(Z &gt; z), computed directly in the upper part so it keeps relative precision in the top tail.</doc>
+				<dimensions>
+					<dim name="NEWTON"/>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>IF beta_z_at_iterate[NEWTON,Run,Income_Group] &lt; continued_fraction_switch_point[Run] THEN 1 - EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_p[Run]*lower_continued_fraction[NEWTON,Run,Income_Group] ELSE EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_q[Run]*upper_continued_fraction[NEWTON,Run,Income_Group]</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="beta quantile log odds" ai_state="C">
+				<doc>Converged log-odds L = ln(z/(1-z)) of the Beta(p,q) quantile at each percentile (last Newton iterate).</doc>
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>log_odds_iterate[5,Run,Income_Group]</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="wage shape a" ai_state="C" access="input">
+				<doc>GB2 shape parameter a (overall dispersion). Wage = b*w^(1/a) with w ~ Beta-prime(p,q). Source: gb2_income_inequality_calibration.csv (1981-2023), interpolated linearly between years and held at the end values outside them.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>TIME</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="wage shape p" ai_state="C" access="input">
+				<doc>GB2 shape parameter p (lower tail; density ~ x^(a*p-1) near 0). The quantile method is tested for p in [0.04, 0.2]. Source: gb2_income_inequality_calibration.csv (1981-2023), interpolated linearly between years and held at the end values outside them.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>TIME</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="wage shape q" ai_state="C" access="input">
+				<doc>GB2 shape parameter q (upper Pareto tail; tail index = a*q, must exceed 1 for a finite mean). The quantile method is tested for q in [0.15, 0.8]. Source: gb2_income_inequality_calibration.csv (1981-2023), interpolated linearly between years and held at the end values outside them.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>TIME</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="percentile fraction" ai_state="C" access="input">
+				<doc>Cumulative probability u at each reported income percentile: P1=0.01, P4=0.04, P10=0.10, P20=0.20, P50=0.50, P90=0.90. P100 uses highest percentile evaluated because the 100th percentile of a GB2 is infinite.</doc>
+				<dimensions>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="wage rate by percentile" ai_state="G" access="output" isee:autocreated="true">
+				<doc>Module output: wage rate at each reported income percentile. GB2(a,b,p,q) quantile x = b*(z/(1-z))^(1/a) = b*EXP(L/a), with L the log-odds of the Beta(p,q) quantile. Working in L avoids underflow when p is small.</doc>
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="Income_Group"/>
+				</dimensions>
+				<eqn>scale_b[Run] * EXP(beta_quantile_log_odds/wage_shape_a[Run])</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="per capita total income\nin 2021c$" ai_state="F" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>c$/person/year</units>
+			</aux>
+		</variables>
+		<views>
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
+						<shape type="rectangle" width="45" height="35"/>
+					</stock>
+					<flow color="blue" background="white" font_color="blue" font_size="9pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</flow>
+					<isee:placeholder color="#228B22" background="white" font_color="#228B22" font_size="9pt" label_side="bottom"/>
+					<module color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
+						<shape type="rectangle" width="55" height="45"/>
+					</module>
+					<aux color="blue" background="white" font_color="blue" font_size="9pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</aux>
+					<group color="red" background="white" font_color="red" font_size="9pt"/>
+					<connector color="#FF007F" background="white" font_color="#FF007F" font_size="9pt" isee:thickness="1"/>
+					<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+					<isee:loop_indicator color="black" background="white" vertical_text_align="top" font_size="12pt"/>
+					<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+					<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+						<isee:series_styles>
+							<isee:series_style color="blue" thickness="1"/>
+							<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+							<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+							<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+							<isee:series_style color="#FF7F00" thickness="1"/>
+							<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+							<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+							<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+							<isee:series_style color="#FF007F" thickness="1"/>
+							<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+							<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+							<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+							<isee:series_style color="#C8C8C8" thickness="1"/>
+						</isee:series_styles>
+					</graph>
+					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				</style>
+				<aux x="260" y="180" name="scale b"/>
+				<aux x="900" y="245" name="ln beta function pq"/>
+				<aux x="260" y="430" name="lower tail guess weight"/>
+				<aux x="260" y="530" name="upper tail guess weight"/>
+				<aux x="1090" y="340" name="continued fraction switch point"/>
+				<aux x="420" y="590" name="initial log odds guess"/>
+				<aux x="560" y="475" name="log odds iterate"/>
+				<aux x="660" y="385" name="beta z at iterate"/>
+				<aux x="619.98" y="649.656" name="beta one minus z at iterate"/>
+				<aux x="760" y="475" name="log density at iterate"/>
+				<aux x="928.047" y="343.539" name="lower continued fraction"/>
+				<aux x="840" y="570" name="upper continued fraction"/>
+				<aux x="960" y="430" name="lower tail probability"/>
+				<aux x="960" y="520" name="upper tail probability"/>
+				<aux x="420" y="330" name="beta quantile log odds"/>
+				<aux font_style="italic" font_weight="bold" x="110" y="90" name="wage shape a"/>
+				<aux font_style="italic" font_weight="bold" x="110" y="390" name="wage shape p"/>
+				<aux font_style="italic" font_weight="bold" x="110" y="480" name="wage shape q"/>
+				<aux font_style="italic" font_weight="bold" x="110" y="640" name="percentile fraction"/>
+				<connector uid="1" angle="34.1623">
+					<from>percentile_fraction</from>
+					<to>initial_log_odds_guess</to>
+				</connector>
+				<connector uid="2" angle="340">
+					<from>lower_tail_guess_weight</from>
+					<to>initial_log_odds_guess</to>
+				</connector>
+				<connector uid="3" angle="4.44395">
+					<from>upper_tail_guess_weight</from>
+					<to>initial_log_odds_guess</to>
+				</connector>
+				<connector uid="4" angle="344.667">
+					<pts>
+						<pt x="118.68" y="642.38"/>
+						<pt x="420" y="725"/>
+						<pt x="556.579" y="483.324"/>
+					</pts>
+					<from>percentile_fraction</from>
+					<to>log_odds_iterate</to>
+				</connector>
+				<connector uid="5" angle="211.419">
+					<from>lower_tail_probability</from>
+					<to>log_odds_iterate</to>
+				</connector>
+				<connector uid="6" angle="205">
+					<from>log_density_at_iterate</from>
+					<to>log_odds_iterate</to>
+				</connector>
+				<connector uid="7" angle="64.4007">
+					<from>initial_log_odds_guess</from>
+					<to>log_odds_iterate</to>
+				</connector>
+				<connector uid="8" angle="198.581">
+					<from>upper_tail_probability</from>
+					<to>log_odds_iterate</to>
+				</connector>
+				<connector uid="9" angle="66.9872">
+					<from>log_odds_iterate</from>
+					<to>beta_z_at_iterate</to>
+				</connector>
+				<connector uid="10" angle="313.954">
+					<from>log_odds_iterate</from>
+					<to>beta_one_minus_z_at_iterate</to>
+				</connector>
+				<connector uid="11" angle="263.671">
+					<from>ln_beta_function_pq</from>
+					<to>log_density_at_iterate</to>
+				</connector>
+				<connector uid="12" angle="25">
+					<from>log_odds_iterate</from>
+					<to>log_density_at_iterate</to>
+				</connector>
+				<connector uid="13" angle="33.7927">
+					<from>beta_z_at_iterate</from>
+					<to>lower_continued_fraction</to>
+				</connector>
+				<connector uid="14" angle="44.9024">
+					<from>beta_one_minus_z_at_iterate</from>
+					<to>upper_continued_fraction</to>
+				</connector>
+				<connector uid="15" angle="16.4692">
+					<from>beta_z_at_iterate</from>
+					<to>lower_tail_probability</to>
+				</connector>
+				<connector uid="16" angle="37.6804">
+					<from>log_density_at_iterate</from>
+					<to>lower_tail_probability</to>
+				</connector>
+				<connector uid="17" angle="74.3987">
+					<from>upper_continued_fraction</from>
+					<to>lower_tail_probability</to>
+				</connector>
+				<connector uid="18" angle="239.695">
+					<from>continued_fraction_switch_point</from>
+					<to>lower_tail_probability</to>
+				</connector>
+				<connector uid="19" angle="315.283">
+					<from>lower_continued_fraction</from>
+					<to>lower_tail_probability</to>
+				</connector>
+				<connector uid="20" angle="0.772255">
+					<from>beta_z_at_iterate</from>
+					<to>upper_tail_probability</to>
+				</connector>
+				<connector uid="21" angle="12.3196">
+					<from>log_density_at_iterate</from>
+					<to>upper_tail_probability</to>
+				</connector>
+				<connector uid="22" angle="47.6199">
+					<from>upper_continued_fraction</from>
+					<to>upper_tail_probability</to>
+				</connector>
+				<connector uid="23" angle="259.162">
+					<from>continued_fraction_switch_point</from>
+					<to>upper_tail_probability</to>
+				</connector>
+				<connector uid="24" angle="305.264">
+					<from>lower_continued_fraction</from>
+					<to>upper_tail_probability</to>
+				</connector>
+				<connector uid="25" angle="158.995">
+					<from>log_odds_iterate</from>
+					<to>beta_quantile_log_odds</to>
+				</connector>
+				<aux x="420" y="130" name="wage rate by percentile"/>
+				<connector uid="27" angle="295">
+					<from>
+						<alias uid="28"/>
+					</from>
+					<to>scale_b</to>
+				</connector>
+				<connector uid="29" angle="174.036">
+					<from>
+						<alias uid="30"/>
+					</from>
+					<to>scale_b</to>
+				</connector>
+				<connector uid="31" angle="354.036">
+					<from>wage_shape_a</from>
+					<to>scale_b</to>
+				</connector>
+				<connector uid="32" angle="44.0935">
+					<from>
+						<alias uid="33"/>
+					</from>
+					<to>ln_beta_function_pq</to>
+				</connector>
+				<connector uid="34" angle="217.095">
+					<from>
+						<alias uid="35"/>
+					</from>
+					<to>ln_beta_function_pq</to>
+				</connector>
+				<connector uid="36" angle="10.0686">
+					<from>wage_shape_p</from>
+					<to>lower_tail_guess_weight</to>
+				</connector>
+				<connector uid="37" angle="43.4349">
+					<from>wage_shape_q</from>
+					<to>lower_tail_guess_weight</to>
+				</connector>
+				<connector uid="38" angle="341.975">
+					<from>wage_shape_p</from>
+					<to>upper_tail_guess_weight</to>
+				</connector>
+				<connector uid="39" angle="6.56505">
+					<from>wage_shape_q</from>
+					<to>upper_tail_guess_weight</to>
+				</connector>
+				<connector uid="40" angle="16.1193">
+					<from>
+						<alias uid="33"/>
+					</from>
+					<to>continued_fraction_switch_point</to>
+				</connector>
+				<connector uid="41" angle="316.801">
+					<from>
+						<alias uid="35"/>
+					</from>
+					<to>continued_fraction_switch_point</to>
+				</connector>
+				<connector uid="42" angle="66.1859">
+					<from>
+						<alias uid="43"/>
+					</from>
+					<to>initial_log_odds_guess</to>
+				</connector>
+				<connector uid="44" angle="163.814">
+					<from>
+						<alias uid="45"/>
+					</from>
+					<to>initial_log_odds_guess</to>
+				</connector>
+				<connector uid="46" angle="291.906">
+					<from>
+						<alias uid="33"/>
+					</from>
+					<to>log_density_at_iterate</to>
+				</connector>
+				<connector uid="47" angle="119.74">
+					<from>
+						<alias uid="48"/>
+					</from>
+					<to>log_density_at_iterate</to>
+				</connector>
+				<connector uid="49" angle="6.28562">
+					<from>
+						<alias uid="33"/>
+					</from>
+					<to>lower_continued_fraction</to>
+				</connector>
+				<connector uid="50" angle="91.708">
+					<from>
+						<alias uid="48"/>
+					</from>
+					<to>lower_continued_fraction</to>
+				</connector>
+				<connector uid="51" angle="309.036">
+					<from>
+						<alias uid="33"/>
+					</from>
+					<to>upper_continued_fraction</to>
+				</connector>
+				<connector uid="52" angle="88.0745">
+					<from>
+						<alias uid="48"/>
+					</from>
+					<to>upper_continued_fraction</to>
+				</connector>
+				<connector uid="53" angle="348.616">
+					<from>
+						<alias uid="33"/>
+					</from>
+					<to>lower_tail_probability</to>
+				</connector>
+				<connector uid="54" angle="80.2216">
+					<from>
+						<alias uid="48"/>
+					</from>
+					<to>lower_tail_probability</to>
+				</connector>
+				<connector uid="55" angle="334.56">
+					<from>
+						<alias uid="33"/>
+					</from>
+					<to>upper_tail_probability</to>
+				</connector>
+				<connector uid="56" angle="68.3942">
+					<from>
+						<alias uid="48"/>
+					</from>
+					<to>upper_tail_probability</to>
+				</connector>
+				<connector uid="57" angle="115">
+					<from>beta_quantile_log_odds</from>
+					<to>wage_rate_by_percentile</to>
+				</connector>
+				<connector uid="58" angle="42.354">
+					<from>scale_b</from>
+					<to>wage_rate_by_percentile</to>
+				</connector>
+				<connector uid="59" angle="17.6476">
+					<from>wage_shape_a</from>
+					<to>wage_rate_by_percentile</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="122.352" y="215.129" name="per capita total income\nin 2021c$"/>
+				<connector uid="60" angle="2.73319">
+					<from>&quot;per_capita_total_income_in_2021c$&quot;</from>
+					<to>scale_b</to>
+				</connector>
+				<alias font_style="italic" font_weight="bold" uid="33" x="761" y="281" width="18" height="18">
+					<of>wage_shape_p</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="43" x="331" y="651" width="18" height="18">
+					<of>wage_shape_p</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="45" x="491" y="651" width="18" height="18">
+					<of>wage_shape_q</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="28" x="251" y="81" width="18" height="18">
+					<of>wage_shape_p</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="30" x="351" y="231" width="18" height="18">
+					<of>wage_shape_q</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="48" x="769" y="683.074" width="18" height="18">
+					<of>wage_shape_q</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="35" x="1031" y="206" width="18" height="18">
+					<of>wage_shape_q</of>
 				</alias>
 			</view>
 		</views>
 	</model>
 	<model name="Poverty">
 		<variables>
-			<aux name="net worker income" access="input">
+			<aux name="net worker income" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 					<dim name="Income_Group"/>
@@ -7167,96 +8012,96 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="net owner income" access="input">
+			<aux name="net owner income" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="net owner income in 2021c$" access="input">
+			<aux name="net owner income in 2021c$" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="bottom 40\nincome" access="input">
+			<aux name="bottom 40\nincome" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="inflation adjustment b$ per bc$" access="input">
+			<aux name="inflation adjustment b$ per bc$" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/bc$</units>
 			</aux>
-			<aux name="net worker income per capita in 2021c$">
+			<aux name="net worker income per capita in 2021c$" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>((SUM(net_worker_income[Run,*])*&quot;UNIT_c$_per_billion_c$&quot;/&quot;inflation_adjustment_b$_per_bc$&quot;[Run])/(UNIT_p_per_mp*Population[Run]))</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="net owner income per capita in 2021c$">
+			<aux name="net owner income per capita in 2021c$" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>((net_owner_income[Run]*&quot;UNIT_c$_per_billion_c$&quot;/&quot;inflation_adjustment_b$_per_bc$&quot;[Run])/(UNIT_p_per_mp*Population[Run]))</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="Population" access="input">
+			<aux name="Population" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="UNIT c$ per billion c$" access="input">
+			<aux name="UNIT c$ per billion c$" ai_state="B" access="input">
 				<eqn>1000000000</eqn>
 				<units>c$/bc$</units>
 			</aux>
-			<aux name="UNIT p per mp" access="input">
+			<aux name="UNIT p per mp" ai_state="B" access="input">
 				<eqn>1000000</eqn>
 				<units>p/Mp</units>
 			</aux>
-			<aux name="Poverty line">
+			<aux name="Poverty line" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>Poverty_threshold*unit_days_per_year</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="net bottom 40 income\nper capita in 2021c$">
+			<aux name="net bottom 40 income\nper capita in 2021c$" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>bottom_40_income*&quot;UNIT_c$_per_billion_c$&quot;/(UNIT_p_per_mp*Population)</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="net income" access="input">
+			<aux name="net income" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="net income\nper capita in 2021c$">
+			<aux name="net income\nper capita in 2021c$" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>((net_income[1]*&quot;UNIT_c$_per_billion_c$&quot;/&quot;inflation_adjustment_b$_per_bc$&quot;[Run])/(UNIT_p_per_mp*Population[Run]))</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="unit days per year">
+			<aux name="unit days per year" ai_state="B">
 				<eqn>365</eqn>
 				<units>days/year</units>
 			</aux>
-			<aux name="Poverty threshold">
+			<aux name="Poverty threshold" ai_state="B">
 				<eqn>1.25</eqn>
 				<units>c$/person/days</units>
 			</aux>

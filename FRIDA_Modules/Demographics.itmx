@@ -240,7 +240,7 @@
 	</model_units>
 	<model name="Demographics">
 		<variables>
-			<stock name="Aged 20 to 40 years" access="output" isee:autocreated="true">
+			<stock name="Aged 20 to 40 years" ai_state="B" access="output" isee:autocreated="true">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -255,19 +255,19 @@
 				</conveyor>
 				<units>Mp</units>
 			</stock>
-			<aux name="fraction women">
+			<aux name="fraction women" ai_state="B">
 				<doc>${Assumption}
 </doc>
 				<eqn>0.496</eqn>
 				<units>1</units>
 			</aux>
-			<aux name="fertile period">
+			<aux name="fertile period" ai_state="B">
 				<doc>${Assumption}
 Not in the uncertainty analysis because this corresponds to the number of fertile women variable</doc>
 				<eqn>20</eqn>
 				<units>year</units>
 			</aux>
-			<stock name="fertility">
+			<stock name="fertility" ai_state="B">
 				<doc>${Calibrated Output}
 All calibration data of Population sector form:
 
@@ -283,7 +283,7 @@ UN fertility </doc>
 				<inflow>change_in_fertility</inflow>
 				<units>1</units>
 			</stock>
-			<flow name="Passing 60">
+			<flow name="Passing 60" ai_state="B">
 				<doc>${Discrete Outflow}
 </doc>
 				<dimensions>
@@ -293,7 +293,7 @@ UN fertility </doc>
 				<non_negative/>
 				<units>Mp/year</units>
 			</flow>
-			<flow name="Passing 40">
+			<flow name="Passing 40" ai_state="B">
 				<doc>${Discrete Outflow}
 </doc>
 				<dimensions>
@@ -303,7 +303,7 @@ UN fertility </doc>
 				<non_negative/>
 				<units>Mp/year</units>
 			</flow>
-			<flow name="Passing 65" access="output" isee:autocreated="true">
+			<flow name="Passing 65" ai_state="B" access="output" isee:autocreated="true">
 				<doc>${Discrete Outflow}
 </doc>
 				<dimensions>
@@ -313,7 +313,7 @@ UN fertility </doc>
 				<non_negative/>
 				<units>Mp/year</units>
 			</flow>
-			<stock name="Aged 60 to 65 years" access="output" isee:autocreated="true">
+			<stock name="Aged 60 to 65 years" ai_state="B" access="output" isee:autocreated="true">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -328,7 +328,7 @@ UN fertility </doc>
 				</conveyor>
 				<units>Mp</units>
 			</stock>
-			<flow name="Passing 20">
+			<flow name="Passing 20" ai_state="B">
 				<doc>${Discrete Outflow}
 </doc>
 				<dimensions>
@@ -338,7 +338,7 @@ UN fertility </doc>
 				<non_negative/>
 				<units>Mp/year</units>
 			</flow>
-			<stock name="Aged 40 to 60 years" access="output" isee:autocreated="true">
+			<stock name="Aged 40 to 60 years" ai_state="B" access="output" isee:autocreated="true">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -353,7 +353,7 @@ UN fertility </doc>
 				</conveyor>
 				<units>Mp</units>
 			</stock>
-			<flow name="Births">
+			<flow name="Births" ai_state="B">
 				<doc>${Calibrated Output}
 Births are based on a calculated fertility rate, the result of a calibrated balancing power function regression using GDP per person as an input. With rising standards of living and education, birth rates drop exponentially (Callegari &amp; Stoknes, 2023; Kirk, 1996; Lesthaeghe, 2010; Marquez-Ramos and Mourelle, 2019, Proto and Rustichini, 2013). 
 
@@ -374,28 +374,28 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				<non_negative/>
 				<units>Mp/Year</units>
 			</flow>
-			<aux name="population growth rate" access="output" isee:autocreated="true">
+			<aux name="population growth rate" ai_state="B" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>birth_rate-death_rate</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="birth rate">
+			<aux name="birth rate" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>Births/Population</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="death rate">
+			<aux name="death rate" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>total_deaths/Population</eqn>
 				<units>1/year</units>
 			</aux>
-			<stock name="Aged 1 to 20 years" access="output" isee:autocreated="true">
+			<stock name="Aged 1 to 20 years" ai_state="B" access="output" isee:autocreated="true">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -410,14 +410,14 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				</conveyor>
 				<units>Mp</units>
 			</stock>
-			<aux name="Dependency ratio">
+			<aux name="Dependency ratio" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>(Population-working_age_population)/working_age_population</eqn>
 				<units>1</units>
 			</aux>
-			<flow name="deaths\n1 to 20 years" access="output">
+			<flow name="deaths\n1 to 20 years" ai_state="B" access="output">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -428,7 +428,7 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				<leak/>
 				<units>Mp/year</units>
 			</flow>
-			<flow name="deaths\n60 to 65 years" access="output">
+			<flow name="deaths\n60 to 65 years" ai_state="B" access="output">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -439,7 +439,7 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				<leak/>
 				<units>Mp/year</units>
 			</flow>
-			<flow name="deaths\n40 to 60 years" access="output">
+			<flow name="deaths\n40 to 60 years" ai_state="B" access="output">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -450,7 +450,7 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				<leak/>
 				<units>Mp/year</units>
 			</flow>
-			<flow name="deaths\n20 to 40 years" access="output">
+			<flow name="deaths\n20 to 40 years" ai_state="B" access="output">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -461,65 +461,65 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				<leak/>
 				<units>Mp/year</units>
 			</flow>
-			<aux name="20-40, 40-60 cohort length">
+			<aux name="20-40, 40-60 cohort length" ai_state="B">
 				<doc>${Assumption}
 Cohort lengths for Conveyors</doc>
 				<eqn>20</eqn>
 				<units>years</units>
 			</aux>
-			<aux name="1 to 20 death\nrate" access="output" isee:autocreated="true">
+			<aux name="1 to 20 death\nrate" ai_state="B" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>&quot;1_to_20_normal_death_rate&quot;*&quot;Effect_of_Temperature_on_mortality_0-65&quot;*effect_of_GDP_per_person_on_1_to_20_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="20 to 40 death\nrate">
+			<aux name="20 to 40 death\nrate" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>&quot;20_to_40_normal_death_rate&quot;*&quot;Effect_of_Temperature_on_mortality_0-65&quot;*effect_of_GDP_per_person_on_20_to_40_mortality+global_death_rate_from_coastal_flooding_1</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="40 to 60 death\nrate">
+			<aux name="40 to 60 death\nrate" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>&quot;40_to_60_normal_death_rate&quot;*&quot;Effect_of_Temperature_on_mortality_0-65&quot;*effect_of_GDP_per_person_on_40_to_60_mortality+global_death_rate_from_coastal_flooding_1</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="60 to 65 death\nrate">
+			<aux name="60 to 65 death\nrate" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>&quot;60_to_65_normal_death_rate&quot;*&quot;Effect_of_Temperature_on_mortality_0-65&quot;*effect_of_GDP_per_person_on_60_to_65_mortality+global_death_rate_from_coastal_flooding_2</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="1 to 20 normal death\nrate">
+			<aux name="1 to 20 normal death\nrate" ai_state="B">
 				<doc>${Assumption}
 This has no range and isn&apos;t in the calibration because its covered by its associated alpha parameter</doc>
 				<eqn>0.00587601800076975</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="20 to 40 normal death\nrate">
+			<aux name="20 to 40 normal death\nrate" ai_state="B">
 				<doc>${Assumption}
 This has no range and isn&apos;t in the calibration because its covered by its associated alpha parameter</doc>
 				<eqn>0.0015269215261185</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="40 to 60 normal death\nrate">
+			<aux name="40 to 60 normal death\nrate" ai_state="B">
 				<doc>${Assumption}
 This has no range and isn&apos;t in the calibration because its covered by its associated alpha parameter</doc>
 				<eqn>0.00919684905322054</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="60 to 65 normal death\nrate">
+			<aux name="60 to 65 normal death\nrate" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 This has no range and isn&apos;t in the calibration because its covered by its associated alpha parameter</doc>
 				<eqn>0.0200881120643786</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="Aged 40 to 60 in 1980">
+			<aux name="Aged 40 to 60 in 1980" ai_state="B">
 				<doc>${External Parameter}
 United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects 2022, Online Edition. https://population.un.org/wpp/Download/Standard/MostUsed/
 </doc>
@@ -588,7 +588,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</element>
 				<units>Mp</units>
 			</aux>
-			<aux name="Aged 60 to 65 in 1980">
+			<aux name="Aged 60 to 65 in 1980" ai_state="B">
 				<doc>${External Parameter}
 United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects 2022, Online Edition. https://population.un.org/wpp/Download/Standard/MostUsed/
 </doc>
@@ -612,7 +612,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</element>
 				<units>Mp</units>
 			</aux>
-			<aux name="Aged 1 to 20 in 1980">
+			<aux name="Aged 1 to 20 in 1980" ai_state="B">
 				<doc>${External Parameter}
 United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects 2022, Online Edition. https://population.un.org/wpp/Download/Standard/MostUsed/
 </doc>
@@ -678,7 +678,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</element>
 				<units>Mp</units>
 			</aux>
-			<aux name="Aged 20 to 40 in 1980">
+			<aux name="Aged 20 to 40 in 1980" ai_state="B">
 				<doc>${External Parameter}
 United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects 2022, Online Edition. https://population.un.org/wpp/Download/Standard/MostUsed/
 </doc>
@@ -747,7 +747,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</element>
 				<units>Mp</units>
 			</aux>
-			<stock name="Aged Over 75 years">
+			<stock name="Aged Over 75 years" ai_state="B">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -762,7 +762,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</conveyor>
 				<units>Mp</units>
 			</stock>
-			<flow name="Passing 100">
+			<flow name="Passing 100" ai_state="B">
 				<doc>${Discrete Outflow}
 </doc>
 				<dimensions>
@@ -772,7 +772,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				<non_negative/>
 				<units>Mp/Year</units>
 			</flow>
-			<flow name="deaths Over 75 years">
+			<flow name="deaths Over 75 years" ai_state="B">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -783,7 +783,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				<leak/>
 				<units>Mp/Year</units>
 			</flow>
-			<aux name="Aged Over 75 in 1980">
+			<aux name="Aged Over 75 in 1980" ai_state="B">
 				<doc>${External Parameter}
 United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects 2022, Online Edition. https://population.un.org/wpp/Download/Standard/MostUsed/
 </doc>
@@ -867,7 +867,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</element>
 				<units>Mp</units>
 			</aux>
-			<stock name="Aged 0 years" access="output" isee:autocreated="true">
+			<stock name="Aged 0 years" ai_state="B" access="output" isee:autocreated="true">
 				<doc>${Calibrated Output}
 All calibration data of Population sector form:
 
@@ -887,7 +887,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</conveyor>
 				<units>Mp</units>
 			</stock>
-			<flow name="Passing 0">
+			<flow name="Passing 0" ai_state="B">
 				<doc>${Discrete Outflow}
 continuous cohorting system (Eberlein and Thompson, 2013) 
 
@@ -901,20 +901,20 @@ Eberlein RL, Thompson JP. 2013. Precise modeling of aging populations. System Dy
 				<non_negative/>
 				<units>Mp/Year</units>
 			</flow>
-			<aux name="Aged 0 in 1980">
+			<aux name="Aged 0 in 1980" ai_state="B">
 				<doc>${External Parameter}
 United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects 2022, Online Edition. https://population.un.org/wpp/Download/Standard/MostUsed/
 </doc>
 				<eqn>118.225618</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="1-20 cohort length">
+			<aux name="1-20 cohort length" ai_state="B">
 				<doc>${Assumption}
 Cohort lengths for Conveyors</doc>
 				<eqn>19</eqn>
 				<units>years</units>
 			</aux>
-			<flow name="deaths\n0 years">
+			<flow name="deaths\n0 years" ai_state="B">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -925,7 +925,7 @@ Cohort lengths for Conveyors</doc>
 				<leak/>
 				<units>Mp/Year</units>
 			</flow>
-			<aux name="Population" access="output">
+			<aux name="Population" ai_state="B" access="output">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -935,20 +935,20 @@ Cohort lengths for Conveyors</doc>
 				<isee:summing/>
 				<units>Mp</units>
 			</aux>
-			<aux name="0 death\nrate" access="output" isee:autocreated="true">
+			<aux name="0 death\nrate" ai_state="B" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>&quot;0_normal_death_rate&quot;*&quot;Effect_of_Temperature_on_mortality_0-65&quot;*effect_of_GDP_per_person_on_infant_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="0 normal death\nrate">
+			<aux name="0 normal death\nrate" ai_state="B">
 				<doc>${Assumption}
 This has no range and isn&apos;t in the calibration because its covered by its associated alpha parameter</doc>
 				<eqn>0.0852871555499175</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="total deaths">
+			<aux name="total deaths" ai_state="B">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -958,7 +958,7 @@ This has no range and isn&apos;t in the calibration because its covered by its a
 				<isee:summing/>
 				<units>Million*p/Years</units>
 			</aux>
-			<aux name="initial\nfertility">
+			<aux name="initial\nfertility" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: fertility</doc>
 				<dimensions>
@@ -970,14 +970,14 @@ Calibration Parameter: fertility</doc>
 				<range min="0" max="10"/>
 				<units>1</units>
 			</aux>
-			<aux name="relative real GDP per person">
+			<aux name="relative real GDP per person" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>real_GDP_per_person/INIT(real_GDP_per_person)</eqn>
 				<units>1</units>
 			</aux>
-			<aux name="sensitivity of fertility\nto inverse\nGDP per person">
+			<aux name="sensitivity of fertility\nto inverse\nGDP per person" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: fertility</doc>
 				<dimensions>
@@ -989,7 +989,7 @@ Calibration Parameter: fertility</doc>
 				<range min="-2" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="infant mortality\nalpha">
+			<aux name="infant mortality\nalpha" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 0 years</doc>
 				<dimensions>
@@ -1001,7 +1001,7 @@ Calibration Parameter: deaths 0 years</doc>
 				<range min="0" max="2"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="infant mortality\ngamma">
+			<aux name="infant mortality\ngamma" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 0 years</doc>
 				<dimensions>
@@ -1013,7 +1013,7 @@ Calibration Parameter: deaths 0 years</doc>
 				<range min="-3" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP per person\non infant mortality">
+			<aux name="effect of GDP per person\non infant mortality" ai_state="B">
 				<doc>increasing GDP per person, places downward pressure on death rates (Miladinov, 2020)
 
 Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: evidence from the EU accession candidate countries. Genus 76 (2). https://doi.org/10.1186/s41118-019-0071-0.
@@ -1024,7 +1024,7 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>infant_mortality_alpha*average_relative_real_GDP_per_person^infant_mortality_gamma</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="1 to 20 mortality\nalpha">
+			<aux name="1 to 20 mortality\nalpha" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 1-20 years</doc>
 				<dimensions>
@@ -1036,7 +1036,7 @@ Calibration Parameter: deaths 1-20 years</doc>
 				<range min="0" max="3"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="1 to 20 mortality\ngamma">
+			<aux name="1 to 20 mortality\ngamma" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 1-20 years</doc>
 				<dimensions>
@@ -1048,7 +1048,7 @@ Calibration Parameter: deaths 1-20 years</doc>
 				<range min="-3" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP per person\non 1 to 20 mortality">
+			<aux name="effect of GDP per person\non 1 to 20 mortality" ai_state="B">
 				<doc>increasing GDP per person, places downward pressure on death rates (Miladinov, 2020)
 
 Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: evidence from the EU accession candidate countries. Genus 76 (2). https://doi.org/10.1186/s41118-019-0071-0.
@@ -1059,7 +1059,7 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>&quot;1_to_20_mortality_alpha&quot;*average_relative_real_GDP_per_person^&quot;1_to_20_mortality_gamma&quot;</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="20 to 40 mortality\nalpha">
+			<aux name="20 to 40 mortality\nalpha" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 20-40 years</doc>
 				<dimensions>
@@ -1071,7 +1071,7 @@ Calibration Parameter: deaths 20-40 years</doc>
 				<range min="0" max="3"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="20 to 40 mortality\ngamma">
+			<aux name="20 to 40 mortality\ngamma" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 20-40 years</doc>
 				<dimensions>
@@ -1083,7 +1083,7 @@ Calibration Parameter: deaths 20-40 years</doc>
 				<range min="-3" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP per person\non 20 to 40 mortality">
+			<aux name="effect of GDP per person\non 20 to 40 mortality" ai_state="B">
 				<doc>increasing GDP per person, places downward pressure on death rates (Miladinov, 2020)
 
 Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: evidence from the EU accession candidate countries. Genus 76 (2). https://doi.org/10.1186/s41118-019-0071-0.
@@ -1094,7 +1094,7 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>&quot;20_to_40_mortality_alpha&quot;*average_relative_real_GDP_per_person^&quot;20_to_40_mortality_gamma&quot;</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="40 to 60 mortality\nalpha">
+			<aux name="40 to 60 mortality\nalpha" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 40-60 years</doc>
 				<dimensions>
@@ -1106,7 +1106,7 @@ Calibration Parameter: deaths 40-60 years</doc>
 				<range min="0" max="3"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="40 to 60 mortality\ngamma">
+			<aux name="40 to 60 mortality\ngamma" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 40-60 years</doc>
 				<dimensions>
@@ -1118,7 +1118,7 @@ Calibration Parameter: deaths 40-60 years</doc>
 				<range min="-3" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP per person\non 40 to 60 mortality">
+			<aux name="effect of GDP per person\non 40 to 60 mortality" ai_state="B">
 				<doc>increasing GDP per person, places downward pressure on death rates (Miladinov, 2020)
 
 Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: evidence from the EU accession candidate countries. Genus 76 (2). https://doi.org/10.1186/s41118-019-0071-0.
@@ -1129,7 +1129,7 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>&quot;40_to_60_mortality_alpha&quot;*average_relative_real_GDP_per_person^&quot;40_to_60_mortality_gamma&quot;</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="60 to 65 mortality\nalpha">
+			<aux name="60 to 65 mortality\nalpha" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 60-80 years</doc>
 				<dimensions>
@@ -1141,7 +1141,7 @@ Calibration Parameter: deaths 60-80 years</doc>
 				<range min="0" max="3"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="60 to 65 mortality\ngamma">
+			<aux name="60 to 65 mortality\ngamma" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 60-80 years</doc>
 				<dimensions>
@@ -1153,7 +1153,7 @@ Calibration Parameter: deaths 60-80 years</doc>
 				<range min="-3" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP per person\non 60 to 65 mortality">
+			<aux name="effect of GDP per person\non 60 to 65 mortality" ai_state="B">
 				<doc>increasing GDP per person, places downward pressure on death rates (Miladinov, 2020)
 
 Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: evidence from the EU accession candidate countries. Genus 76 (2). https://doi.org/10.1186/s41118-019-0071-0.
@@ -1164,7 +1164,7 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>&quot;60_to_65_mortality_alpha&quot;*average_relative_real_GDP_per_person^&quot;60_to_65_mortality_gamma&quot;</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Over 75 mortality\nalpha">
+			<aux name="Over 75 mortality\nalpha" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths over 80 years</doc>
 				<dimensions>
@@ -1176,7 +1176,7 @@ Calibration Parameter: deaths over 80 years</doc>
 				<range min="0" max="3"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Over 75 mortality\ngamma">
+			<aux name="Over 75 mortality\ngamma" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths over 80 years</doc>
 				<dimensions>
@@ -1188,7 +1188,7 @@ Calibration Parameter: deaths over 80 years</doc>
 				<range min="-3" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP per person\non Over 75 mortality">
+			<aux name="effect of GDP per person\non Over 75 mortality" ai_state="B">
 				<doc>increasing GDP per person, places downward pressure on death rates (Miladinov, 2020)
 
 Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: evidence from the EU accession candidate countries. Genus 76 (2). https://doi.org/10.1186/s41118-019-0071-0.
@@ -1199,27 +1199,27 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>Over_75_mortality_alpha*average_relative_real_GDP_per_person^Over_75_mortality_gamma</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Over 75 death\nrate">
+			<aux name="Over 75 death\nrate" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>Over_75_normal_death_rate*Effect_of_Temperature_on_mortality_75_plus*effect_of_GDP_per_person_on_Over_75_mortality+global_death_rate_from_coastal_flooding_2</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="Over 75 normal death\nrate">
+			<aux name="Over 75 normal death\nrate" ai_state="B">
 				<doc>${Assumption}
 This has no range and isn&apos;t in the calibration because its covered by its associated alpha parameter</doc>
 				<eqn>0.209495838027771</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="number of fertile women">
+			<aux name="number of fertile women" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>(AGECOUNT(Aged_20_to_40_years, 0,  16) + AGECOUNT(Aged_1_to_20_years, 16, 19))*fraction_women</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="working age population" access="output">
+			<aux name="working age population" ai_state="B" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1230,14 +1230,14 @@ Aged_60_to_65_years+
 AGECOUNT(Aged_65_to_75_years, 0, 5)</eqn>
 				<units>Mp</units>
 			</aux>
-			<flow name="change in fertility">
+			<flow name="change in fertility" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>(indicated_fertility-fertility)/time_to_change_fertility</eqn>
 				<units>Per Year</units>
 			</flow>
-			<aux name="time to change\nfertility">
+			<aux name="time to change\nfertility" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -1249,7 +1249,7 @@ AGECOUNT(Aged_65_to_75_years, 0, 5)</eqn>
 				<range min="15" max="25"/>
 				<units>years</units>
 			</aux>
-			<aux name="effect of GDP\non change in fertility">
+			<aux name="effect of GDP\non change in fertility" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1257,7 +1257,7 @@ AGECOUNT(Aged_65_to_75_years, 0, 5)</eqn>
 {sensitivity_of_fertility_to_GDP_per_person_alpha*LN(relative_GDP_per_person)}{+sensitivity_of_fertility_to_GDP_per_person_beta}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="indicated fertility">
+			<aux name="indicated fertility" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1265,26 +1265,26 @@ AGECOUNT(Aged_65_to_75_years, 0, 5)</eqn>
 initial_fertility+effect_of_GDP_on_change_in_fertility+effect_of_literacy_on_change_in_fertility</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="real GDP per capita">
+			<aux name="real GDP per capita" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>real_GDP_per_person*&quot;UNIT_c$_per_bc$&quot;/UNIT_p_per_mp</eqn>
 				<units>c$/person/year</units>
 			</aux>
-			<aux name="UNIT c$ per bc$">
+			<aux name="UNIT c$ per bc$" ai_state="B">
 				<doc>${Unit}
 </doc>
 				<eqn>1000000000</eqn>
 				<units>c$/bc$</units>
 			</aux>
-			<aux name="UNIT p per mp" access="output">
+			<aux name="UNIT p per mp" ai_state="B" access="output">
 				<doc>${Unit}
 </doc>
 				<eqn>1000000</eqn>
 				<units>p/Mp</units>
 			</aux>
-			<aux name="female population\nliteracy percentage">
+			<aux name="female population\nliteracy percentage" ai_state="B">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -1293,7 +1293,7 @@ initial_fertility+effect_of_GDP_on_change_in_fertility+effect_of_literacy_on_cha
 				<eqn>100-MAX(0, MIN(100, (100/(effect_of_GDP_on_female_population_literacy_percentage_constant+effect_of_GDP_on_female_population_literacy_percentage_scale_factor*average_relative_real_GDP_per_person))))</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="sensitivity of fertility\nto literacy">
+			<aux name="sensitivity of fertility\nto literacy" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: fertility</doc>
 				<dimensions>
@@ -1305,7 +1305,7 @@ Calibration Parameter: fertility</doc>
 				<range min="-0.05" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of literacy\non change in fertility">
+			<aux name="effect of literacy\non change in fertility" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1313,7 +1313,7 @@ Calibration Parameter: fertility</doc>
 {+sensitivity_of_fertility_to_literacy_beta}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="average relative\nreal GDP per person">
+			<aux name="average relative\nreal GDP per person" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1321,7 +1321,7 @@ Calibration Parameter: fertility</doc>
 				<isee:delay_aux/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="averaging time">
+			<aux name="averaging time" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -1333,14 +1333,14 @@ Calibration Parameter: fertility</doc>
 				<range min="7" max="20"/>
 				<units>years</units>
 			</aux>
-			<aux name="Surface Temperature Anomaly" access="input">
+			<aux name="Surface Temperature Anomaly" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>deg C</units>
 			</aux>
-			<aux name="Hot mortality sensitivity to T">
+			<aux name="Hot mortality sensitivity to T" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Slope coefficient for temperature impact on hot mortality, based on Bressler et al. (2021). The range covers 2.5%-97.5% uncertainty bound, also based on Bressler et al. (2021)
 DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
@@ -1382,7 +1382,7 @@ DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
 				</element>
 				<units>1/(deg C)</units>
 			</aux>
-			<aux name="Hot mortality sensitivity to T2">
+			<aux name="Hot mortality sensitivity to T2" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Slope coefficient for temperature squared impact on hot mortality, based on Bressler et al. (2021). The range covers 2.5%-97.5% uncertainty bound, also based on Bressler et al. (2021)
 DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
@@ -1424,7 +1424,7 @@ DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
 				</element>
 				<units>1/(deg C^2)</units>
 			</aux>
-			<aux name="Temperature impact on\nhot mortality">
+			<aux name="Temperature impact on\nhot mortality" ai_state="B">
 				<doc>https://doi.org/10.1038/s41598-021-99156-5</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -1432,7 +1432,7 @@ DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
 				<eqn>Hot_mortality_sensitivity_to_T[selected_hot_mortality_impact_case]*Surface_Temperature_Anomaly + Hot_mortality_sensitivity_to_T2[selected_hot_mortality_impact_case]*(Surface_Temperature_Anomaly)^2</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Cold mortality sensitivity to T">
+			<aux name="Cold mortality sensitivity to T" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Slope coefficient for temperature impact on cold mortality, based on Bressler et al. (2021). The range covers 2.5%-97.5% uncertainty bound, also based on Bressler et al. (2021)
 DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
@@ -1474,7 +1474,7 @@ DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
 				</element>
 				<units>1/(deg C)</units>
 			</aux>
-			<aux name="Cold mortality\nsensitivity to T2">
+			<aux name="Cold mortality\nsensitivity to T2" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Slope coefficient for temperature squared impact on cold mortality, based on Bressler et al. (2021). The range covers 2.5%-97.5% uncertainty bound, also based on Bressler et al. (2021)
 DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
@@ -1516,7 +1516,7 @@ DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
 				</element>
 				<units>1/(deg C^2)</units>
 			</aux>
-			<aux name="Temperature impact on\ncold mortality">
+			<aux name="Temperature impact on\ncold mortality" ai_state="B">
 				<doc>https://doi.org/10.1038/s41598-021-99156-5</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -1524,7 +1524,7 @@ DOI: https://doi.org/10.1038/s41598-021-99156-5. </doc>
 				<eqn> Cold_mortality_sensitivity_to_T[selected_cold_mortality_impact_case]*Surface_Temperature_Anomaly + Cold_mortality_sensitivity_to_T2[selected_cold_mortality_impact_case]*(Surface_Temperature_Anomaly^2)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Effect of Temperature on\nmortality 0-65">
+			<aux name="Effect of Temperature on\nmortality 0-65" ai_state="B">
 				<doc>https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -1535,43 +1535,43 @@ ELSE
 1 + (&quot;Factor_for_hot_mortality_0-65&quot;*Temperature_impact_on_hot_mortality + &quot;Factor_for_cold_mortality_0-65&quot;*Temperature_impact_on_cold_mortality)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Factor for cold\nmortality 0-65">
+			<aux name="Factor for cold\nmortality 0-65" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Factor for scaling the temperature effects for a given population cohort. Values are based on Chen et al. (2024), DOI: https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<eqn>0.916740283</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Factor for cold\nmortality 75 plus">
+			<aux name="Factor for cold\nmortality 75 plus" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Factor for scaling the temperature effects for a given population cohort. Values are based on Chen et al. (2024), DOI: https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<eqn>2.20017668</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Factor for cold\nmortality 65-75">
+			<aux name="Factor for cold\nmortality 65-75" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Factor for scaling the temperature effects for a given population cohort. Values are based on Chen et al. (2024), DOI: https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<eqn>1.741806538</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Factor for hot\nmortality 0-65">
+			<aux name="Factor for hot\nmortality 0-65" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Factor for scaling the temperature effects for a given population cohort. Values are based on Chen et al. (2024), DOI: https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<eqn>0.965032403</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Factor for hot\nmortality 75 plus">
+			<aux name="Factor for hot\nmortality 75 plus" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Factor for scaling the temperature effects for a given population cohort. Values are based on Chen et al. (2024), DOI: https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<eqn>1.737058325</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Factor for hot\nmortality 65-75">
+			<aux name="Factor for hot\nmortality 65-75" ai_state="B">
 				<doc>${Climate Impact Parameter,External Parameter}
 Factor for scaling the temperature effects for a given population cohort. Values are based on Chen et al. (2024), DOI: https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<eqn>1.158038883</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Effect of Temperature on\nmortality 65-75">
+			<aux name="Effect of Temperature on\nmortality 65-75" ai_state="B">
 				<doc>https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -1582,7 +1582,7 @@ ELSE
 1 + (&quot;Factor_for_hot_mortality_65-75&quot;*Temperature_impact_on_hot_mortality + &quot;Factor_for_cold_mortality_65-75&quot;*Temperature_impact_on_cold_mortality)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Effect of Temperature on\nmortality 75 plus">
+			<aux name="Effect of Temperature on\nmortality 75 plus" ai_state="B">
 				<doc>https://doi.org/10.1038/s41467-024-45901-z</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -1593,19 +1593,19 @@ ELSE
 1 + (Factor_for_hot_mortality_75_plus*Temperature_impact_on_hot_mortality + Factor_for_cold_mortality_75_plus*Temperature_impact_on_cold_mortality)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="60-65 cohort length">
+			<aux name="60-65 cohort length" ai_state="B">
 				<doc>${Assumption}
 Cohort lengths for Conveyors</doc>
 				<eqn>5</eqn>
 				<units>years</units>
 			</aux>
-			<aux name="65-75 cohort length">
+			<aux name="65-75 cohort length" ai_state="B">
 				<doc>${Assumption}
 Cohort lengths for Conveyors</doc>
 				<eqn>10</eqn>
 				<units>years</units>
 			</aux>
-			<aux name="Aged 65 to 75 in 1980">
+			<aux name="Aged 65 to 75 in 1980" ai_state="B">
 				<doc>${External Parameter}
 United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects 2022, Online Edition. https://population.un.org/wpp/Download/Standard/MostUsed/
 </doc>
@@ -1644,7 +1644,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</element>
 				<units>Mp</units>
 			</aux>
-			<stock name="Aged 65 to 75 years">
+			<stock name="Aged 65 to 75 years" ai_state="B">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -1659,7 +1659,7 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				</conveyor>
 				<units>Mp</units>
 			</stock>
-			<flow name="Passing 75">
+			<flow name="Passing 75" ai_state="B">
 				<doc>${Discrete Outflow}
 </doc>
 				<dimensions>
@@ -1669,13 +1669,13 @@ United Nations, Department of Economic and Social Affairs, Population Division (
 				<non_negative/>
 				<units>Mp/year</units>
 			</flow>
-			<aux name="Over 75 cohort length">
+			<aux name="Over 75 cohort length" ai_state="B">
 				<doc>${Assumption}
 Cohort lengths for Conveyors</doc>
 				<eqn>25</eqn>
 				<units>years</units>
 			</aux>
-			<flow name="deaths\n65 to 75 years" access="output">
+			<flow name="deaths\n65 to 75 years" ai_state="B" access="output">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -1686,20 +1686,20 @@ Cohort lengths for Conveyors</doc>
 				<leak/>
 				<units>Mp/year</units>
 			</flow>
-			<aux name="65 to 75 death\nrate">
+			<aux name="65 to 75 death\nrate" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>&quot;65_to_75_normal_death_rate&quot;*&quot;Effect_of_Temperature_on_mortality_65-75&quot;*effect_of_GDP_per_person_on_65_to_75_mortality+global_death_rate_from_coastal_flooding_2</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="65 to 75 normal death\nrate">
+			<aux name="65 to 75 normal death\nrate" ai_state="B">
 				<doc>${Assumption}
 This has no range and isn&apos;t in the calibration because its covered by its associated alpha parameter</doc>
 				<eqn>0.0292009038387139</eqn>
 				<units>Per Year</units>
 			</aux>
-			<aux name="65 to 75 mortality\nalpha">
+			<aux name="65 to 75 mortality\nalpha" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 60-80 years</doc>
 				<dimensions>
@@ -1711,7 +1711,7 @@ Calibration Parameter: deaths 60-80 years</doc>
 				<range min="0" max="3"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="65 to 75 mortality\ngamma">
+			<aux name="65 to 75 mortality\ngamma" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 Calibration Parameter: deaths 60-80 years</doc>
 				<dimensions>
@@ -1723,7 +1723,7 @@ Calibration Parameter: deaths 60-80 years</doc>
 				<range min="-3" max="0"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP per person\non 65 to 75 mortality">
+			<aux name="effect of GDP per person\non 65 to 75 mortality" ai_state="B">
 				<doc>increasing GDP per person, places downward pressure on death rates (Miladinov, 2020)
 
 Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: evidence from the EU accession candidate countries. Genus 76 (2). https://doi.org/10.1186/s41118-019-0071-0.
@@ -1734,14 +1734,14 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>&quot;65_to_75_mortality_alpha&quot;*average_relative_real_GDP_per_person^&quot;65_to_75_mortality_gamma&quot;</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Real GDP in 2021c$" access="output" throughput="true" isee:autocreated="true">
+			<aux name="Real GDP in 2021c$" ai_state="B" access="output" throughput="true" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/year</units>
 			</aux>
-			<aux name="real GDP per person" access="output" isee:autocreated="true">
+			<aux name="real GDP per person" ai_state="B" access="output" isee:autocreated="true">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -1750,14 +1750,14 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>&quot;Real_GDP_in_2021c$&quot;/Population</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="Nominal GDP" access="output" throughput="true">
+			<aux name="Nominal GDP" ai_state="B" access="output" throughput="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="nominal GDP per person">
+			<aux name="nominal GDP per person" ai_state="B">
 				<doc>${Calibrated Output}
 </doc>
 				<dimensions>
@@ -1766,11 +1766,11 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>Nominal_GDP/Population</eqn>
 				<units>b$/Mp/year</units>
 			</aux>
-			<aux name="today" access="input">
+			<aux name="today" ai_state="B" access="input">
 				<eqn>2025</eqn>
 				<units>year</units>
 			</aux>
-			<aux name="effect of GDP on female population\nliteracy percentage\nscale factor">
+			<aux name="effect of GDP on female population\nliteracy percentage\nscale factor" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -1782,7 +1782,7 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<range min="0" max="5"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="effect of GDP on female population\nliteracy percentage\nconstant">
+			<aux name="effect of GDP on female population\nliteracy percentage\nconstant" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -1794,11 +1794,11 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<range min="-5" max="5"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch demography damage" access="input">
+			<aux name="switch demography damage" ai_state="B" access="input">
 				<eqn>1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="global death rate from coastal flooding" access="input">
+			<aux name="global death rate from coastal flooding" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1819,21 +1819,21 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="old age\ndependents" access="output" isee:autocreated="true">
+			<aux name="old age\ndependents" ai_state="B" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>Aged_Over_75_years+(Aged_65_to_75_years-AGECOUNT(Aged_65_to_75_years, 0, 5))</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="child age\ndependents" access="output" isee:autocreated="true">
+			<aux name="child age\ndependents" ai_state="B" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>Aged_0_years+(Aged_1_to_20_years - AGECOUNT(Aged_1_to_20_years, 17, 19))</eqn>
 				<units>Mp</units>
 			</aux>
-			<aux name="initial average relative real\ngdp per person">
+			<aux name="initial average relative real\ngdp per person" ai_state="B">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -1843,21 +1843,21 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<range min="0.5" max="1"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="selected cold mortality impact case" access="input">
+			<aux name="selected cold mortality impact case" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="selected hot\nmortality impact case" access="input">
+			<aux name="selected hot\nmortality impact case" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="probability to reach age per age">
+			<aux name="probability to reach age per age" ai_state="B">
 				<doc>https://en.wikipedia.org/wiki/Life_expectancy#Calculation</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -1887,7 +1887,7 @@ THEN (SELF[Run,75])*(1-Over_75_death_rate[Run]*time_to_apply_death_rate)^(Ages-7
 ELSE 0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="life expectancy">
+			<aux name="life expectancy" ai_state="B">
 				<doc>https://en.wikipedia.org/wiki/Life_expectancy#Calculation</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -1895,7 +1895,7 @@ ELSE 0</eqn>
 				<eqn>(SUM(probability_to_reach_age_per_age[Run,*])+0.5)*time_to_apply_death_rate</eqn>
 				<units>Year</units>
 			</aux>
-			<aux name="time to apply\ndeath rate">
+			<aux name="time to apply\ndeath rate" ai_state="B">
 				<doc>${No Sensi}
 </doc>
 				<eqn>1</eqn>
