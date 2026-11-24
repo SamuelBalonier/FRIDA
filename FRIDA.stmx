@@ -8,7 +8,7 @@
 		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
-		<status verified="false" mixed="true" trusted="false" tampered="false" uses="true" analyzed="false" log_truncated="false" timestamp="1795432035" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="true" want_log="true" sampling="10" signature="2ab2FNwo9bqUvJPXhwVIM436AAL48zW5eXyCxRY4ae0bPW369/ugArMBQrjgif+J77ODjoUnMUdOHiWrrI+dAA=="/>
+		<status verified="false" mixed="true" trusted="false" tampered="false" uses="true" analyzed="false" log_truncated="false" timestamp="1795543982" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="true" want_log="true" sampling="10" signature="RQgDnNHQ4VABVdX6WtGVonTDFMfxzPScBv1qfTHTlIxc1eroHhqll7wwk0oBAyZLF7+0x1BUDRn2lof6iurRCw=="/>
 	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -72,11 +72,16 @@
 		</dim>
 		<dim name="NEWTON" size="5"/>
 		<dim name="PCTILE">
-			<elem name="Low"/>
-			<elem name="P25"/>
-			<elem name="Median"/>
-			<elem name="P75"/>
-			<elem name="High"/>
+			<elem name="P2"/>
+			<elem name="P4"/>
+			<elem name="P6"/>
+			<elem name="P10"/>
+			<elem name="P15"/>
+			<elem name="P20"/>
+			<elem name="P30"/>
+			<elem name="P40"/>
+			<elem name="P50"/>
+			<elem name="P_highest_evaluated"/>
 		</dim>
 		<dim name="PopCohortLen10" size="10"/>
 		<dim name="PopCohortLen19" size="19"/>
@@ -126,6 +131,7 @@
 	<default_format scale_by="1"/>
 	<data>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/frida_input_data.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" orientation="horizontal" resource="r../Data/sdg_data.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
 		<isee:sensi_specs name="Climate Sensitivity" method="grid">
@@ -3766,6 +3772,8 @@
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
+				<connect2 to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.wages" from="Circular_Flow.wages"/>
@@ -4244,6 +4252,8 @@ This is what determines when the model stops calculating</doc>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
+				<connect2 to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
@@ -4322,7 +4332,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:scroll_x="264" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:scroll_x="521" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5334,6 +5344,8 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
+				<connect2 to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Income_Inequality.unemployment_rate" from="Employment.unemployment_rate"/>
@@ -6893,51 +6905,14 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<eqn>q_1980*relative_productivity_growth_1^D1*rel_unemployment^D2</eqn>
 				<units>dimensionless</units>
 			</aux>
-			<aux name="percentile fraction" ai_state="G">
-				<doc>Cumulative probability u at each reported income percentile: P1=0.01, P4=0.04, P10=0.10, P20=0.20, P50=0.50, P90=0.90. P100 uses highest percentile evaluated because the 100th percentile of a GB2 is infinite.</doc>
-				<dimensions>
-					<dim name="Income_Group"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.1</eqn>
-				</element>
-				<units>dimensionless</units>
-			</aux>
 			<module name="MGB2" isee:label="" ai_state="G">
 				<format scale_by="auto"/>
-				<connect to="Income_Inequality.wage_rate_by_percentile" from="MGB2.wage_rate_by_percentile"/>
-				<connect2 to="wage_rate_by_percentile" from="MGB2.wage_rate_by_percentile"/>
+				<connect to="Income_Inequality.wage_rate_by_percentile_1" from="MGB2.wage_rate_by_percentile"/>
+				<connect2 to="wage_rate_by_percentile_1" from="MGB2.wage_rate_by_percentile"/>
 				<connect to='MGB2."per_capita_total_income_in_2021c$"' from='Income_Inequality."per_capita_total_income_in_2021c$"'/>
 				<connect2 to='MGB2."per_capita_total_income_in_2021c$"' from='"per_capita_total_income_in_2021c$"'/>
-				<connect to="MGB2.percentile_fraction" from="Income_Inequality.percentile_fraction"/>
-				<connect2 to="MGB2.percentile_fraction" from="percentile_fraction"/>
+				<connect to="MGB2.percentile_fraction_1" from="Income_Inequality.percentile_fraction"/>
+				<connect2 to="MGB2.percentile_fraction_1" from="percentile_fraction"/>
 				<connect to="MGB2.wage_shape_a" from="Income_Inequality.wage_shape_a"/>
 				<connect2 to="MGB2.wage_shape_a" from="wage_shape_a"/>
 				<connect to="MGB2.wage_shape_p" from="Income_Inequality.wage_shape_p"/>
@@ -6945,14 +6920,6 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<connect to="MGB2.wage_shape_q" from="Income_Inequality.wage_shape_q"/>
 				<connect2 to="MGB2.wage_shape_q" from="wage_shape_q"/>
 			</module>
-			<aux name="wage rate by percentile" ai_state="G" access="input">
-				<dimensions>
-					<dim name="Run"/>
-					<dim name="Income_Group"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>c$/person/year</units>
-			</aux>
 			<aux name="unemployment rate 1" ai_state="F" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -7019,6 +6986,162 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<eqn>-1</eqn>
 				<units>dmnl</units>
 			</aux>
+			<aux name="highest percentile evaluated" ai_state="G">
+				<doc>The 100th percentile of a GB2 is unbounded, so the P100 element is evaluated at this quantile instead.</doc>
+				<eqn>0.90</eqn>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="percentile fraction" ai_state="G">
+				<doc>Cumulative probability u at each reported income percentile: P1=0.01, P4=0.04, P10=0.10, P20=0.20, P50=0.50, P90=0.90. P100 uses highest percentile evaluated because the 100th percentile of a GB2 is infinite.</doc>
+				<dimensions>
+					<dim name="PCTILE"/>
+				</dimensions>
+				<element subscript="P2">
+					<eqn>0.02</eqn>
+				</element>
+				<element subscript="P4">
+					<eqn>0.04</eqn>
+				</element>
+				<element subscript="P6">
+					<eqn>0.06</eqn>
+				</element>
+				<element subscript="P10">
+					<eqn>0.1</eqn>
+				</element>
+				<element subscript="P15">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="P20">
+					<eqn>0.2</eqn>
+				</element>
+				<element subscript="P30">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="P40">
+					<eqn>0.4</eqn>
+				</element>
+				<element subscript="P50">
+					<eqn>0.5</eqn>
+				</element>
+				<element subscript="P_highest_evaluated">
+					<eqn>highest_percentile_evaluated</eqn>
+				</element>
+				<units>dimensionless</units>
+			</aux>
+			<aux name="wage rate by percentile 1" ai_state="G" access="input">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="PCTILE"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="s 1980" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>1.577118</eqn>
+			</aux>
+			<aux name="s calibration" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>s_1980*relative_productivity_growth_2^S1*rel_unemployment^S2</eqn>
+			</aux>
+			<aux name="S1" ai_state="F">
+				<eqn>0</eqn>
+			</aux>
+			<aux name="S2" ai_state="F">
+				<eqn>0</eqn>
+			</aux>
+			<aux name="relative productivity growth 2" ai_state="F" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="lognorm wage rate by percentile" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+					<dim name="PCTILE"/>
+				</dimensions>
+				<eqn>&quot;per_capita_total_income_in_2021c$&quot;[Run] * EXP(s_calibration[Run] * INVNORM(percentile_fraction[PCTILE], 0, 1) - 0.5 * s_calibration[Run]^2)</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="Gini" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>2 * NORMALCDF(-99, s_calibration * SQRT(2)) - 1</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Hunger income threshold" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF TIME &lt;= 2024 THEN
+&quot;per_capita_total_income_in_2021c$&quot; * EXP(s_calibration * INVNORM(MIN(0.999999, MAX(0.000001, Hunger_SDG / 100)), 0, 1) - 0.5 * s_calibration^2) ELSE PREVIOUS(SELF,  100)</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="Water income threshold" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF TIME &lt;= 2024 THEN
+&quot;per_capita_total_income_in_2021c$&quot; * EXP(s_calibration * INVNORM(MIN(0.999999, MAX(0.000001, Water_SDG / 100)), 0, 1) - 0.5 * s_calibration^2) ELSE PREVIOUS(SELF,  100)</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="Housing income threshold" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF TIME &lt;= 2024 THEN &quot;per_capita_total_income_in_2021c$&quot; * EXP(s_calibration * INVNORM(MIN(0.999999, MAX(0.000001, Housing_SDG / 100)), 0, 1) - 0.5 * s_calibration^2) ELSE PREVIOUS(SELF,  100)</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="Electricity income threshold" ai_state="F">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF TIME &lt;= 2024 THEN &quot;per_capita_total_income_in_2021c$&quot;[1] * EXP(s_calibration[1]* INVNORM(MIN(0.999999, MAX(0.000001, Electricity_SDG / 100)), 0, 1) - 0.5 * s_calibration^2) ELSE PREVIOUS(SELF,  100)</eqn>
+				<units>c$/person/year</units>
+			</aux>
+			<aux name="Hunger SDG" ai_state="F" access="output" isee:autocreated="true">
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="1980" max="2150"/>
+					<yscale min="0" max="100"/>
+					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>percent</units>
+			</aux>
+			<aux name="Water SDG" ai_state="F" access="output" isee:autocreated="true">
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="0" max="2"/>
+					<yscale min="0" max="2"/>
+					<ypts>0,0,0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>percent</units>
+			</aux>
+			<aux name="Electricity SDG" ai_state="F" access="output" isee:autocreated="true">
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="1980" max="2150"/>
+					<yscale min="0" max="100"/>
+					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>percent</units>
+			</aux>
+			<aux name="Housing SDG" ai_state="F" access="output" isee:autocreated="true">
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="0" max="2"/>
+					<yscale min="0" max="2"/>
+					<ypts>0,0,0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>percent</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -7068,7 +7191,7 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="656.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="3" isee:scroll_x="1316.67" isee:scroll_y="278.333" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7332,7 +7455,6 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 				<aux x="1754.86" y="300.571" name="wage shape a"/>
 				<aux x="1905.77" y="318.571" name="wage shape p"/>
 				<aux x="2085.48" y="322.366" name="wage shape q"/>
-				<aux x="1759.88" y="547.414" name="percentile fraction"/>
 				<module x="1909.11" y="517.715" name="MGB2"/>
 				<connector uid="55" angle="330.388" isee:autocreated="true">
 					<from>wage_shape_a</from>
@@ -7345,15 +7467,6 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 				<connector uid="57" angle="252.923" isee:autocreated="true">
 					<from>wage_shape_q</from>
 					<to>MGB2</to>
-				</connector>
-				<connector uid="59" angle="36.256" isee:autocreated="true">
-					<from>percentile_fraction</from>
-					<to>MGB2</to>
-				</connector>
-				<aux x="2085.48" y="606.223" name="wage rate by percentile"/>
-				<connector uid="60" angle="358.352" isee:autocreated="true">
-					<from>MGB2</from>
-					<to>wage_rate_by_percentile</to>
 				</connector>
 				<text_box uid="64" x="1798.48" y="72.084" width="286.273" height="58">a(t) = a_1980 * rel_innovation^F1 * rel_unempl^F2
 p(t) = p_1980 * rel_innovation^E1 * rel_unempl^E2
@@ -7452,13 +7565,167 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 					<from>rel_unemployment</from>
 					<to>wage_shape_q</to>
 				</connector>
-				<text_box uid="87" x="1593.98" y="922.954" width="260" height="58">Lognormal</text_box>
+				<text_box uid="87" x="1685.48" y="943.12" width="465.161" height="58">Lognormal
+
+s(t) = s_1980 * rel_innovation^S1 * rel_unempl^S2</text_box>
+				<aux x="1700.16" y="614.251" name="highest percentile evaluated"/>
+				<aux x="1700.16" y="514.251" name="percentile fraction"/>
+				<connector uid="95" angle="115">
+					<from>highest_percentile_evaluated</from>
+					<to>percentile_fraction</to>
+				</connector>
+				<connector uid="96" angle="37.228">
+					<from>percentile_fraction</from>
+					<to>MGB2</to>
+				</connector>
+				<stacked_container uid="97" x="1005.19" y="379.156" width="545.567" height="516.775">
+					<graph width="545.567" height="516.775" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="MGB2.wage_rate_by_percentile[*, *]"/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<aux font_style="italic" font_weight="bold" x="2085.48" y="606.223" name="wage rate by percentile 1"/>
+				<connector uid="60" angle="358.352" isee:autocreated="true">
+					<from>MGB2</from>
+					<to>wage_rate_by_percentile_1</to>
+				</connector>
+				<aux x="2026.15" y="1160.97" name="s 1980"/>
+				<aux x="2270.13" y="1139.55" name="s calibration"/>
+				<aux x="2026.15" y="1113.06" name="S1"/>
+				<aux x="2026.15" y="1061.23" name="S2"/>
+				<aux font_style="italic" font_weight="bold" x="2170.03" y="989.363" name="relative productivity growth 2"/>
+				<connector uid="98" angle="5.01886">
+					<from>s_1980</from>
+					<to>s_calibration</to>
+				</connector>
+				<connector uid="99" angle="353.803">
+					<from>S1</from>
+					<to>s_calibration</to>
+				</connector>
+				<connector uid="100" angle="342.204">
+					<from>S2</from>
+					<to>s_calibration</to>
+				</connector>
+				<connector uid="101" angle="313.869">
+					<from>relative_productivity_growth_2</from>
+					<to>s_calibration</to>
+				</connector>
+				<connector uid="102" angle="288.049">
+					<from>
+						<alias uid="103"/>
+					</from>
+					<to>s_calibration</to>
+				</connector>
+				<aux x="2139.49" y="1276.24" name="lognorm wage rate by percentile"/>
+				<aux x="1893.24" y="1224.47" name="Gini"/>
+				<connector uid="106" angle="192.699">
+					<from>s_calibration</from>
+					<to>Gini</to>
+				</connector>
+				<connector uid="107" angle="248.832">
+					<from>s_calibration</from>
+					<to>lognorm_wage_rate_by_percentile</to>
+				</connector>
+				<connector uid="108" angle="22.7368">
+					<from>
+						<alias uid="105"/>
+					</from>
+					<to>lognorm_wage_rate_by_percentile</to>
+				</connector>
+				<connector uid="109" angle="190.22">
+					<from>
+						<alias uid="104"/>
+					</from>
+					<to>lognorm_wage_rate_by_percentile</to>
+				</connector>
+				<stacked_container uid="110" x="1450.42" y="1475.02">
+					<graph width="350" height="250" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="lognorm_wage_rate_by_percentile[*, *]"/>
+						</plot>
+					</graph>
+				</stacked_container>
+				<text_box uid="111" x="2841.02" y="883.534" width="102.038" height="31.4115">SDG Translation</text_box>
+				<aux x="2883.13" y="1379.19" name="Hunger income threshold"/>
+				<aux x="2888.35" y="1244.92" name="Water income threshold"/>
+				<aux x="2892.04" y="1135.74" name="Housing income threshold"/>
+				<aux x="2888.35" y="1031.94" name="Electricity income threshold"/>
+				<connector uid="112" angle="23.961">
+					<from>s_calibration</from>
+					<to>Electricity_income_threshold</to>
+				</connector>
+				<connector uid="113" angle="21.9013">
+					<from>s_calibration</from>
+					<to>Housing_income_threshold</to>
+				</connector>
+				<connector uid="114" angle="14.3287">
+					<from>s_calibration</from>
+					<to>Water_income_threshold</to>
+				</connector>
+				<connector uid="115" angle="3.97751">
+					<from>s_calibration</from>
+					<to>Hunger_income_threshold</to>
+				</connector>
+				<connector uid="116" angle="19.9915">
+					<from>
+						<alias uid="104"/>
+					</from>
+					<to>Electricity_income_threshold</to>
+				</connector>
+				<connector uid="117" angle="10.6658">
+					<from>
+						<alias uid="104"/>
+					</from>
+					<to>Housing_income_threshold</to>
+				</connector>
+				<connector uid="118" angle="10.4441">
+					<from>
+						<alias uid="104"/>
+					</from>
+					<to>Water_income_threshold</to>
+				</connector>
+				<connector uid="119" angle="308.486">
+					<from>
+						<alias uid="104"/>
+					</from>
+					<to>Hunger_income_threshold</to>
+				</connector>
+				<aux x="2888.35" y="1332.83" name="Hunger SDG"/>
+				<aux x="2892.04" y="1196.94" name="Water SDG"/>
+				<aux x="2888.35" y="970.024" name="Electricity SDG"/>
+				<aux x="2892.04" y="1091.52" name="Housing SDG"/>
+				<connector uid="124" angle="250.463">
+					<from>Electricity_SDG</from>
+					<to>Electricity_income_threshold</to>
+				</connector>
+				<connector uid="125" angle="288.359">
+					<from>Housing_SDG</from>
+					<to>Housing_income_threshold</to>
+				</connector>
+				<connector uid="126" angle="280.817">
+					<from>Water_SDG</from>
+					<to>Water_income_threshold</to>
+				</connector>
+				<connector uid="127" angle="279.063">
+					<from>Hunger_SDG</from>
+					<to>Hunger_income_threshold</to>
+				</connector>
 				<alias color="blue" background="white" font_style="italic" uid="50" x="153.199" y="1321.53" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>&quot;unit_bc$/Mp_to_c$/p&quot;</of>
 				</alias>
 				<alias font_style="italic" uid="69" x="2248.75" y="591.996" width="18" height="18">
 					<of>&quot;unit_bc$/Mp_to_c$/p&quot;</of>
+				</alias>
+				<alias font_style="italic" uid="103" x="2261.13" y="984.931" width="18" height="18">
+					<of>rel_unemployment</of>
+				</alias>
+				<alias font_style="italic" uid="104" x="2283.87" y="1239.58" width="18" height="18">
+					<of>&quot;per_capita_total_income_in_2021c$&quot;</of>
+				</alias>
+				<alias font_style="italic" uid="105" x="1978.35" y="1301.15" width="18" height="18">
+					<of>percentile_fraction</of>
 				</alias>
 			</view>
 		</views>
@@ -7505,23 +7772,23 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<eqn>(wage_shape_p[Run] + 1)/(wage_shape_p[Run] + wage_shape_q[Run] + 2)</eqn>
 				<units>dimensionless</units>
 			</aux>
-			<aux name="initial log odds guess" ai_state="C">
+			<aux name="initial log odds guess" ai_state="G">
 				<doc>Starting value of the log-odds L = ln(z/(1-z)) of the Beta(p,q) quantile, from the power-law tail approximations: z = (u*(t+v)*p)^(1/p) in the lower part, 1-z = ((1-u)*(t+v)*q)^(1/q) in the upper part.</doc>
 				<dimensions>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>IF percentile_fraction[Income_Group] &lt; lower_tail_guess_weight[Run]/(lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run]) THEN (LN(percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_p[Run]))/wage_shape_p[Run] - LN(1 - EXP((LN(percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_p[Run]))/wage_shape_p[Run])) ELSE LN(1 - EXP((LN(1 - percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_q[Run]))/wage_shape_q[Run])) - (LN(1 - percentile_fraction[Income_Group]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_q[Run]))/wage_shape_q[Run]</eqn>
+				<eqn>IF percentile_fraction_1[PCTILE] &lt; lower_tail_guess_weight[Run]/(lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run]) THEN (LN(percentile_fraction_1[PCTILE]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_p[Run]))/wage_shape_p[Run] - LN(1 - EXP((LN(percentile_fraction_1[PCTILE]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_p[Run]))/wage_shape_p[Run])) ELSE LN(1 - EXP((LN(1 - percentile_fraction_1[PCTILE]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_q[Run]))/wage_shape_q[Run])) - (LN(1 - percentile_fraction_1[PCTILE]) + LN((lower_tail_guess_weight[Run] + upper_tail_guess_weight[Run])) + LN(wage_shape_q[Run]))/wage_shape_q[Run]</eqn>
 				<units>dimensionless</units>
 			</aux>
-			<aux name="log odds iterate" ai_state="C">
+			<aux name="log odds iterate" ai_state="G">
 				<doc>Newton iterates for the log-odds L of the Beta(p,q) quantile. NEWTON element 1 is the starting guess; each later element is one Newton step on ln(lower tail) (u&lt;0.5) or ln(upper tail) (u&gt;=0.5). The logistic-beta density of L is log-concave, so these log-tail steps converge monotonically. Four steps give about 1e-9 relative error for p in [0.04,0.2], q in [0.15,0.8].</doc>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>IF NEWTON = 1 THEN initial_log_odds_guess[Run,Income_Group] ELSE IF percentile_fraction[Income_Group] &lt; 0.5 THEN SELF[ NEWTON - 1,Run,Income_Group] - LN(lower_tail_probability[ NEWTON - 1,Run,Income_Group]/percentile_fraction[Income_Group]) * lower_tail_probability[ NEWTON - 1,Run,Income_Group] / EXP(log_density_at_iterate[ NEWTON - 1,Run,Income_Group]) ELSE SELF[ NEWTON - 1,Run,Income_Group] + LN(upper_tail_probability[ NEWTON - 1,Run,Income_Group]/(1 - percentile_fraction[Income_Group])) * upper_tail_probability[ NEWTON - 1,Run,Income_Group] / EXP(log_density_at_iterate[ NEWTON -1,Run,Income_Group])</eqn>
+				<eqn>IF NEWTON = 1 THEN initial_log_odds_guess[Run,PCTILE] ELSE IF percentile_fraction_1[PCTILE] &lt; 0.5 THEN SELF[ NEWTON - 1,Run,PCTILE] - LN(lower_tail_probability[ NEWTON - 1,Run,PCTILE]/percentile_fraction_1[PCTILE]) * lower_tail_probability[ NEWTON - 1,Run,PCTILE] / EXP(log_density_at_iterate[ NEWTON - 1,Run,PCTILE]) ELSE SELF[ NEWTON - 1,Run,PCTILE] + LN(upper_tail_probability[ NEWTON - 1,Run,PCTILE]/(1 - percentile_fraction_1[PCTILE])) * upper_tail_probability[ NEWTON - 1,Run,PCTILE] / EXP(log_density_at_iterate[ NEWTON-1,Run,PCTILE])</eqn>
 				<units>dimensionless</units>
 			</aux>
 			<aux name="beta z at iterate" ai_state="C">
@@ -7529,7 +7796,7 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
 				<eqn>1/(1 + EXP(-log_odds_iterate))</eqn>
 				<units>dimensionless</units>
@@ -7539,7 +7806,7 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
 				<eqn>1/(1 + EXP(log_odds_iterate))</eqn>
 				<units>dimensionless</units>
@@ -7549,9 +7816,9 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>wage_shape_p[Run]*log_odds_iterate[NEWTON,Run,Income_Group] - (wage_shape_p[Run] + wage_shape_q[Run])*LN(1 + EXP(log_odds_iterate[NEWTON,Run,Income_Group])) - ln_beta_function_pq[Run]</eqn>
+				<eqn>wage_shape_p[Run]*log_odds_iterate[NEWTON,Run,PCTILE] - (wage_shape_p[Run] + wage_shape_q[Run])*LN(1 + EXP(log_odds_iterate[NEWTON,Run,PCTILE])) - ln_beta_function_pq[Run]</eqn>
 				<units>dimensionless</units>
 			</aux>
 			<aux name="lower continued fraction" ai_state="C">
@@ -7559,9 +7826,9 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>1/(1+(-(wage_shape_p[Run]+0)*(wage_shape_p[Run]+wage_shape_q[Run]+0)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+0)*(wage_shape_p[Run]+1)))/(1+(1*(wage_shape_q[Run]-1)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+1)*(wage_shape_p[Run]+2)))/(1+(-(wage_shape_p[Run]+1)*(wage_shape_p[Run]+wage_shape_q[Run]+1)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+2)*(wage_shape_p[Run]+3)))/(1+(2*(wage_shape_q[Run]-2)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+3)*(wage_shape_p[Run]+4)))/(1+(-(wage_shape_p[Run]+2)*(wage_shape_p[Run]+wage_shape_q[Run]+2)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+4)*(wage_shape_p[Run]+5)))/(1+(3*(wage_shape_q[Run]-3)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+5)*(wage_shape_p[Run]+6)))/(1+(-(wage_shape_p[Run]+3)*(wage_shape_p[Run]+wage_shape_q[Run]+3)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+6)*(wage_shape_p[Run]+7)))/(1+(4*(wage_shape_q[Run]-4)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+7)*(wage_shape_p[Run]+8)))/(1+(-(wage_shape_p[Run]+4)*(wage_shape_p[Run]+wage_shape_q[Run]+4)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+8)*(wage_shape_p[Run]+9)))/(1+(5*(wage_shape_q[Run]-5)*beta_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_p[Run]+9)*(wage_shape_p[Run]+10)))))))))))))</eqn>
+				<eqn>1/(1+(-(wage_shape_p[Run]+0)*(wage_shape_p[Run]+wage_shape_q[Run]+0)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+0)*(wage_shape_p[Run]+1)))/(1+(1*(wage_shape_q[Run]-1)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+1)*(wage_shape_p[Run]+2)))/(1+(-(wage_shape_p[Run]+1)*(wage_shape_p[Run]+wage_shape_q[Run]+1)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+2)*(wage_shape_p[Run]+3)))/(1+(2*(wage_shape_q[Run]-2)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+3)*(wage_shape_p[Run]+4)))/(1+(-(wage_shape_p[Run]+2)*(wage_shape_p[Run]+wage_shape_q[Run]+2)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+4)*(wage_shape_p[Run]+5)))/(1+(3*(wage_shape_q[Run]-3)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+5)*(wage_shape_p[Run]+6)))/(1+(-(wage_shape_p[Run]+3)*(wage_shape_p[Run]+wage_shape_q[Run]+3)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+6)*(wage_shape_p[Run]+7)))/(1+(4*(wage_shape_q[Run]-4)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+7)*(wage_shape_p[Run]+8)))/(1+(-(wage_shape_p[Run]+4)*(wage_shape_p[Run]+wage_shape_q[Run]+4)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+8)*(wage_shape_p[Run]+9)))/(1+(5*(wage_shape_q[Run]-5)*beta_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_p[Run]+9)*(wage_shape_p[Run]+10)))))))))))))</eqn>
 				<units>dimensionless</units>
 			</aux>
 			<aux name="upper continued fraction" ai_state="C">
@@ -7569,19 +7836,19 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>1/(1+(-(wage_shape_q[Run]+0)*(wage_shape_q[Run]+wage_shape_p[Run]+0)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+0)*(wage_shape_q[Run]+1)))/(1+(1*(wage_shape_p[Run]-1)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+1)*(wage_shape_q[Run]+2)))/(1+(-(wage_shape_q[Run]+1)*(wage_shape_q[Run]+wage_shape_p[Run]+1)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+2)*(wage_shape_q[Run]+3)))/(1+(2*(wage_shape_p[Run]-2)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+3)*(wage_shape_q[Run]+4)))/(1+(-(wage_shape_q[Run]+2)*(wage_shape_q[Run]+wage_shape_p[Run]+2)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+4)*(wage_shape_q[Run]+5)))/(1+(3*(wage_shape_p[Run]-3)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+5)*(wage_shape_q[Run]+6)))/(1+(-(wage_shape_q[Run]+3)*(wage_shape_q[Run]+wage_shape_p[Run]+3)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+6)*(wage_shape_q[Run]+7)))/(1+(4*(wage_shape_p[Run]-4)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+7)*(wage_shape_q[Run]+8)))/(1+(-(wage_shape_q[Run]+4)*(wage_shape_q[Run]+wage_shape_p[Run]+4)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+8)*(wage_shape_q[Run]+9)))/(1+(5*(wage_shape_p[Run]-5)*beta_one_minus_z_at_iterate[NEWTON,Run,Income_Group]/((wage_shape_q[Run]+9)*(wage_shape_q[Run]+10)))))))))))))</eqn>
+				<eqn>1/(1+(-(wage_shape_q[Run]+0)*(wage_shape_q[Run]+wage_shape_p[Run]+0)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+0)*(wage_shape_q[Run]+1)))/(1+(1*(wage_shape_p[Run]-1)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+1)*(wage_shape_q[Run]+2)))/(1+(-(wage_shape_q[Run]+1)*(wage_shape_q[Run]+wage_shape_p[Run]+1)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+2)*(wage_shape_q[Run]+3)))/(1+(2*(wage_shape_p[Run]-2)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+3)*(wage_shape_q[Run]+4)))/(1+(-(wage_shape_q[Run]+2)*(wage_shape_q[Run]+wage_shape_p[Run]+2)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+4)*(wage_shape_q[Run]+5)))/(1+(3*(wage_shape_p[Run]-3)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+5)*(wage_shape_q[Run]+6)))/(1+(-(wage_shape_q[Run]+3)*(wage_shape_q[Run]+wage_shape_p[Run]+3)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+6)*(wage_shape_q[Run]+7)))/(1+(4*(wage_shape_p[Run]-4)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+7)*(wage_shape_q[Run]+8)))/(1+(-(wage_shape_q[Run]+4)*(wage_shape_q[Run]+wage_shape_p[Run]+4)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+8)*(wage_shape_q[Run]+9)))/(1+(5*(wage_shape_p[Run]-5)*beta_one_minus_z_at_iterate[NEWTON,Run,PCTILE]/((wage_shape_q[Run]+9)*(wage_shape_q[Run]+10)))))))))))))</eqn>
 				<units>dimensionless</units>
 			</aux>
-			<aux name="lower tail probability" ai_state="C">
+			<aux name="lower tail probability" ai_state="G">
 				<doc>Regularized incomplete Beta I_z(p,q) = P(Z &lt;= z) at the current iterate.</doc>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>IF beta_z_at_iterate[NEWTON,Run,Income_Group] &lt; continued_fraction_switch_point[Run] THEN EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_p[Run]*lower_continued_fraction[NEWTON,Run,Income_Group] ELSE 1 - EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_q[Run]*upper_continued_fraction[NEWTON,Run,Income_Group]</eqn>
+				<eqn>IF beta_z_at_iterate[NEWTON,Run,PCTILE] &lt; continued_fraction_switch_point[Run] THEN EXP(log_density_at_iterate[NEWTON,Run,PCTILE])/wage_shape_p[Run]*lower_continued_fraction[NEWTON,Run,PCTILE] ELSE 1 - EXP(log_density_at_iterate[NEWTON,Run,PCTILE])/wage_shape_q[Run]*upper_continued_fraction[NEWTON,Run,PCTILE]</eqn>
 				<units>dimensionless</units>
 			</aux>
 			<aux name="upper tail probability" ai_state="C">
@@ -7589,18 +7856,18 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<dimensions>
 					<dim name="NEWTON"/>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>IF beta_z_at_iterate[NEWTON,Run,Income_Group] &lt; continued_fraction_switch_point[Run] THEN 1 - EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_p[Run]*lower_continued_fraction[NEWTON,Run,Income_Group] ELSE EXP(log_density_at_iterate[NEWTON,Run,Income_Group])/wage_shape_q[Run]*upper_continued_fraction[NEWTON,Run,Income_Group]</eqn>
+				<eqn>IF beta_z_at_iterate[NEWTON,Run,PCTILE] &lt; continued_fraction_switch_point[Run] THEN 1 - EXP(log_density_at_iterate[NEWTON,Run,PCTILE])/wage_shape_p[Run]*lower_continued_fraction[NEWTON,Run,PCTILE] ELSE EXP(log_density_at_iterate[NEWTON,Run,PCTILE])/wage_shape_q[Run]*upper_continued_fraction[NEWTON,Run,PCTILE]</eqn>
 				<units>dimensionless</units>
 			</aux>
 			<aux name="beta quantile log odds" ai_state="C">
 				<doc>Converged log-odds L = ln(z/(1-z)) of the Beta(p,q) quantile at each percentile (last Newton iterate).</doc>
 				<dimensions>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>log_odds_iterate[5,Run,Income_Group]</eqn>
+				<eqn>log_odds_iterate[5,Run,PCTILE]</eqn>
 				<units>dimensionless</units>
 			</aux>
 			<aux name="wage shape a" ai_state="C" access="input">
@@ -7627,21 +7894,13 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<eqn>TIME</eqn>
 				<units>dimensionless</units>
 			</aux>
-			<aux name="percentile fraction" ai_state="C" access="input">
-				<doc>Cumulative probability u at each reported income percentile: P1=0.01, P4=0.04, P10=0.10, P20=0.20, P50=0.50, P90=0.90. P100 uses highest percentile evaluated because the 100th percentile of a GB2 is infinite.</doc>
-				<dimensions>
-					<dim name="Income_Group"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>dimensionless</units>
-			</aux>
 			<aux name="wage rate by percentile" ai_state="G" access="output" isee:autocreated="true">
 				<doc>Module output: wage rate at each reported income percentile. GB2(a,b,p,q) quantile x = b*(z/(1-z))^(1/a) = b*EXP(L/a), with L the log-odds of the Beta(p,q) quantile. Working in L avoids underflow when p is small.</doc>
 				<dimensions>
 					<dim name="Run"/>
-					<dim name="Income_Group"/>
+					<dim name="PCTILE"/>
 				</dimensions>
-				<eqn>scale_b[Run] * EXP(beta_quantile_log_odds/wage_shape_a[Run])</eqn>
+				<eqn>scale_b[Run] * EXP(beta_quantile_log_odds[Run,PCTILE]/wage_shape_a[Run])</eqn>
 				<units>c$/person/year</units>
 			</aux>
 			<aux name="per capita total income\nin 2021c$" ai_state="F" access="input">
@@ -7650,6 +7909,13 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>c$/person/year</units>
+			</aux>
+			<aux name="percentile fraction 1" ai_state="F" access="input">
+				<dimensions>
+					<dim name="PCTILE"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dimensionless</units>
 			</aux>
 		</variables>
 		<views>
@@ -7700,7 +7966,7 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="1.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7757,11 +8023,6 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<aux font_style="italic" font_weight="bold" x="110" y="90" name="wage shape a"/>
 				<aux font_style="italic" font_weight="bold" x="110" y="390" name="wage shape p"/>
 				<aux font_style="italic" font_weight="bold" x="110" y="480" name="wage shape q"/>
-				<aux font_style="italic" font_weight="bold" x="110" y="640" name="percentile fraction"/>
-				<connector uid="1" angle="34.1623">
-					<from>percentile_fraction</from>
-					<to>initial_log_odds_guess</to>
-				</connector>
 				<connector uid="2" angle="340">
 					<from>lower_tail_guess_weight</from>
 					<to>initial_log_odds_guess</to>
@@ -7769,15 +8030,6 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<connector uid="3" angle="4.44395">
 					<from>upper_tail_guess_weight</from>
 					<to>initial_log_odds_guess</to>
-				</connector>
-				<connector uid="4" angle="344.667">
-					<pts>
-						<pt x="118.68" y="642.38"/>
-						<pt x="420" y="725"/>
-						<pt x="556.579" y="483.324"/>
-					</pts>
-					<from>percentile_fraction</from>
-					<to>log_odds_iterate</to>
 				</connector>
 				<connector uid="5" angle="211.419">
 					<from>lower_tail_probability</from>
@@ -8009,13 +8261,15 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 					<from>&quot;per_capita_total_income_in_2021c$&quot;</from>
 					<to>scale_b</to>
 				</connector>
-				<stacked_container uid="61" x="477" y="22" width="299.333" height="193.333">
-					<graph width="299.333" height="193.333" type="bar" isee:stacked_bar="false" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
-						<plot color="blue" isee:at_time="1980" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
-							<entity name="wage_rate_by_percentile[1, *]"/>
-						</plot>
-					</graph>
-				</stacked_container>
+				<aux font_style="italic" font_weight="bold" x="120.996" y="689.189" name="percentile fraction 1"/>
+				<connector uid="62" angle="32.5371">
+					<from>percentile_fraction_1</from>
+					<to>initial_log_odds_guess</to>
+				</connector>
+				<connector uid="63" angle="339.837">
+					<from>percentile_fraction_1</from>
+					<to>log_odds_iterate</to>
+				</connector>
 				<alias font_style="italic" font_weight="bold" uid="33" x="761" y="281" width="18" height="18">
 					<of>wage_shape_p</of>
 				</alias>
@@ -8353,14 +8607,6 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 			</view>
 		</views>
 	</model>
-	<isee:controls>
-		<isee:control priority="interactive" name="Income_Inequality.D1" value="0.706586107489025"/>
-		<isee:control priority="interactive" name="Income_Inequality.D2" value="2.58326737820429"/>
-		<isee:control priority="interactive" name="Income_Inequality.E1" value="0.573127450315439"/>
-		<isee:control priority="interactive" name="Income_Inequality.E2" value="2.18760881429552"/>
-		<isee:control priority="interactive" name="Income_Inequality.F1" value="-0.142597422114442"/>
-		<isee:control priority="interactive" name="Income_Inequality.F2" value="-2.23265030746429"/>
-	</isee:controls>
 	<isee:user_controlled>
 		<ent name="Simulation End" preserve="true" lock="false"/>
 		<ent name="Government Regulations.tax on CO2e emissions" preserve="true" lock="false"/>

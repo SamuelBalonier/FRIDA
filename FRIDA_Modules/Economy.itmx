@@ -716,6 +716,8 @@
 				<connect2 to="Income_Inequality.relative_productivity_growth" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
 				<connect2 to="Income_Inequality.relative_productivity_growth_1" from="Circular_Flow.relative_productivity_growth"/>
+				<connect to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
+				<connect2 to="Income_Inequality.relative_productivity_growth_2" from="Circular_Flow.relative_productivity_growth"/>
 				<connect to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect2 to="Income_Inequality.rent" from="Circular_Flow.rent"/>
 				<connect to="Inflation.rent" from="Circular_Flow.rent"/>
