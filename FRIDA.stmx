@@ -8,7 +8,7 @@
 		<product version="4.4" isee:build_number="4016" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
-		<status verified="false" mixed="true" trusted="false" tampered="false" uses="true" analyzed="false" log_truncated="false" timestamp="1795107509" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="true" want_log="true" sampling="10" signature="MWsJDfdwgjUALzupwonN4yg0vUIAX4Axv/4qcKwjO8E2IlyhEE1ftTB5HYLjGEa1nbejHHkbUoIWloC1zEMvBg=="/>
+		<status verified="false" mixed="true" trusted="false" tampered="false" uses="true" analyzed="false" log_truncated="false" timestamp="1795432035" algorithm="ed25519" keyurl="https://iseesystems.com/keys/stella01.txt" want_var_info="true" want_var_status="true" want_log="true" sampling="10" signature="2ab2FNwo9bqUvJPXhwVIM436AAL48zW5eXyCxRY4ae0bPW369/ugArMBQrjgif+J77ODjoUnMUdOHiWrrI+dAA=="/>
 	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -132,7 +132,7 @@
 			<isee:variable starting_value="1" ending_value="100" type="incremental" min="1" max="100" seed="12345" name="Climate_Units.selected_climate_case[1]" num_samples="100"/>
 		</isee:sensi_specs>
 	</isee:sensi_specs_list>
-	<isee:optimizer_specs_list active_index="17">
+	<isee:optimizer_specs_list active_index="21">
 		<isee:optimizer_specs name="Demographics Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
 			<isee:parameter name="Demographics.infant_mortality_alpha[1]" scaling="100000"/>
 			<isee:parameter name="Demographics.infant_mortality_gamma[1]" scaling="100000"/>
@@ -785,6 +785,24 @@
 			<isee:parameter name="CCS.Floor_Costs_carbon_storage[1]"/>
 			<isee:payoff name="CCS" action="min"/>
 			<isee:payoff name="SDG 10.1.1" action="min" inactive="true"/>
+		</isee:optimizer_specs>
+		<isee:optimizer_specs name="Income distribution GB2" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0">
+			<isee:parameter name="Income_Inequality.F1" min="-1" max="1"/>
+			<isee:parameter name="Income_Inequality.D1" min="-1" max="1"/>
+			<isee:parameter name="Income_Inequality.D2" min="-1" max="5"/>
+			<isee:parameter name="Income_Inequality.E1" min="-1" max="1"/>
+			<isee:parameter name="Income_Inequality.E2" min="-1" max="5"/>
+			<isee:parameter name="Income_Inequality.F2" min="-5" max="1"/>
+			<isee:payoff name="Income distribution" action="min"/>
+		</isee:optimizer_specs>
+		<isee:optimizer_specs name="Income distribution Lognormal" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0">
+			<isee:parameter name="Income_Inequality.F1" min="-1" max="1"/>
+			<isee:parameter name="Income_Inequality.D1" min="-1" max="1"/>
+			<isee:parameter name="Income_Inequality.D2" min="-1" max="5"/>
+			<isee:parameter name="Income_Inequality.E1" min="-1" max="1"/>
+			<isee:parameter name="Income_Inequality.E2" min="-1" max="5"/>
+			<isee:parameter name="Income_Inequality.F2" min="-5" max="1"/>
+			<isee:payoff name="Income distribution" action="min"/>
 		</isee:optimizer_specs>
 	</isee:optimizer_specs_list>
 	<isee:payoff_specs_list>
@@ -1590,6 +1608,18 @@
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
+		<isee:payoff_specs name="Income distribution" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="gb2_income_inequality_calibration">
+			<isee:payoff_element name="Income_Inequality.wage_shape_a[1]" weight="0.110826438414325">
+				<isee:time_range type="terminal_value"/>
+			</isee:payoff_element>
+			<isee:payoff_element name="Income_Inequality.wage_shape_p[1]" weight="284.958904465013">
+				<isee:time_range type="terminal_value"/>
+			</isee:payoff_element>
+			<isee:payoff_element name="Income_Inequality.wage_shape_q[1]" weight="15.7244551607506">
+				<isee:time_range type="terminal_value"/>
+			</isee:payoff_element>
+		</isee:payoff_specs>
+		<isee:payoff_specs name="Income distribution Lognormal" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="gb2_income_inequality_calibration"/>
 	</isee:payoff_specs_list>
 	<model_units>
 		<unit name="Gh">
@@ -4292,7 +4322,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="5" isee:page_rows="9" isee:scroll_x="264" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6966,19 +6996,19 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<units>c$/person/year</units>
 			</aux>
 			<aux name="F1" ai_state="F">
-				<eqn>0</eqn>
+				<eqn>1</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="F2" ai_state="F">
-				<eqn>0</eqn>
+				<eqn>1</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="E1" ai_state="F">
-				<eqn>0</eqn>
+				<eqn>-0.1</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="E2" ai_state="F">
-				<eqn>0</eqn>
+				<eqn>0.5</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="D1" ai_state="F">
@@ -6986,7 +7016,7 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="D2" ai_state="F">
-				<eqn>0</eqn>
+				<eqn>-1</eqn>
 				<units>dmnl</units>
 			</aux>
 		</variables>
@@ -7038,7 +7068,7 @@ ELSE average_daily_demand_per_capita_1</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="1230" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="656.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7296,15 +7326,15 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 				</connector>
 				<text_box uid="52" x="260.164" y="74.918" width="260" height="26.0352">EXPONENTIAL FIT</text_box>
 				<text_box uid="53" x="1418.93" y="128.785" width="260" height="58">Generalized beta of the second kind (GB2) fit</text_box>
-				<aux x="1696.47" y="218.514" name="a 1980"/>
-				<aux x="2039.33" y="248.623" name="q 1980"/>
-				<aux x="1860.97" y="243.682" name="p 1980"/>
-				<aux x="1753.53" y="318.571" name="wage shape a"/>
+				<aux x="1646.47" y="307.847" name="a 1980"/>
+				<aux x="2166.66" y="240.535" name="q 1980"/>
+				<aux x="1838.97" y="282.571" name="p 1980"/>
+				<aux x="1754.86" y="300.571" name="wage shape a"/>
 				<aux x="1905.77" y="318.571" name="wage shape p"/>
 				<aux x="2085.48" y="322.366" name="wage shape q"/>
 				<aux x="1759.88" y="547.414" name="percentile fraction"/>
 				<module x="1909.11" y="517.715" name="MGB2"/>
-				<connector uid="55" angle="332.999" isee:autocreated="true">
+				<connector uid="55" angle="330.388" isee:autocreated="true">
 					<from>wage_shape_a</from>
 					<to>MGB2</to>
 				</connector>
@@ -7325,16 +7355,16 @@ c(t) = c_1980 * rel_innovation^E1 * rel_unempl^E2</text_box>
 					<from>MGB2</from>
 					<to>wage_rate_by_percentile</to>
 				</connector>
-				<text_box uid="64" x="1798.48" y="81.084" width="450.273" height="58">a(t) = a_1980 * rel_innovation^F1 * rel_unempl^F2
+				<text_box uid="64" x="1798.48" y="72.084" width="286.273" height="58">a(t) = a_1980 * rel_innovation^F1 * rel_unempl^F2
 p(t) = p_1980 * rel_innovation^E1 * rel_unempl^E2
 q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
-				<aux font_style="italic" font_weight="bold" x="1687.85" y="488.872" name="unemployment rate 1"/>
-				<aux x="1771.53" y="394.839" name="rel unemployment"/>
-				<connector uid="65" angle="15.5253">
+				<aux font_style="italic" font_weight="bold" label_side="top" x="2163.62" y="166.463" name="unemployment rate 1"/>
+				<aux x="2019.34" y="166.463" name="rel unemployment"/>
+				<connector uid="65" angle="180">
 					<from>unemployment_rate_1</from>
 					<to>rel_unemployment</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1669.85" y="388.156" name="relative productivity growth 1"/>
+				<aux font_style="italic" font_weight="bold" x="1875.77" y="166.463" name="relative productivity growth 1"/>
 				<aux font_style="italic" font_weight="bold" x="2255.14" y="421.13" name="gross income in 2021c$ 2"/>
 				<aux font_style="italic" font_weight="bold" x="2255.14" y="488.872" name="Population 2"/>
 				<aux x="2108.38" y="491.884" name="per capita total income\nin 2021c$"/>
@@ -7352,76 +7382,77 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 					</from>
 					<to>&quot;per_capita_total_income_in_2021c$&quot;</to>
 				</connector>
-				<connector uid="70" angle="202.815">
+				<connector uid="70" angle="198.382">
 					<from>&quot;per_capita_total_income_in_2021c$&quot;</from>
 					<to>MGB2</to>
 				</connector>
-				<aux x="1748.67" y="222.535" name="F1"/>
-				<aux x="1802.46" y="222.535" name="F2"/>
-				<aux x="1909.11" y="243.682" name="E1"/>
-				<aux x="1951.61" y="243.682" name="E2"/>
-				<aux x="2085.48" y="248.623" name="D1"/>
-				<aux x="2153.62" y="248.623" name="D2"/>
-				<connector uid="71" angle="286.523">
+				<aux x="1669.85" y="266.623" name="F1"/>
+				<aux x="1700.46" y="240.535" name="F2"/>
+				<aux x="1923.77" y="264.571" name="E1"/>
+				<aux x="1973.61" y="300.571" name="E2"/>
+				<aux x="2176.81" y="289.847" name="D1"/>
+				<aux x="2181.62" y="332.623" name="D2"/>
+				<connector uid="71" angle="3.84045">
 					<from>a_1980</from>
 					<to>wage_shape_a</to>
 				</connector>
-				<connector uid="72" angle="277.694">
+				<connector uid="72" angle="338.232">
 					<from>F1</from>
 					<to>wage_shape_a</to>
 				</connector>
-				<connector uid="73" angle="280.466">
+				<connector uid="73" angle="312.182">
 					<from>F2</from>
 					<to>wage_shape_a</to>
 				</connector>
-				<connector uid="74" angle="268.486">
+				<connector uid="74" angle="331.679">
 					<from>p_1980</from>
 					<to>wage_shape_p</to>
 				</connector>
-				<connector uid="75" angle="275.221">
+				<connector uid="75" angle="251.565">
 					<from>E1</from>
 					<to>wage_shape_p</to>
 				</connector>
-				<connector uid="76" angle="277.5">
+				<connector uid="76" angle="194.86">
 					<from>E2</from>
 					<to>wage_shape_p</to>
 				</connector>
-				<connector uid="77" angle="288.542">
+				<connector uid="77" angle="227.563">
 					<from>q_1980</from>
 					<to>wage_shape_q</to>
 				</connector>
-				<connector uid="78" angle="271.631">
+				<connector uid="78" angle="199.598">
 					<from>D1</from>
 					<to>wage_shape_q</to>
 				</connector>
-				<connector uid="79" angle="261.246">
+				<connector uid="79" angle="173.91">
 					<from>D2</from>
 					<to>wage_shape_q</to>
 				</connector>
-				<connector uid="80" angle="26.1189">
+				<connector uid="80" angle="227.963">
 					<from>relative_productivity_growth_1</from>
 					<to>wage_shape_a</to>
 				</connector>
-				<connector uid="81" angle="348.752">
+				<connector uid="81" angle="281.157">
 					<from>relative_productivity_growth_1</from>
 					<to>wage_shape_p</to>
 				</connector>
-				<connector uid="82" angle="6.61246">
+				<connector uid="82" angle="323.372">
 					<from>relative_productivity_growth_1</from>
 					<to>wage_shape_q</to>
 				</connector>
-				<connector uid="83" angle="85.9471">
+				<connector uid="83" angle="206.888">
 					<from>rel_unemployment</from>
 					<to>wage_shape_a</to>
 				</connector>
-				<connector uid="84" angle="337.01">
+				<connector uid="84" angle="233.254">
 					<from>rel_unemployment</from>
 					<to>wage_shape_p</to>
 				</connector>
-				<connector uid="85" angle="2.57548">
+				<connector uid="85" angle="282.708">
 					<from>rel_unemployment</from>
 					<to>wage_shape_q</to>
 				</connector>
+				<text_box uid="87" x="1593.98" y="922.954" width="260" height="58">Lognormal</text_box>
 				<alias color="blue" background="white" font_style="italic" uid="50" x="153.199" y="1321.53" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>&quot;unit_bc$/Mp_to_c$/p&quot;</of>
@@ -7669,7 +7700,7 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="770" page_height="559" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7978,6 +8009,13 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 					<from>&quot;per_capita_total_income_in_2021c$&quot;</from>
 					<to>scale_b</to>
 				</connector>
+				<stacked_container uid="61" x="477" y="22" width="299.333" height="193.333">
+					<graph width="299.333" height="193.333" type="bar" isee:stacked_bar="false" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
+						<plot color="blue" isee:at_time="1980" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
+							<entity name="wage_rate_by_percentile[1, *]"/>
+						</plot>
+					</graph>
+				</stacked_container>
 				<alias font_style="italic" font_weight="bold" uid="33" x="761" y="281" width="18" height="18">
 					<of>wage_shape_p</of>
 				</alias>
@@ -8315,6 +8353,14 @@ q(t) = q_1980 * rel_innovation^D1 * rel_unempl^D2</text_box>
 			</view>
 		</views>
 	</model>
+	<isee:controls>
+		<isee:control priority="interactive" name="Income_Inequality.D1" value="0.706586107489025"/>
+		<isee:control priority="interactive" name="Income_Inequality.D2" value="2.58326737820429"/>
+		<isee:control priority="interactive" name="Income_Inequality.E1" value="0.573127450315439"/>
+		<isee:control priority="interactive" name="Income_Inequality.E2" value="2.18760881429552"/>
+		<isee:control priority="interactive" name="Income_Inequality.F1" value="-0.142597422114442"/>
+		<isee:control priority="interactive" name="Income_Inequality.F2" value="-2.23265030746429"/>
+	</isee:controls>
 	<isee:user_controlled>
 		<ent name="Simulation End" preserve="true" lock="false"/>
 		<ent name="Government Regulations.tax on CO2e emissions" preserve="true" lock="false"/>
